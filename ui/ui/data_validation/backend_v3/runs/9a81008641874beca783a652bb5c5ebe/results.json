@@ -1,0 +1,34 @@
+{
+  "dataset_results": [],
+  "episodes": [
+    {
+      "classification": "REJECT",
+      "episode_index": 0,
+      "results": [
+        {
+          "check": "metadata_length",
+          "frame_range": null,
+          "message": "Metadata length is 500, but parquet contains 151500 rows.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frame_index",
+          "frame_range": [
+            500,
+            151500
+          ],
+          "message": "frame_index is not contiguous from 0 to 151499.",
+          "severity": "HARD"
+        },
+        {
+          "check": "episode_length",
+          "frame_range": null,
+          "message": "Episode has 151500 frames; expected 20 to 1000.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    }
+  ],
+  "total_episodes": 1
+}

@@ -1,0 +1,40 @@
+{
+  "diffusion": {
+    "checkpoint": "outputs/daksha/diffusion/place_blue_box/test_diffusion_20260915_102305/checkpoints/000050/pretrained_model",
+    "shape": [
+      32,
+      16
+    ],
+    "finite": true,
+    "task": "Pick the blue box from the table.",
+    "latency_s": 8.676234809000107,
+    "runtime": {
+      "profile": "checkpoint",
+      "device": "cuda",
+      "device_name": "Orin",
+      "precision": "float32",
+      "sampling": "DDPM",
+      "num_inference_steps": 100,
+      "checkpoint_num_inference_steps": null
+    }
+  },
+  "smolvla": {
+    "checkpoint": "outputs/daksha/smolvla/place_blue_new/sample_diffusion_20260912_095245/checkpoints/030000/pretrained_model",
+    "shape": [
+      50,
+      16
+    ],
+    "finite": true,
+    "task": "Pick the blue box from the table.",
+    "latency_s": 2.0130913909997616,
+    "runtime": {
+      "profile": "checkpoint",
+      "device": "cuda",
+      "device_name": "Orin",
+      "precision": "float32",
+      "num_steps": 10,
+      "checkpoint_num_steps": 10,
+      "use_cache": true
+    }
+  }
+}

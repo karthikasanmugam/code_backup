@@ -1,0 +1,21 @@
+model_type: smolvla
+checkpoint_path: "C:\\path\\to\\smolvla\\pretrained_model"
+device: cuda
+
+# The values below mirror the supplied checkpoint config. The checkpoint's
+# config.json remains the source of truth; this file is for framework wiring.
+n_obs_steps: 1
+chunk_size: 50
+n_action_steps: 50
+action_dim: 16
+state_dim: 16
+camera_resolution: [240, 320]
+resize_imgs_with_padding: [512, 512]
+normalization_mapping:
+  VISUAL: IDENTITY
+  STATE: MEAN_STD
+  ACTION: MEAN_STD
+num_steps: 10
+use_cache: true
+tokenizer_max_length: 48
+vlm_model_name: HuggingFaceTB/SmolVLM2-500M-Video-Instruct

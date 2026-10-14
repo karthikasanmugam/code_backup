@@ -1,0 +1,14 @@
+{
+  "hard_failures": 34,
+  "pass_count": 0,
+  "per_check": {
+    "action_alignment_offset": 8,
+    "action_range": 26,
+    "action_smoothness": 148,
+    "leading_trailing_idle": 16
+  },
+  "reject_count": 33,
+  "review_count": 117,
+  "soft_warnings": 164,
+  "total_episodes": 150
+}

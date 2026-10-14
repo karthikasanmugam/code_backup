@@ -1,0 +1,30 @@
+model_type: diffusion
+checkpoint_path: "C:/path/to/pretrained_model"
+device: cuda
+
+# These values mirror the supplied checkpoint config.
+n_obs_steps: 2
+horizon: 64
+n_action_steps: 32
+
+input_features:
+  observation.state: [16]
+  observation.leader_state: [16]
+  observation.images.world: [3, 240, 320]
+  observation.images.wrist_right: [3, 240, 320]
+  observation.images.wrist_left: [3, 240, 320]
+
+action_dim: 16
+
+normalization_mapping:
+  VISUAL: MEAN_STD
+  STATE: MIN_MAX
+  ACTION: MIN_MAX
+
+noise_scheduler_type: DDPM
+num_train_timesteps: 100
+prediction_type: epsilon
+clip_sample: true
+clip_sample_range: 1.0
+# null means use the LeRobot policy/runtime default from the checkpoint.
+num_inference_steps: null

@@ -1,0 +1,145 @@
+# SMOLVLA ROS2 REMOTE INFERENCE
+# This file shows the exact System A / System B setup for smolvla inference.
+
+
+# 1) Which checkpoint to use
+# Use: load a finished training checkpoint directory that contains config.json and model.safetensors.
+# Recommended checkpoint path:
+/home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full/checkpoints/last/pretrained_model
+
+# You can also pin a numbered checkpoint instead of "last", for example:
+/home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full/checkpoints/003000/pretrained_model
+
+
+# 2) System A role
+# Use: System A runs the smolvla policy server and loads the checkpoint into GPU memory.
+# System A does NOT publish ROS2 motor commands directly.
+# System A listens for remote inference requests over ZeroMQ.
+
+
+# 3) System B role
+# Use: System B runs the ROS2 bridge node, reads cameras + joints, sends observations to System A,
+# receives predicted actions back, and publishes JointState commands to hardware.
+
+
+# 4) Port used between System A and System B
+# Use: ZeroMQ request/reply port for policy inference.
+5555
+
+
+# 5) System A server command
+# Use: load smolvla checkpoint on System A and serve actions on tcp://0.0.0.0:5555.
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+POLICY_PATH=/home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full/checkpoints/last/pretrained_model \
+HOST=0.0.0.0 \
+PORT=5555 \
+DEVICE=cuda \
+ACTION_HORIZON=8 \
+TASK_DEFAULT="Pick the brown block and put it into the blue color box." \
+bash examples/daksha/smolvla/run_smolvla_zmq_server.sh
+
+
+# 6) System B client/ROS2 bridge command
+# Use: run ROS2 hardware bridge on System B and connect it to System A policy server.
+cd /home/physicalai/Desktop/I/lerobot
+source /opt/ros/humble/setup.bash
+POLICY_HOST=<SYSTEM_A_IP> \
+POLICY_PORT=5555 \
+CONTROL_HZ=10 \
+ACTION_HORIZON=8 \
+LANG_INSTRUCTION="Pick the brown block and put it into the blue color box." \
+bash examples/daksha/smolvla/run_ros2_remote_eval_4cam.sh
+
+
+# 7) ROS2 topics read by the smolvla bridge on System B
+# Use: these are the observation topics that the bridge subscribes to.
+/joint_states_right
+/world/camera/image_raw/compressed
+/front/left/image_raw/compressed
+/front/right/image_raw/compressed
+/waveshare/cam1/image_raw/compressed
+
+
+# 8) ROS2 topic published to hardware on System B
+# Use: this is the command topic that the bridge publishes inferred joint commands to.
+/joint_ctrl_cmd_right
+
+
+# 9) What actually publishes to hardware
+# Use: System B ROS2 bridge publishes JointState position commands to /joint_ctrl_cmd_right.
+# The checkpoint itself is not "published" to ROS2.
+# The checkpoint is only loaded on System A inside the smolvla policy server.
+
+
+# 10) Server code file
+# Use: Python file that loads the checkpoint and serves smolvla inference over ZeroMQ.
+/home/physicalai/Desktop/I/lerobot/examples/daksha/smolvla/serve_smolvla_zmq.py
+
+
+# 11) ROS2 bridge code file
+# Use: Python file that subscribes to ROS2 sensors, requests actions from System A, and publishes commands.
+/home/physicalai/Desktop/I/lerobot/examples/daksha/smolvla/eval_piper_ros2_remote_4cam.py
+
+
+# 12) Shell wrapper for server
+# Use: convenience launcher for System A.
+/home/physicalai/Desktop/I/lerobot/examples/daksha/smolvla/run_smolvla_zmq_server.sh
+
+
+# 13) Shell wrapper for client bridge
+# Use: convenience launcher for System B.
+/home/physicalai/Desktop/I/lerobot/examples/daksha/smolvla/run_ros2_remote_eval_4cam.sh
+
+
+# 14) Direct Python server command
+# Use: run the smolvla server directly without the shell wrapper.
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+python examples/daksha/smolvla/serve_smolvla_zmq.py \
+  --policy-path /home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full/checkpoints/last/pretrained_model \
+  --host 0.0.0.0 \
+  --port 5555 \
+  --device cuda \
+  --robot-type leader_follower_6dof_4camera \
+  --task-default "Pick the brown block and put it into the blue color box." \
+  --action-horizon 8
+
+
+# 15) Direct Python client command
+# Use: run the ROS2 bridge directly without the shell wrapper.
+cd /home/physicalai/Desktop/I/lerobot
+source /opt/ros/humble/setup.bash
+/usr/bin/python3 examples/daksha/smolvla/eval_piper_ros2_remote_4cam.py \
+  --policy-host <SYSTEM_A_IP> \
+  --policy-port 5555 \
+  --control-hz 10 \
+  --action-horizon 8 \
+  --joint-state-topic /joint_states_right \
+  --cmd-topic /joint_ctrl_cmd_right \
+  --world-topic /world/camera/image_raw/compressed \
+  --front-left-topic /front/left/image_raw/compressed \
+  --front-right-topic /front/right/image_raw/compressed \
+  --wrist-topic /waveshare/cam1/image_raw/compressed \
+  --world-camera-key world \
+  --front-left-camera-key front_left \
+  --front-right-camera-key front_right \
+  --wrist-camera-key wrist \
+  --lang-instruction "Pick the brown block and put it into the blue color box."
+
+
+# 16) Quick architecture summary
+# Use: understand the end-to-end inference flow.
+# System A:
+#   checkpoint -> smolvla model -> ZeroMQ server on port 5555
+# System B:
+#   ROS2 cameras + joints -> bridge node -> ZeroMQ request to System A -> action reply
+#   -> publish JointState command to /joint_ctrl_cmd_right
+
+
+# 17) Minimal safe recommendation
+# Use: the simplest production-like setup.
+# System A:
+#   run_smolvla_zmq_server.sh with POLICY_PATH=.../checkpoints/last/pretrained_model
+# System B:
+#   run_ros2_remote_eval_4cam.sh with POLICY_HOST=<SYSTEM_A_IP> and POLICY_PORT=5555

@@ -1,0 +1,12 @@
+{
+  "completed_episodes": 0,
+  "current_camera": null,
+  "current_check": null,
+  "current_episode": null,
+  "event": "run_failed",
+  "message": "[Errno 32] Broken pipe",
+  "phase": null,
+  "run_id": "80f16c8af4d5445d9aa0337beabb3bc7",
+  "state": "failed",
+  "total_episodes": 0
+}

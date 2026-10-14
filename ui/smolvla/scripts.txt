@@ -1,0 +1,304 @@
+# SMOLVLA WORKFLOW SCRIPTS
+# Each block has a one-line definition and the exact command to run.
+
+
+# 1) Create smolvla Python environment
+# Use: create the local .venv and install LeRobot smolvla dependencies.
+cd /home/physicalai/Desktop/I/lerobot
+bash examples/daksha/smolvla/setup_smolvla_env.sh
+
+
+# 2) Hugging Face login
+# Use: authenticate this machine so gated and private Hugging Face models can be accessed.
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+hf auth login
+
+
+# 3) Check gated tokenizer access
+# Use: verify that your account can access google/paligemma-3b-pt-224 before training.
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+python - <<'PY'
+from transformers import AutoTokenizer
+tok = AutoTokenizer.from_pretrained("google/paligemma-3b-pt-224")
+print("Tokenizer access OK:", type(tok).__name__)
+PY
+
+
+# 4) Validate dataset for smolvla
+# Use: confirm cameras, shapes, tasks, and quantile stats match smolvla requirements.
+cd /home/physicalai/Desktop/I/lerobot
+bash examples/daksha/smolvla/check_dataset_smolvla.sh
+
+
+# 5) Full preflight validation
+# Use: check dataset, trainer import path, venv, ffmpeg, and basic runtime readiness.
+cd /home/physicalai/Desktop/I/lerobot
+bash examples/daksha/smolvla/smolvla_preflight_check.sh
+
+
+# 6) Smoke training
+# Use: run a short 500-step smolvla training test on your dataset.
+cd /home/physicalai/Desktop/I/lerobot
+bash examples/daksha/smolvla/train_smolvla_local_isolated.sh
+
+
+# 7) Smoke training with explicit settings
+# Use: run the same smoke training with all important parameters written out.
+cd /home/physicalai/Desktop/I/lerobot
+REPO_ID=local/task1_full \
+DATASET_ROOT=/home/physicalai/Desktop/I/V3_data_conversion/custom_datasetv3_folder/task1_full \
+PRETRAINED_PATH=lerobot/smolvla_base \
+OUTPUT_DIR=outputs/smolvla/smolvla_task1_full_smoke \
+JOB_NAME=smolvla_task1_full_smoke \
+DEVICE=cuda \
+DTYPE=bfloat16 \
+COMPILE_MODEL=true \
+GRADIENT_CHECKPOINTING=true \
+FREEZE_VISION_ENCODER=false \
+TRAIN_EXPERT_ONLY=false \
+STEPS=500 \
+BATCH_SIZE=4 \
+NUM_WORKERS=0 \
+VIDEO_BACKEND=pyav \
+bash examples/daksha/smolvla/train_smolvla_local_isolated.sh
+
+
+# 8) Full training
+# Use: run the normal smolvla training job after the smoke training succeeds.
+cd /home/physicalai/Desktop/I/lerobot
+OUTPUT_DIR=outputs/smolvla/smolvla_task1_full \
+JOB_NAME=smolvla_task1_full \
+STEPS=3000 \
+BATCH_SIZE=8 \
+NUM_WORKERS=2 \
+SAVE_FREQ=500 \
+LOG_FREQ=20 \
+bash examples/daksha/smolvla/train_smolvla_local_isolated.sh
+
+
+# 9) Resume training
+# Use: continue training from the latest local smolvla checkpoint.
+cd /home/physicalai/Desktop/I/lerobot
+RUN_PREFIX=smolvla_task1_full \
+bash examples/daksha/smolvla/resume_train_smolvla_local.sh
+
+
+# 10) Re-encode dataset for fast random seek
+# Use: create a new fastseek dataset copy to improve dataloader speed and GPU utilization.
+cd /home/physicalai/Desktop/I/lerobot
+bash examples/daksha/smolvla/reencode_dataset_fastseek_smolvla.sh
+
+
+# 11) GPU-optimized training
+# Use: train smolvla with fastseek videos, torchcodec, more workers, and better GPU feeding.
+cd /home/physicalai/Desktop/I/lerobot
+bash examples/daksha/smolvla/train_smolvla_gpu_optimized.sh
+
+
+# 12) GPU-optimized training with explicit settings
+# Use: run the high-throughput smolvla setup with all performance parameters written out.
+cd /home/physicalai/Desktop/I/lerobot
+REPO_ID=local/task1_full \
+DATASET_ROOT=/home/physicalai/Desktop/I/V3_data_conversion/custom_datasetv3_folder/task1_full_fastseek \
+PRETRAINED_PATH=lerobot/smolvla_base \
+OUTPUT_DIR=outputs/smolvla/smolvla_task1_full_fast \
+JOB_NAME=smolvla_task1_full_fast \
+DEVICE=cuda \
+DTYPE=bfloat16 \
+COMPILE_MODEL=true \
+GRADIENT_CHECKPOINTING=true \
+FREEZE_VISION_ENCODER=false \
+TRAIN_EXPERT_ONLY=false \
+STEPS=3000 \
+BATCH_SIZE=8 \
+NUM_WORKERS=8 \
+VIDEO_BACKEND=torchcodec \
+ULIMIT_NOFILE=262144 \
+SAVE_FREQ=500 \
+LOG_FREQ=20 \
+bash examples/daksha/smolvla/train_smolvla_gpu_optimized.sh
+
+
+# 13) Offline evaluation
+# Use: run quick offline action error evaluation on dataset frames after training.
+cd /home/physicalai/Desktop/I/lerobot
+POLICY_PATH=outputs/smolvla/smolvla_task1_full/checkpoints/last/pretrained_model \
+bash examples/daksha/smolvla/eval_smolvla_offline.sh
+
+
+# 14) Start smolvla ZMQ policy server
+# Use: serve the trained smolvla policy for remote ROS2 Piper inference.
+cd /home/physicalai/Desktop/I/lerobot
+POLICY_PATH=outputs/smolvla/smolvla_task1_full/checkpoints/last/pretrained_model \
+DEVICE=cuda \
+bash examples/daksha/smolvla/run_smolvla_zmq_server.sh
+
+
+# 15) ROS2 remote evaluation with 4 cameras
+# Use: connect the remote smolvla policy server to the live Piper ROS2 camera/joint topics.
+cd /home/physicalai/Desktop/I/lerobot
+source /opt/ros/humble/setup.bash
+POLICY_HOST=127.0.0.1 \
+POLICY_PORT=5555 \
+LANG_INSTRUCTION=task1 \
+bash examples/daksha/smolvla/run_ros2_remote_eval_4cam.sh
+
+
+# 16) Record real-robot evaluation episodes
+# Use: run the trained smolvla policy on Piper and save evaluation episodes to a new dataset folder.
+cd /home/physicalai/Desktop/I/lerobot
+EVAL_ROOT=/home/physicalai/Desktop/I/V3_data_conversion/custom_datasetv3_folder/task1_full_eval_smolvla \
+POLICY_PATH=outputs/smolvla/smolvla_task1_full/checkpoints/last/pretrained_model \
+bash examples/daksha/smolvla/infer_record_piper.sh
+
+
+# 17) CUDA sanity check
+# Use: confirm that PyTorch can actually see CUDA before starting long training.
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+python - <<'PY'
+import torch
+print("cuda_available:", torch.cuda.is_available())
+print("cuda_device_count:", torch.cuda.device_count())
+if torch.cuda.is_available():
+    print("cuda_device_name:", torch.cuda.get_device_name(0))
+PY
+
+
+# 18) NVIDIA driver sanity check
+# Use: confirm the system NVIDIA driver is healthy.
+cd /home/physicalai/Desktop/I/lerobot
+nvidia-smi
+
+
+# 19) Dataset metadata quick check
+# Use: print the core metadata fields that matter for smolvla compatibility.
+cd /home/physicalai/Desktop/I/lerobot
+python3 - <<'PY'
+import json
+from pathlib import Path
+root = Path("/home/physicalai/Desktop/I/V3_data_conversion/custom_datasetv3_folder/task1_full/meta")
+info = json.loads((root / "info.json").read_text())
+stats = json.loads((root / "stats.json").read_text())
+print("camera_keys:", info.get("camera_keys"))
+print("action shape:", info["features"]["action"]["shape"])
+print("state shape:", info["features"]["observation.state"]["shape"])
+print("action quantiles:", "q01" in stats["action"] and "q99" in stats["action"])
+print("state quantiles:", "q01" in stats["observation.state"] and "q99" in stats["observation.state"])
+PY
+
+
+# 20) Important note about dataset conversion
+# Use: no extra conversion is needed for your current dataset because it already passed smolvla validation.
+# Dataset root already used by all commands:
+# /home/physicalai/Desktop/I/V3_data_conversion/custom_datasetv3_folder/task1_full
+
+
+
+
+
+
+
+
+
+steps for training
+
+cd /home/physicalai/Desktop/I/lerobot
+OUTPUT_DIR=outputs/smolvla/smolvla_task1_full \
+JOB_NAME=smolvla_task1_full \
+STEPS=3000 \
+BATCH_SIZE=4 \
+COMPILE_MODEL=false \
+bash examples/daksha/smolvla/train_smolvla_local_isolated.sh
+
+
+cd /home/physicalai/Desktop/I/lerobot
+RUN_PREFIX=smolvla_task1_full_smoke \
+bash examples/daksha/smolvla/resume_train_smolvla_local.sh
+
+
+
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+RUN_PREFIX=smolvla_task1_full_smoke \
+STEPS=10000 \
+bash examples/daksha/smolvla/resume_train_smolvla_local_isolated.sh
+
+
+
+
+checkpoints stores ---------------
+
+/home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full_smoke/checkpoints/
+
+
+system A 
+
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+python examples/daksha/smolvla/serve_smolvla_zmq.py \
+  --policy-path /home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full/checkpoints/last/pretrained_model \
+  --host 0.0.0.0 \
+  --port 5555 \
+  --device cuda \
+  --robot-type leader_follower_6dof_4camera \
+  --task-default "Pick the brown block and put it into the blue color box." \
+  --action-horizon 8
+
+or 
+
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+python examples/daksha/smolvla/run_serve_smolvla_zmq_isolated.py \
+  --policy-path /home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full_smoke/checkpoints/last/pretrained_model \
+  --host 0.0.0.0 \
+  --port 5555 \
+  --device cuda \
+  --robot-type leader_follower_6dof_4camera \
+  --task-default "Pick the brown block and put it into the blue color box." \
+  --action-horizon 8
+
+
+
+
+
+
+
+inference scripts----------------
+
+system B 
+
+
+cd /home/physicalai/Desktop/I/lerobot
+source /opt/ros/humble/setup.bash
+/usr/bin/python3 examples/daksha/smolvla/eval_piper_ros2_remote_4cam.py   --policy-host 127.0.0.1   --policy-port 5555   --policy-timeout-ms 60000   --control-hz 10   --action-horizon 8   --joint-state-topic /joint_states_right   --cmd-topic /joint_ctrl_cmd_right   --world-topic /world/camera/image_raw/compressed   --front-left-topic /front/left/image_raw/compressed   --front-right-topic /front/right/image_raw/compressed   --wrist-topic /waveshare/cam1/image_raw/compressed   --world-camera-key world   --front-left-camera-key front_left   --front-right-camera-key front_right   --wrist-camera-key wrist   --lang-instruction "Pick the brown block and put it into the blue color box."
+
+
+
+system A
+
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+python3 examples/daksha/smolvla/run_serve_smolvla_zmq_isolated.py \
+  --policy-path /home/physicalai/Desktop/I/lerobot/outputs/smolvla/smolvla_task1_full_smoke/checkpoints/044000/pretrained_model \
+  --host 0.0.0.0 \
+  --port 5555 \
+  --device cuda \
+  --robot-type leader_follower_6dof_4camera \
+  --task-default "Pick the brown block and put it into the blue color box." \
+  --action-horizon 8
+
+
+
+
+
+resume training
+
+cd /home/physicalai/Desktop/I/lerobot
+source .venv/bin/activate
+RUN_PREFIX=smolvla_task1_full_smoke \
+STEPS=60000 \
+SAVE_FREQ=10000 \
+bash examples/daksha/smolvla/resume_train_smolvla_local_isolated.sh

@@ -1,0 +1,11 @@
+INFO:     Will watch for changes in these directories: ['/home/s1/.ihub/vla/lerobot_2/ui/ui/data_validation/backend_v3']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [16670] using StatReload
+INFO:     Started server process [16674]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [16674]
+INFO:     Stopping reloader process [16670]

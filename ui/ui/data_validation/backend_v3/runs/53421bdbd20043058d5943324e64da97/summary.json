@@ -1,0 +1,11 @@
+{
+  "hard_failures": 0,
+  "pass_count": 0,
+  "per_check": {
+    "action_smoothness": 2
+  },
+  "reject_count": 0,
+  "review_count": 2,
+  "soft_warnings": 2,
+  "total_episodes": 2
+}

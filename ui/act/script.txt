@@ -1,0 +1,17 @@
+cd /home/s1/.ihub/vla/lerobot
+source .venv/bin/activate
+
+REPO_ID=local/pick_place_brown \
+DATASET_ROOT=/home/s1/s1/Desktop/datasets/pick_place_brown_300 \
+OUTPUT_DIR=/home/s1/.ihub/vla/outputs/act_daksha \
+bash examples/daksha/act/train_act_local.sh
+
+
+
+
+cd /home/s1/.ihub/vla/lerobot
+source .venv/bin/activate
+
+REPO_ID=local/pick_place_brown \
+OUTPUT_DIR=/home/s1/.ihub/vla/outputs/diffusion_daksha \
+bash examples/daksha/diffusion/train_diffusion_local.sh

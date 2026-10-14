@@ -1,0 +1,143 @@
+{
+  "models": {
+    "smolvla": {
+      "name": "SmolVLA",
+      "type": "smolvla",
+      "pretrained": "lerobot/smolvla_base",
+      "script": "examples/daksha/smolvla/train_smolvla_local.sh",
+      "hyperparameters": {
+        "pretrained_path": "lerobot/smolvla_base",
+        "batch_size": 4,
+        "steps": 3000,
+        "save_freq": 500,
+        "log_freq": 20,
+        "num_workers": 0,
+        "freeze_vision_encoder": false,
+        "train_expert_only": false,
+        "offline": false
+      },
+      "training_defaults": {
+        "eval_split": 0.1,
+        "eval_steps": 500,
+        "device": "cuda",
+        "video_backend": "pyav",
+        "compile_model": false,
+        "tolerance_s": 0.001,
+        "push_to_hub": false
+      },
+      "dataset_requirements": {
+        "codebase_version": "v3.0",
+        "state_dim": 16,
+        "action_dim": 16,
+        "cameras": ["zed_right", "zed_left", "wrist_right", "wrist_left"]
+      }
+    },
+    "act": {
+      "name": "Action Chunking Transformer",
+      "type": "act",
+      "pretrained": "facebook/dinov2-base",
+      "hyperparameters": {
+        "batch_size": 8,
+        "learning_rate": 1e-4,
+        "steps": 50000,
+        "chunk_size": 32,
+        "gradient_accumulation_steps": 1,
+        "warmup_steps": 2000,
+        "max_grad_norm": 1.0,
+        "weight_decay": 1e-4
+      },
+      "features": {
+        "action_chunking": true,
+        "multi_camera_support": true,
+        "memory_efficient": true,
+        "compiled_model": true
+      },
+      "dataset_requirements": {
+        "min_episodes": 100,
+        "cameras": ["zed_right", "zed_left", "right_wrist", "left_wrist"],
+        "state_modality_keys": ["right_arm", "right_gripper", "left_arm", "left_gripper"],
+        "action_modality_keys": ["right_arm", "right_gripper", "left_arm", "left_gripper"],
+        "state_dim": 16,
+        "action_dim": 16,
+        "fps": 10,
+        "language_key": "annotation.human.task_description"
+      }
+    },
+    "diffusion": {
+      "name": "Diffusion Policy",
+      "type": "diffusion",
+      "pretrained": "stabilityai/stable-diffusion-v1-5",
+      "hyperparameters": {
+        "batch_size": 4,
+        "learning_rate": 1e-4,
+        "freeze_vision_encoder": false,
+        "train_expert_only": false,
+        "gradient_accumulation_steps": 2,
+        "warmup_steps": 5000,
+        "max_grad_norm": 1.0,
+        "weight_decay": 1e-4
+      },
+      "features": {
+        "vision_language_model": true,
+        "multimodal": true,
+        "language_grounding": true,
+        "instruction_following": true
+      },
+      "dataset_requirements": {
+        "min_episodes": 100,
+        "cameras": ["zed_right", "zed_left", "right_wrist", "left_wrist"],
+        "state_modality_keys": ["right_arm", "right_gripper", "left_arm", "left_gripper"],
+        "action_modality_keys": ["right_arm", "right_gripper", "left_arm", "left_gripper"],
+        "state_dim": 16,
+        "action_dim": 16,
+        "fps": 10,
+        "language_key": "annotation.human.task_description"
+      }
+    }
+  },
+  "training_defaults": {
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "compile_model": false,
+    "gradient_checkpointing": true,
+    "save_freq": 5000,
+    "log_freq": 20,
+    "num_workers": 0,
+    "video_backend": "pyav",
+    "seed": 1000,
+    "wandb_enable": false,
+    "push_to_hub": false
+  },
+  "inference_defaults": {
+    "device": "cuda",
+    "batch_size": 1,
+    "timeout": 30,
+    "max_buffer_size": 1000
+  },
+  "shared_modality_contract": {
+    "state": {
+      "right_arm": {"start": 0, "end": 7},
+      "right_gripper": {"start": 7, "end": 8},
+      "left_arm": {"start": 8, "end": 15},
+      "left_gripper": {"start": 15, "end": 16}
+    },
+    "action": {
+      "right_arm": {"start": 0, "end": 7},
+      "right_gripper": {"start": 7, "end": 8},
+      "left_arm": {"start": 8, "end": 15},
+      "left_gripper": {"start": 15, "end": 16}
+    },
+    "video": {
+      "zed_right": {"original_key": "observation.images.zed_right"},
+      "zed_left": {"original_key": "observation.images.zed_left"},
+      "right_wrist": {"original_key": "observation.images.wrist_right"},
+      "left_wrist": {"original_key": "observation.images.wrist_left"}
+    },
+    "annotation": {
+      "human.task_description": {"original_key": "task_index"}
+    }
+  },
+  "checkpoint_layout": {
+    "root": "outputs/daksha/<policy>/<dataset>/<job>_<timestamp>"
+  }
+}

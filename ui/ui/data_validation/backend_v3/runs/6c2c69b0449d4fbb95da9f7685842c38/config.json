@@ -1,0 +1,201 @@
+{
+  "actions": {
+    "alignment": {
+      "enabled": true
+    },
+    "gripper": {
+      "dimension": 0,
+      "enabled": true,
+      "max_toggles": 6,
+      "min_hold_frames": 5,
+      "open_close_threshold": null
+    },
+    "range": {
+      "enabled": true,
+      "max_clip_ratio": 0.02
+    },
+    "smoothness": {
+      "enabled": true,
+      "exclude_dimensions": [],
+      "jerk_z_threshold": 6
+    },
+    "state_lag": {
+      "enabled": true,
+      "max_lag_frames": 5,
+      "min_correlation": 0.5
+    },
+    "token_budget": {
+      "chunk_length": null,
+      "enabled": true,
+      "max_tokens": null,
+      "tokens_per_dimension": null
+    }
+  },
+  "dataset": {
+    "data_root": "/home/thor/Desktop/Dinesh/Dataset/pick_box_1_v2",
+    "episode_indices": null,
+    "format": "lerobot_v3",
+    "fps_override": null
+  },
+  "dataset_quality": {
+    "diversity": {
+      "enabled": false,
+      "min_novelty": 0.05
+    },
+    "duplicates": {
+      "embedding_method": "frame_action",
+      "enabled": false,
+      "similarity_threshold": 0.98
+    },
+    "enabled": true,
+    "task_balance": {
+      "enabled": false,
+      "min_episodes_per_task": 1
+    }
+  },
+  "episode": {
+    "boundary_idle": {
+      "enabled": true,
+      "max_idle_seconds": 2,
+      "velocity_epsilon": 0.001
+    },
+    "duration": {
+      "enabled": true,
+      "mad_z_threshold": 3.5
+    },
+    "enabled": true,
+    "idle": {
+      "enabled": true,
+      "max_idle_ratio": 0.5,
+      "velocity_epsilon": 0.001
+    },
+    "instruction_match": {
+      "enabled": false
+    },
+    "path_efficiency": {
+      "enabled": true,
+      "ratio_threshold": 2
+    },
+    "proprio_sync": {
+      "enabled": true,
+      "tolerance_seconds": null
+    },
+    "success": {
+      "enabled": true,
+      "require_success": true
+    },
+    "task_instruction": {
+      "enabled": true
+    }
+  },
+  "execution": {
+    "short_circuit_on_hard": true,
+    "skip_expensive_after_hard": true,
+    "verbose": true,
+    "workers": 4
+  },
+  "logging": {
+    "include_data_root": true,
+    "include_timestamp": true,
+    "level": "INFO"
+  },
+  "reporting": {
+    "flagged_ids": "flagged_episodes_ids.txt",
+    "flagged_log": "flagged_episodes.log",
+    "include_frame_ranges": true,
+    "include_passed_checks": false,
+    "kept_ids": "kept_episodes_ids.txt",
+    "output_dir": "outputs",
+    "results_json": "validation_results.json",
+    "scores_csv": "episode_scores.csv"
+  },
+  "scoring": {
+    "classification": {
+      "reject_on_hard": true,
+      "review_min_score": 0.7
+    },
+    "enabled": true,
+    "weights": {
+      "action_smoothness": 1.0,
+      "action_state_lag": 1.0,
+      "boundary_idle": 1.0,
+      "duration_outlier": 1.0,
+      "frozen_video": 1.0,
+      "gripper_transitions": 1.0,
+      "idle_ratio": 1.0,
+      "image_quality": 1.0,
+      "instruction_match": 1.0,
+      "path_efficiency": 1.0
+    }
+  },
+  "setup": {
+    "action_percentiles": {
+      "high": 99.0,
+      "low": 1.0
+    },
+    "stats_episode_limit": null,
+    "stats_frame_limit": null
+  },
+  "structural": {
+    "enforce_dimensions": true,
+    "enforce_metadata_length": true,
+    "max_episode_length": 1000,
+    "min_episode_length": 20,
+    "reject_nan_inf": true,
+    "require_contiguous_frame_index": true,
+    "required_columns": [
+      "frame_index",
+      "timestamp",
+      "observation.state",
+      "action",
+      "task_index"
+    ]
+  },
+  "video": {
+    "camera_coverage": {
+      "detector": null,
+      "enabled": false,
+      "sample_every": 15
+    },
+    "decoding": {
+      "check_first_frame": true,
+      "check_last_frame": true,
+      "enabled": true
+    },
+    "enabled": true,
+    "frame_count": {
+      "enabled": true,
+      "tolerance_frames": 0
+    },
+    "frame_count_tolerance": 0,
+    "frozen_video": {
+      "action_epsilon": 0.03,
+      "diff_epsilon": 0.001,
+      "enabled": true,
+      "min_run_seconds": 2
+    },
+    "image_quality": {
+      "blur_threshold": 50,
+      "bright_threshold": 245,
+      "dark_threshold": 10,
+      "enabled": true,
+      "max_bad_ratio": 0.05,
+      "sample_every": 15
+    },
+    "multiview_sync": {
+      "enabled": true,
+      "reference_camera": "auto",
+      "tolerance_frames": 1
+    },
+    "require_all_cameras": true,
+    "require_nonzero_files": true,
+    "resolution": {
+      "enabled": true
+    },
+    "timestamp_tolerance_s": null,
+    "timestamps": {
+      "enabled": true,
+      "tolerance_seconds": null
+    }
+  }
+}

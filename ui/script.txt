@@ -1,0 +1,107 @@
+diffusion 
+
+cd /home/s1/.ihub/vla/lerobot
+PYTHONPATH="$(pwd)/src:$PYTHONPATH" .venv/bin/python examples/daksha/inference/eval_daksha_diffusion.py \
+  --policy-path /home/s1/.ihub/vla/lerobot/outputs/daksha/diffusion/place_blue_new/sample_diffusion_20260912_095117/checkpoints/060000/pretrained_model \
+  --device cuda \
+  --control-hz <fps from your training dataset's meta/info.json> \
+  --joint-min-csv <derived, see script docstring> \
+  --joint-max-csv <derived, see script docstring> \
+  --max-step-delta-csv <derived, see script docstring>
+
+
+
+
+cd /home/s1/.ihub/vla/lerobot
+PYTHONPATH="$(pwd)/src:$PYTHONPATH" .venv/bin/python examples/daksha/inference/eval_daksha_diffusion.py \
+  --policy-path /home/s1/.ihub/vla/lerobot/outputs/daksha/diffusion/place_blue_new/sample_diffusion_20260912_095117/checkpoints/060000/pretrained_model \
+  --device cuda \
+  --control-hz 30 \
+  --joint-min-csv 0.12125,-0.19820,-0.43043,-1.71897,-1.55893,-0.29281,-0.96210,-0.05400,-1.23064,-0.48090,-0.96801,-0.15415,0.71655,-0.65363,-1.69999,-0.01000 \
+  --joint-max-csv 1.04081,0.11903,0.13450,-1.44863,-1.19914,0.03913,-0.07504,-0.02354,1.45876,0.30143,1.16813,1.83989,2.62884,1.50192,1.50835,0.05400 \
+  --max-step-delta-csv 0.01611,0.00230,0.00690,0.00230,0.00690,0.00230,0.00230,0.00013,0.34975,0.15877,0.27842,0.31293,0.29453,0.43949,0.69259,0.02913
+
+
+source /opt/ros/humble/setup.bash
+ros2 topic echo /joint_cmd
+
+
+
+
+
+
+
+
+
+
+ACT
+
+terminal 1
+
+cd /home/s1/.ihub/vla/lerobot
+PYTHONPATH="$(pwd)/src:$PYTHONPATH" .venv/bin/python examples/daksha/serve_policy_zmq.py \
+  --policy-path /home/s1/.ihub/vla/lerobot/outputs/daksha/act/pick_place_brown_300/demo_1_20260918_094123/checkpoints/015500/pretrained_model \
+  --host 127.0.0.1 --port 5555 --device cuda \
+  --task-default "pick up the brown box and place it into the blue box" \
+  --action-horizon 16
+
+
+
+
+terminal 2
+
+cd /home/s1/.ihub/vla/lerobot
+source /opt/ros/humble/setup.bash
+.venv/bin/python examples/daksha/inference/eval_daksha_act.py \
+  --policy-host 127.0.0.1 --policy-port 5555 \
+  --control-hz 30 \
+  --action-horizon 16 \
+  --replan-at 14 \
+  --lang-instruction "pick up the brown box and place it into the blue box" \
+  --cmd-topic /joint_cmd_pri \
+  --joint-state-topic /joint_states \
+  --left-joint-state-topic /LeftArmSystem_ordered_joint_states \
+  --right-joint-state-topic /RightArmSystem_ordered_joint_states \
+  --zed-right-topic /zed/zed_node/right/color/rect/image \
+  --zed-left-topic /zed/zed_node/left/color/rect/image \
+  --right-wrist-topic /right/camera/color/image_raw \
+  --left-wrist-topic /left/camera/color/image_raw \
+  --image-transport raw \
+  --joint-min-csv 0.12125,-0.19820,-0.43043,-1.71897,-1.55893,-0.29281,-0.96210,-0.05400,-1.23064,-0.48090,-0.96801,-0.15415,0.71655,-0.65363,-1.69999,-0.01000 \
+  --joint-max-csv 1.04081,0.11903,0.13450,-1.44863,-1.19914,0.03913,-0.07504,-0.02354,1.45876,0.30143,1.16813,1.83989,2.62884,1.50192,1.50835,0.05400 \
+  --max-step-delta-csv 0.01611,0.00230,0.00690,0.00230,0.00690,0.00230,0.00230,0.00013,0.34975,0.15877,0.27842,0.31293,0.29453,0.43949,0.69259,0.02913
+
+
+
+smolvla terminla 1
+
+cd /home/s1/.ihub/vla/lerobot
+PYTHONPATH="$(pwd)/src:$PYTHONPATH" .venv/bin/python examples/daksha/serve_policy_zmq.py \
+  --policy-path <your smolvla checkpoints/<step>/pretrained_model dir> \
+  --host 127.0.0.1 --port 5555 --device cuda \
+  --task-default "pick up the brown box and place it into the blue box" \
+  --action-horizon 8
+
+
+terminal 2 
+
+cd /home/s1/.ihub/vla/lerobot
+source /opt/ros/humble/setup.bash
+.venv/bin/python examples/daksha/inference/eval_daksha_smolvla.py \
+  --policy-host 127.0.0.1 --policy-port 5555 \
+  --control-hz 30 \
+  --action-horizon 8 \
+  --replan-at 6 \
+  --lang-instruction "pick up the brown box and place it into the blue box" \
+  --cmd-topic /joint_cmd \
+  --joint-state-topic /joint_states \
+  --left-joint-state-topic /LeftArmSystem_ordered_joint_states \
+  --right-joint-state-topic /RightArmSystem_ordered_joint_states \
+  --zed-right-topic /zed/zed_node/right/color/rect/image \
+  --zed-left-topic /zed/zed_node/left/color/rect/image \
+  --right-wrist-topic /right/camera/color/image_raw \
+  --left-wrist-topic /left/camera/color/image_raw \
+  --image-transport raw \
+  --joint-min-csv 0.12125,-0.19820,-0.43043,-1.71897,-1.55893,-0.29281,-0.96210,-0.05400,-1.23064,-0.48090,-0.96801,-0.15415,0.71655,-0.65363,-1.69999,-0.01000 \
+  --joint-max-csv 1.04081,0.11903,0.13450,-1.44863,-1.19914,0.03913,-0.07504,-0.02354,1.45876,0.30143,1.16813,1.83989,2.62884,1.50192,1.50835,0.05400 \
+  --max-step-delta-csv 0.01611,0.00230,0.00690,0.00230,0.00690,0.00230,0.00230,0.00013,0.34975,0.15877,0.27842,0.31293,0.29453,0.43949,0.69259,0.02913

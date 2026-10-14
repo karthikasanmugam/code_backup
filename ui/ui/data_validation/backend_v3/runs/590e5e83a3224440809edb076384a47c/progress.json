@@ -1,0 +1,12 @@
+{
+  "completed_episodes": 0,
+  "current_camera": null,
+  "current_check": null,
+  "current_episode": null,
+  "event": "dataset_started",
+  "message": "Dataset inspection complete",
+  "phase": "dataset_setup",
+  "run_id": "590e5e83a3224440809edb076384a47c",
+  "state": "running",
+  "total_episodes": 236
+}

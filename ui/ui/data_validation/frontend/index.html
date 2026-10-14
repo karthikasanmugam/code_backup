@@ -1,0 +1,7294 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#f5f8fc"
+  >
+
+  <title>
+    Dataset Validator
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="./css/app.css?v=2"
+  >
+
+
+  <!-- =========================================================
+       UI OVERRIDES
+  ========================================================== -->
+
+  <style>
+
+    /* =========================================================
+       BASE
+    ========================================================== */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: #f5f8fc;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+
+      background:
+        radial-gradient(
+          circle at 16% 8%,
+          rgba(82, 125, 255, 0.075),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 82% 12%,
+          rgba(79, 204, 184, 0.06),
+          transparent 22%
+        ),
+        #f5f8fc;
+
+      color: #12294e;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    svg {
+      display: block;
+    }
+
+    .app-frame {
+      min-height: 100vh;
+    }
+
+
+    /* =========================================================
+       HIDDEN LEGACY DATASET SCREEN
+
+       app.js still expects these IDs and the original
+       step indexing. The user never sees this screen.
+    ========================================================== */
+
+    #dataset-selection {
+      display: none !important;
+    }
+
+    .legacy-dataset-step {
+      display: none !important;
+    }
+
+
+    /* =========================================================
+       TOP BAR
+    ========================================================== */
+
+    .topbar {
+      min-height: 74px;
+
+      padding:
+        15px
+        27px
+        11px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 22px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.97),
+          rgba(248,251,255,0.94)
+        );
+
+      border-bottom:
+        1px solid #e4ebf5;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+
+      gap: 18px;
+
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 41px;
+      height: 41px;
+
+      flex: 0 0 41px;
+
+      display: grid;
+      place-items: center;
+
+      color: #3d78f5;
+    }
+
+    .brand-mark svg {
+      width: 38px;
+      height: 38px;
+
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 2.2;
+    }
+
+    .topbar .eyebrow {
+      margin:
+        0
+        0
+        2px;
+
+      color: #6684b0;
+
+      font-size: 11px;
+
+      line-height: 1.1;
+
+      font-weight: 700;
+
+      letter-spacing: 0.075em;
+    }
+
+    .topbar h1 {
+      margin: 0;
+
+      color: #112d58;
+
+      font-size: 19px;
+
+      line-height: 1.2;
+
+      font-weight: 750;
+
+      letter-spacing: -0.02em;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+
+      gap: 11px;
+    }
+
+    .exit-validation {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 0 13px;
+      color: #315e9b;
+      border: 1px solid #d7e3f4;
+      border-radius: 9px;
+      background: #f3f7fd;
+      font-size: 12px;
+      font-weight: 650;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .exit-validation:hover {
+      color: #204b83;
+      background: #eaf1fb;
+    }
+
+    .exit-validation:focus-visible {
+      outline: 3px solid rgba(61, 120, 245, 0.35);
+      outline-offset: 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      min-height: 34px;
+
+      padding:
+        7px
+        13px;
+
+      border:
+        1px solid #e1e8f2;
+
+      border-radius: 999px;
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      white-space: nowrap;
+    }
+
+    .badge-neutral {
+      color: #4e6b90;
+
+      background: #fbfdff;
+    }
+
+    .badge-neutral::before {
+      content: "";
+
+      width: 8px;
+      height: 8px;
+
+      flex: 0 0 8px;
+
+      border-radius: 50%;
+
+      background: #3cb991;
+    }
+
+    .icon-button {
+      width: 37px;
+      height: 37px;
+
+      display: grid;
+      place-items: center;
+
+      padding: 0;
+
+      border: 0;
+
+      border-radius: 10px;
+
+      background: transparent;
+
+      color: #183d73;
+
+      cursor: pointer;
+    }
+
+    .icon-button:hover {
+      background: #eef4ff;
+    }
+
+    .icon-button svg {
+      width: 22px;
+      height: 22px;
+
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+
+    /* =========================================================
+       WORKFLOW TABS
+       4 internal links remain.
+       3 are visible to the user.
+    ========================================================== */
+
+    .workflow-shell {
+      padding:
+        0
+        15px
+        16px;
+    }
+
+    .step-tabs {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      width: 100%;
+
+      background:
+        rgba(255,255,255,0.97);
+
+      border:
+        1px solid #e4ebf5;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 8px 24px
+        rgba(52,73,105,0.035);
+
+      overflow: hidden;
+    }
+
+    .step-link {
+      position: relative;
+
+      min-height: 81px;
+
+      padding:
+        13px
+        19px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 14px;
+
+      color: inherit;
+
+      text-decoration: none;
+
+      border-right:
+        1px solid #e4ebf5;
+
+      background: #ffffff;
+
+      transition:
+        background 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .step-link:last-child {
+      border-right: 0;
+    }
+
+    .step-link:hover {
+      background: #fbfdff;
+    }
+
+    .step-link.active {
+      background:
+        linear-gradient(
+          180deg,
+          #f5f8ff,
+          #eef4ff
+        );
+
+      box-shadow:
+        inset 0 -4px 0
+        #4c79f7;
+    }
+
+    .step-icon {
+      width: 51px;
+      height: 51px;
+
+      flex: 0 0 51px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+    }
+
+    .step-icon svg {
+      width: 27px;
+      height: 27px;
+
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+    .icon-blue {
+      background: #e8efff;
+      color: #477cf3;
+    }
+
+    .icon-teal {
+      background: #dcf8ef;
+      color: #08a772;
+    }
+
+    .icon-purple {
+      background: #e8e1ff;
+      color: #7563e8;
+    }
+
+    .icon-orange {
+      background: #fff0df;
+      color: #f38d32;
+    }
+
+    .step-copy {
+      min-width: 0;
+
+      flex: 1;
+    }
+
+    .step-copy strong {
+      display: block;
+
+      color: #12335f;
+
+      font-size: 12.5px;
+
+      line-height: 1.2;
+
+      font-weight: 750;
+    }
+
+    .step-copy small {
+      display: block;
+
+      margin-top: 6px;
+
+      color: #6081ad;
+
+      font-size: 10.5px;
+
+      line-height: 1.2;
+    }
+
+    .step-number {
+      width: 21px;
+      height: 21px;
+
+      display: grid;
+      place-items: center;
+
+      margin-left: auto;
+
+      flex: 0 0 21px;
+
+      border:
+        1px solid #9db9df;
+
+      border-radius: 50%;
+
+      color: #6891c3;
+
+      background: #ffffff;
+
+      font-size: 10px;
+
+      font-weight: 800;
+    }
+
+    .step-link.active .step-number {
+      border-color: #4f7ef2;
+
+      background: #4f7ef2;
+
+      color: #ffffff;
+    }
+
+
+    /* =========================================================
+       PAGE
+    ========================================================== */
+
+    .page-shell {
+      padding:
+        0
+        11px
+        25px;
+    }
+
+    .page-card {
+      width: 100%;
+
+      border:
+        1px solid #e2eaf4;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #fbfdff 100%
+        );
+
+      box-shadow:
+        0 10px 30px
+        rgba(41,67,106,0.045);
+    }
+
+    .page-card[hidden] {
+      display: none !important;
+    }
+
+
+    /* =========================================================
+       INSPECTION
+    ========================================================== */
+
+    .inspection-card {
+      padding: 28px;
+    }
+
+    .inspection-load-status {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      margin-top: 7px;
+
+      padding:
+        7px
+        10px;
+
+      border:
+        1px solid #dce8f5;
+
+      border-radius: 8px;
+
+      background:
+        #f5f9ff;
+
+      color: #6384aa;
+
+      font-size: 10px;
+
+      line-height: 1.35;
+    }
+
+  
+
+    .inspection-load-status.success {
+      background: #effaf5;
+
+      border-color: #d7efe3;
+
+      color: #218062;
+    }
+
+    .inspection-load-status.success::before {
+      background: #16a96c;
+    }
+
+    .inspection-load-status.error {
+      background: #fff5f5;
+
+      border-color: #f0d3d3;
+
+      color: #a35353;
+    }
+
+    .inspection-load-status.error::before {
+      background: #d74e4e;
+    }
+
+
+    /* =========================================================
+       CONFIGURATION
+    ========================================================== */
+
+    .config-card {
+      padding:
+        19px
+        19px
+        0;
+    }
+
+    .config-heading {
+      padding:
+        1px
+        1px
+        5px;
+    }
+
+    .config-overview {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 12px;
+
+      margin:
+        17px
+        0
+        17px;
+    }
+
+    .config-mini-tile {
+      min-height: 77px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding:
+        12px
+        14px;
+
+      border:
+        1px solid #e4ebf4;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f8fbff
+        );
+
+      box-shadow:
+        0 5px 18px
+        rgba(47,74,108,0.035);
+    }
+
+    .config-mini-icon {
+      width: 38px;
+      height: 38px;
+
+      flex: 0 0 38px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      font-size: 17px;
+
+      font-weight: 900;
+    }
+
+    .config-mini-icon.blue {
+      color: #4b7cf0;
+      background: #e8efff;
+    }
+
+    .config-mini-icon.green {
+      color: #09a669;
+      background: #ddf8ed;
+    }
+
+    .config-mini-icon.purple {
+      color: #775ee1;
+      background: #ede7ff;
+    }
+
+
+    /* =========================================================
+       REMOVE CONFIGURATION CHECKING SIDEBAR
+
+       Underlying DOM is retained so existing JS still finds
+       .search-input / configuration hooks.
+    ========================================================== */
+
+    .config-sidebar {
+      display: none !important;
+    }
+
+    .configuration-layout {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr) !important;
+
+      gap: 10px;
+
+      min-height: 620px;
+    }
+
+    /*
+      Since the visual selector has been removed, display all
+      actual generated configuration cards.
+    */
+
+    #validation-form-host
+      > .check-card {
+      display: block !important;
+
+      width: 100%;
+
+      margin:
+        0
+        0
+        12px !important;
+
+      border:
+        1px solid #e1e9f4;
+
+      border-radius: 11px;
+
+      background: #ffffff;
+    }
+
+    #validation-form-host
+      > .check-card:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    #validation-form-host
+      > .check-card-no-controls {
+      display: none !important;
+    }
+
+    #validation-form-host
+      > .check-card.config-card-selected {
+      display: block !important;
+    }
+
+    #validation-form-host
+      > .check-card.config-card-secondary {
+      display: block !important;
+    }
+
+
+    /* =========================================================
+       CONFIG EDITOR
+    ========================================================== */
+
+    .config-editor-area {
+      min-width: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      border:
+        1px solid #e2eaf4;
+
+      border-radius: 11px;
+
+      background: #ffffff;
+
+      overflow: hidden;
+    }
+
+    .config-editor-grid {
+      min-width: 0;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        270px;
+
+      gap: 13px;
+
+      padding: 16px;
+    }
+
+    .config-editor-main {
+      min-width: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 12px;
+    }
+
+    .config-editor-aside {
+      min-width: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 13px;
+    }
+
+
+    /* =========================================================
+       SELECTED CHECK HEADER
+    ========================================================== */
+
+    .selected-check-header {
+      min-height: 120px;
+
+      padding:
+        14px
+        15px;
+
+      border:
+        1px solid #e2eaf3;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #fbfdff
+        );
+    }
+
+    .selected-header-top {
+      display: grid;
+
+      grid-template-columns:
+        57px
+        minmax(0,1fr)
+        auto;
+
+      gap: 13px;
+
+      align-items: start;
+    }
+
+    .selected-check-icon {
+      width: 55px;
+      height: 55px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #def8ed;
+
+      color: #09a96a;
+
+      font-size: 25px;
+
+      font-weight: 800;
+    }
+
+    .selected-check-title {
+      margin:
+        4px
+        0
+        0;
+
+      color: #15325c;
+
+      font-size: 17px;
+
+      line-height: 1.25;
+
+      font-weight: 780;
+    }
+
+    .selected-check-description {
+      margin:
+        7px
+        0
+        0;
+
+      color: #6686ad;
+
+      font-size: 11px;
+
+      line-height: 1.45;
+    }
+
+    .selected-enabled-badge {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      min-height: 25px;
+
+      padding:
+        5px
+        9px;
+
+      border-radius: 999px;
+
+      color: #0a9d65;
+
+      background: #e6f9f0;
+
+      font-size: 10px;
+
+      font-weight: 800;
+    }
+
+    .selected-meta {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 24px;
+
+      margin:
+        12px
+        0
+        0
+        69px;
+    }
+
+    .selected-meta-item small {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #87a0bf;
+
+      font-size: 9.5px;
+    }
+
+    .selected-meta-item span {
+      display: inline-flex;
+
+      align-items: center;
+
+      min-height: 28px;
+
+      padding:
+        6px
+        10px;
+
+      border-radius: 8px;
+
+      color: #28466e;
+
+      background: #f0f5fb;
+
+      font-size: 10px;
+
+      font-weight: 750;
+    }
+
+
+    /* =========================================================
+       CONFIG INPUTS / SLIDERS
+    ========================================================== */
+
+    #validation-form-host
+      input[type="range"] {
+      width: 100%;
+
+      margin:
+        8px
+        0
+        0;
+
+      accent-color: #4a80f1;
+
+      cursor: pointer;
+    }
+
+    #validation-form-host
+      input[type="range"]::-webkit-slider-runnable-track {
+      height: 6px;
+
+      border-radius: 999px;
+
+      background: #dee8f5;
+    }
+
+    #validation-form-host
+      input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+
+      width: 16px;
+      height: 16px;
+
+      margin-top: -5px;
+
+      border:
+        3px
+        solid
+        #ffffff;
+
+      border-radius: 50%;
+
+      background: #4a7ff0;
+    }
+
+    #validation-form-host
+      input[type="range"]::-moz-range-track {
+      height: 6px;
+
+      border-radius: 999px;
+
+      background: #dee8f5;
+    }
+
+    #validation-form-host
+      input[type="range"]::-moz-range-progress {
+      height: 6px;
+
+      border-radius: 999px;
+
+      background: #4a7ff0;
+    }
+
+    #validation-form-host
+      input[type="range"]::-moz-range-thumb {
+      width: 11px;
+      height: 11px;
+
+      border:
+        3px
+        solid
+        #ffffff;
+
+      border-radius: 50%;
+
+      background: #4a7ff0;
+    }
+
+    #validation-form-host
+      input[type="number"],
+    #validation-form-host
+      input[type="text"],
+    #validation-form-host
+      select {
+      min-height: 35px;
+
+      border:
+        1px
+        solid
+        #dce6f2;
+
+      border-radius: 8px;
+
+      background: #fbfdff;
+
+      color: #193a66;
+
+      outline: none;
+
+      padding:
+        7px
+        9px;
+
+      font-size: 11px;
+    }
+
+    #validation-form-host
+      .check-enabled {
+      accent-color: #15aa71;
+    }
+
+    .config-range-shell {
+      position: relative;
+
+      padding-top: 3px;
+
+      padding-bottom: 25px;
+    }
+
+    .config-range-value {
+      position: absolute;
+
+      top: -4px;
+
+      right: 0;
+
+      min-width: 57px;
+
+      padding:
+        6px
+        9px;
+
+      border:
+        1px
+        solid
+        #dbe6f3;
+
+      border-radius: 8px;
+
+      background: #ffffff;
+
+      color: #173964;
+
+      font-size: 11px;
+
+      font-weight: 780;
+
+      text-align: center;
+
+      pointer-events: none;
+    }
+
+    .config-range-scale {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      color: #7695ba;
+
+      font-size: 9.5px;
+    }
+
+
+    /* =========================================================
+       CONFIG ASIDE
+    ========================================================== */
+
+    .config-quick-panel,
+    .config-preview-panel {
+      border:
+        1px solid #e2eaf3;
+
+      border-radius: 10px;
+
+      background: #ffffff;
+
+      overflow: hidden;
+    }
+
+    .config-panel-heading {
+      min-height: 47px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding:
+        10px
+        13px;
+
+      border-bottom:
+        1px solid #e5ebf3;
+
+      color: #193b68;
+
+      font-size: 12px;
+
+      font-weight: 780;
+    }
+
+    .config-panel-heading-icon {
+      width: 27px;
+      height: 27px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #e9f1fc;
+
+      color: #214d82;
+
+      font-size: 13px;
+    }
+
+    .quick-validation-list {
+      padding: 9px;
+    }
+
+    .quick-status {
+      min-height: 55px;
+
+      display: grid;
+
+      grid-template-columns:
+        27px
+        minmax(0,1fr);
+
+      gap: 10px;
+
+      align-items: center;
+
+      padding: 9px;
+
+      margin-bottom: 8px;
+
+      border:
+        1px
+        solid
+        #dceff0;
+
+      border-radius: 8px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f0fbf9,
+          #e8f9f4
+        );
+    }
+
+    .quick-status.warning {
+      border-color: #f3e1bc;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fffaf0,
+          #fff7e7
+        );
+    }
+
+    .quick-status-icon {
+      width: 22px;
+      height: 22px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #11ad70;
+
+      color: #ffffff;
+
+      font-size: 11px;
+
+      font-weight: 900;
+    }
+
+    .quick-status.warning
+      .quick-status-icon {
+      background: #edaa3c;
+    }
+
+    .quick-status-title {
+      display: block;
+
+      color: #087e72;
+
+      font-size: 10.5px;
+
+      font-weight: 800;
+    }
+
+    .quick-status.warning
+      .quick-status-title {
+      color: #9a6718;
+    }
+
+    .quick-status-copy {
+      display: block;
+
+      margin-top: 3px;
+
+      color: #77a0ad;
+
+      font-size: 9px;
+    }
+
+    .preview-content {
+      padding: 9px;
+    }
+
+    .preview-box {
+      border:
+        1px
+        solid
+        #e3ebf4;
+
+      border-radius: 8px;
+
+      overflow: hidden;
+    }
+
+    .preview-row {
+      min-height: 39px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 13px;
+
+      padding:
+        8px
+        10px;
+
+      border-bottom:
+        1px
+        solid
+        #edf1f6;
+    }
+
+    .preview-row:last-child {
+      border-bottom: 0;
+    }
+
+    .preview-label {
+      color: #55769d;
+
+      font-size: 10px;
+    }
+
+    .preview-value {
+      max-width: 135px;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: #214b7d;
+
+      font-size: 10px;
+
+      font-weight: 750;
+
+      text-align: right;
+    }
+
+    .preview-empty {
+      padding:
+        20px
+        12px;
+
+      color: #8095b1;
+
+      text-align: center;
+
+      font-size: 10px;
+    }
+
+
+    /* =========================================================
+       CONFIG FOOTER
+    ========================================================== */
+
+    .config-bottom-bar {
+      min-height: 61px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 14px;
+
+      padding:
+        10px
+        15px;
+
+      border-top:
+        1px
+        solid
+        #e4ebf3;
+
+      background: #fbfdff;
+    }
+
+    .config-nav-button {
+      min-height: 37px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 7px;
+
+      padding:
+        8px
+        14px;
+
+      border:
+        1px
+        solid
+        #dbe5f2;
+
+      border-radius: 8px;
+
+      background: #ffffff;
+
+      color: #557ba7;
+
+      font-size: 10.5px;
+
+      font-weight: 750;
+
+      cursor: pointer;
+    }
+
+    .config-nav-button.primary {
+      border-color: #4d7ff2;
+
+      background: #4d7ff2;
+
+      color: #ffffff;
+    }
+
+
+    /* =========================================================
+       RUN HEADER
+    ========================================================== */
+
+    .run-card {
+      padding: 22px;
+    }
+
+    .run-header-actions {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-top: 10px;
+    }
+
+    .run-action-button {
+      min-height: 36px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 7px;
+
+      padding:
+        8px
+        13px;
+
+      border:
+        1px
+        solid
+        #d7e2f0;
+
+      border-radius: 8px;
+
+      background: #ffffff;
+
+      color: #4b6e99;
+
+      font-size: 10.5px;
+
+      font-weight: 760;
+
+      cursor: pointer;
+    }
+
+    .run-action-button:hover {
+      border-color: #bccde3;
+
+      background: #fafdff;
+    }
+
+    .run-action-button.primary {
+      border-color: #4c7df0;
+
+      background: #4c7df0;
+
+      color: #ffffff;
+
+      box-shadow:
+        0
+        5px
+        13px
+        rgba(72,118,239,0.16);
+    }
+
+    .run-action-button:disabled {
+      cursor: not-allowed;
+
+      opacity: 0.48;
+
+      box-shadow: none;
+    }
+
+
+    /* =========================================================
+       RUN RESULT FILTER AREA
+    ========================================================== */
+
+    .run-control-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+
+    .run-results-tools {
+      display: flex;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+    }
+
+    .run-search {
+      min-width: 210px;
+    }
+
+
+    /* =========================================================
+       NEW SELECTION BUTTONS
+    ========================================================== */
+
+    .run-selection-button {
+      min-height: 35px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 6px;
+
+      padding:
+        8px
+        11px;
+
+      border:
+        1px
+        solid
+        #d6e3f0;
+
+      border-radius: 8px;
+
+      background: #ffffff;
+
+      color: #466a95;
+
+      font-size: 10.5px;
+
+      font-weight: 760;
+
+      cursor: pointer;
+
+      white-space: nowrap;
+    }
+
+    .run-selection-button:hover {
+      border-color: #bdcee3;
+
+      background: #fafcff;
+    }
+
+    .run-selection-button.risk {
+      border-color: #eedcaf;
+
+      background: #fffaf1;
+
+      color: #956921;
+    }
+
+
+    .run-selection-button.clear-selection {
+      border-color: #d7e0ec;
+
+      background: #f8fafc;
+
+      color: #637a98;
+    }
+
+
+    .run-selection-button.clear-selection:hover {
+      border-color: #c3d0e1;
+
+      background: #f2f6fb;
+    }
+
+    .run-selection-button:disabled {
+      opacity: 0.5;
+
+      cursor: not-allowed;
+    }
+
+
+    /* =========================================================
+       RESULT GRID
+       
+       Existing validation.js continues writing .result-item.
+    ========================================================== */
+
+    .run-results-workspace {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(300px, 0.9fr);
+
+      gap: 14px;
+
+      height: clamp(360px, 66vh, 720px);
+
+      min-width: 0;
+    }
+
+    #run-results {
+      display: grid !important;
+
+      grid-template-columns:
+        repeat(
+          auto-fill,
+          minmax(
+            185px,
+            1fr
+          )
+        );
+
+      gap: 12px;
+
+      height: 100%;
+
+      min-height: 0;
+
+      margin-top: 0;
+
+      padding:
+        4px
+        8px
+        8px
+        2px;
+
+      overflow-y: auto;
+
+      overflow-x: hidden;
+
+      align-content: start;
+
+      align-items: stretch;
+    }
+
+    #run-results
+      .result-item {
+      position: relative;
+
+      min-height: 100px;
+
+      display: flex !important;
+
+      flex-direction: column;
+
+      justify-content: flex-start;
+
+      gap: 5px;
+
+      margin: 0 !important;
+
+      padding:
+        12px
+        12px
+        100px;
+
+      border:
+        1px
+        solid
+        #dce5ef;
+
+      border-left:
+        5px
+        solid
+        #a9b9cc;
+
+      border-radius: 12px;
+
+      background: #ffffff;
+
+      box-shadow:
+        0
+        5px
+        15px
+        rgba(36,58,90,0.045);
+
+      cursor: pointer;
+
+      transition:
+        transform 140ms ease,
+        box-shadow 140ms ease,
+        border-color 140ms ease;
+    }
+
+    #run-results
+      .result-item:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0
+        10px
+        24px
+        rgba(36,58,90,0.09);
+    }
+
+    #run-results
+      .result-item[hidden] {
+      display: none !important;
+    }
+
+    #run-results
+      .result-item.is-selected {
+      box-shadow:
+        0
+        0
+        0
+        2px
+        rgba(69,118,241,0.18),
+        0
+        9px
+        22px
+        rgba(50,76,112,0.09);
+    }
+
+
+    /* =========================================================
+       STATUS BORDER COLORS
+    ========================================================== */
+
+    #run-results
+      .result-item.status-pass {
+      border-left-color: #1db773;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f3fbf7
+        );
+    }
+
+    #run-results
+      .result-item.status-review {
+      border-left-color: #e8ad39;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #fffbf2
+        );
+    }
+
+    #run-results
+      .result-item.status-reject {
+      border-left-color: #e05252;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #fff6f6
+        );
+    }
+
+    #run-results
+      .result-item.status-unknown {
+      border-left-color: #9caec2;
+    }
+
+
+    /* =========================================================
+       EPISODE NUMBER
+    ========================================================== */
+
+    .episode-grid-id {
+      display: block;
+
+      max-width: calc(100% - 30px);
+
+     
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: #153c6e;
+
+      font-size: 17px;
+
+      line-height: 1.25;
+
+      font-weight: 800;
+
+      letter-spacing: -0.015em;
+    }
+
+    .episode-grid-label {
+      display: block;
+
+      margin-bottom: 2px;
+
+      color: #8295ad;
+
+      font-size: 9px;
+
+      font-weight: 750;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.065em;
+    }
+
+
+    /* =========================================================
+       STATUS PILL
+    ========================================================== */
+
+    .episode-grid-status {
+      display: inline-flex;
+
+      align-items: center;
+
+      width: fit-content;
+
+      min-height: 24px;
+
+      padding:
+        5px
+        9px;
+
+      border-radius: 999px;
+
+      font-size: 9px;
+
+      font-weight: 850;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.04em;
+    }
+
+    .episode-grid-status.pass {
+      background: #e3f8ee;
+
+      color: #138557;
+    }
+
+    .episode-grid-status.review {
+      background: #fff0cd;
+
+      color: #9b6c1c;
+    }
+
+    .episode-grid-status.reject {
+      background: #fde4e4;
+
+      color: #ad4343;
+    }
+
+    .episode-grid-status.unknown {
+      background: #eef2f6;
+
+      color: #667d99;
+    }
+
+
+    /* =========================================================
+       CHECKBOX
+    ========================================================== */
+
+    #run-results
+      .result-item
+      .episode-checkbox {
+      position: absolute;
+
+      top: 13px;
+
+      right: 13px;
+
+      width: 18px;
+
+      height: 18px;
+
+      z-index: 5;
+
+      accent-color: #4f7ff0;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================================================
+       EXISTING RESULT CONTENT
+    ========================================================== */
+
+    #run-results
+      .result-item
+      .result-heading {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 8px;
+
+      padding-top: 5px;
+    }
+
+    #run-results
+      .result-item
+      .result-heading
+      .badge {
+      display: none;
+    }
+
+    #run-results
+      .result-item
+      .result-meta,
+    #run-results
+      .result-item
+      .result-findings,
+    #run-results
+      .result-item
+      .result-detail-button,
+    #run-results
+      .result-item
+      .result-detail,
+    #run-results
+      .result-item
+      .empty {
+      display: none !important;
+    }
+
+    #run-results
+      .result-item
+      .score {
+      color: #5e7899;
+
+      font-size: 10px;
+
+      font-weight: 700;
+    }
+
+    #run-results
+      .result-item
+      .findings {
+      display: -webkit-box;
+
+      overflow: hidden;
+
+      -webkit-box-orient: vertical;
+
+      -webkit-line-clamp: 3;
+
+      color: #71859f;
+
+      font-size: 10px;
+
+      line-height: 1.45;
+    }
+
+
+    /* =========================================================
+       EMPTY STATE
+    ========================================================== */
+
+    .run-filter-empty {
+      grid-column:
+        1 /
+        -1;
+
+      padding:
+        32px
+        18px;
+
+      border:
+        1px
+        dashed
+        #d4e0ed;
+
+      border-radius: 12px;
+
+      background: #fbfdff;
+
+      color: #8094ad;
+
+      text-align: center;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       EPISODE DETAIL PANEL
+       
+       Appears BELOW the complete grid.
+    ========================================================== */
+
+    .episode-detail-panel {
+      height: 100%;
+
+      min-width: 0;
+
+      min-height: 0;
+
+      margin-top: 0;
+
+      overflow-x: hidden;
+
+      overflow-y: auto;
+
+      border:
+        1px
+        solid
+        #dce6f2;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #fbfdff
+        );
+
+      box-shadow:
+        0
+        7px
+        20px
+        rgba(36,59,91,0.045);
+
+    }
+
+    .episode-detail-panel[hidden] {
+      display: none;
+    }
+
+    .episode-detail-top {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      padding:
+        13px
+        16px;
+
+      border-bottom:
+        1px
+        solid
+        #e5ebf3;
+    }
+
+    .episode-detail-kicker {
+      color: #7991ae;
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.075em;
+    }
+
+    .episode-detail-title {
+      margin:
+        3px
+        0
+        0;
+
+      color: #15355f;
+
+      font-size: 15px;
+
+      line-height: 1.25;
+
+      font-weight: 800;
+    }
+
+    .episode-detail-status {
+      display: inline-flex;
+
+      align-items: center;
+
+      min-height: 27px;
+
+      padding:
+        6px
+        10px;
+
+      border-radius: 999px;
+
+      font-size: 9px;
+
+      font-weight: 850;
+
+      text-transform: uppercase;
+    }
+
+    .episode-detail-status.pass {
+      background: #e3f8ee;
+
+      color: #138557;
+    }
+
+    .episode-detail-status.review {
+      background: #fff0cd;
+
+      color: #9b6c1c;
+    }
+
+    .episode-detail-status.reject {
+      background: #fde4e4;
+
+      color: #ad4343;
+    }
+
+    .episode-detail-status.unknown {
+      background: #eef2f6;
+
+      color: #667d99;
+    }
+
+    .episode-detail-content {
+      padding:
+        15px
+        16px;
+    }
+
+    .episode-detail-content
+      .episode-detail-result {
+      display: block !important;
+
+      width: 100% !important;
+
+      margin: 0 !important;
+
+      padding: 0 !important;
+
+      border: 0 !important;
+
+      border-radius: 0 !important;
+
+      background: transparent !important;
+
+      box-shadow: none !important;
+
+      transform: none !important;
+
+      cursor: default !important;
+    }
+
+    .episode-detail-content
+      .episode-detail-result
+      .episode-grid-id,
+    .episode-detail-content
+      .episode-detail-result
+      .episode-grid-label,
+    .episode-detail-content
+      .episode-detail-result
+      .episode-grid-status {
+      display: none;
+    }
+
+    .episode-detail-content
+      .episode-checkbox {
+      display: none !important;
+    }
+
+    .episode-detail-content
+      .result-heading {
+      display: block;
+
+      margin-bottom: 9px;
+
+      padding: 0 !important;
+    }
+
+    .episode-detail-content
+      .result-meta {
+      margin:
+        8px
+        0
+        12px;
+
+      color: #607895;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+    .episode-detail-content
+      .result-findings {
+      margin:
+        10px
+        0
+        0;
+
+      padding-left: 20px;
+
+      color: #506c8e;
+
+      font-size: 12px;
+
+      line-height: 1.6;
+    }
+
+    .episode-detail-content
+      .result-findings li + li {
+      margin-top: 7px;
+    }
+
+    .episode-detail-content
+      .findings {
+      display: block !important;
+
+      overflow: visible !important;
+
+      -webkit-line-clamp: initial !important;
+
+      color: #506c8e;
+
+      line-height: 1.65;
+    }
+
+    .episode-detail-empty {
+      padding:
+        24px
+        15px;
+
+      color: #8395ab;
+
+      text-align: center;
+
+      font-size: 10.5px;
+
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       RESULTS META
+    ========================================================== */
+
+    .run-result-count {
+      margin-left: auto;
+
+      color: #7890ab;
+
+      font-size: 10px;
+
+      font-weight: 700;
+    }
+
+
+    #config-section #start-validation-button {
+      display: none !important;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================== */
+
+    @media (max-width: 1100px) {
+
+      .run-results-workspace {
+        grid-template-columns:
+          minmax(0, 1.35fr)
+          minmax(280px, 0.9fr);
+      }
+
+      .config-editor-grid {
+        grid-template-columns:
+          minmax(0, 1fr)
+          225px;
+      }
+
+      #run-results {
+        grid-template-columns:
+          repeat(
+            auto-fill,
+            minmax(
+              150px,
+              1fr
+            )
+          );
+      }
+
+    }
+
+
+    @media (max-width: 850px) {
+
+      .run-results-workspace {
+        grid-template-columns:
+          minmax(0, 1fr);
+
+        height: auto;
+      }
+
+      #run-results {
+        height: min(58vh, 560px);
+
+        min-height: 260px;
+      }
+
+      .episode-detail-panel {
+        height: min(52vh, 480px);
+
+        min-height: 260px;
+      }
+
+      .step-copy small {
+        display: none;
+      }
+
+      .step-link {
+        padding:
+          12px;
+      }
+
+      .config-editor-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .config-editor-aside {
+        display: grid;
+
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(
+              0,
+              1fr
+            )
+          );
+      }
+
+      .run-results-tools {
+        width: 100%;
+      }
+
+      .run-result-count {
+        margin-left: 0;
+      }
+
+    }
+
+
+    @media (max-width: 680px) {
+
+      .topbar {
+        flex-wrap: wrap;
+        padding:
+          13px
+          15px;
+      }
+
+      .exit-validation {
+        order: 0;
+      }
+
+      .brand-lockup {
+        order: 1;
+        flex: 1 1 250px;
+      }
+
+      .topbar-actions {
+        order: 2;
+        margin-left: auto;
+      }
+
+      .topbar h1 {
+        font-size: 16px;
+      }
+
+      .step-tabs {
+        grid-template-columns:
+          repeat(
+            3,
+            minmax(
+              0,
+              1fr
+            )
+          );
+      }
+
+      .step-icon {
+        width: 40px;
+        height: 40px;
+
+        flex-basis: 40px;
+      }
+
+      .step-number {
+        display: none;
+      }
+
+      .config-overview {
+        grid-template-columns:
+          1fr;
+      }
+
+      .config-editor-aside {
+        grid-template-columns:
+          1fr;
+      }
+
+      #run-results {
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(
+              0,
+              1fr
+            )
+          );
+      }
+
+      .run-search {
+        min-width: 100%;
+      }
+
+    }
+
+
+    @media (max-width: 450px) {
+
+      #run-results {
+        height: 48vh;
+
+        min-height: 220px;
+      }
+
+      .episode-detail-panel {
+        height: 48vh;
+
+        min-height: 220px;
+      }
+
+      .page-shell {
+        padding:
+          0
+          5px
+          18px;
+      }
+
+      .workflow-shell {
+        padding:
+          0
+          6px
+          9px;
+      }
+
+      .step-copy strong {
+        font-size: 9.5px;
+      }
+
+      #run-results {
+        grid-template-columns:
+          1fr;
+      }
+
+      .episode-detail-top {
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<div class="app-frame">
+
+
+  <!-- =========================================================
+       TOP BAR
+  ========================================================== -->
+
+  <header class="topbar">
+
+    <a
+      class="exit-validation"
+      id="exit-validation"
+      href="/"
+    >
+      <span aria-hidden="true">←</span>
+      <span>Exit Data Validation</span>
+    </a>
+
+    <div class="brand-lockup">
+
+
+      <div
+        class="brand-mark"
+        aria-hidden="true"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          role="img"
+          aria-hidden="true"
+        >
+
+          <ellipse
+            cx="12"
+            cy="5"
+            rx="7"
+            ry="3"
+          ></ellipse>
+
+          <path
+            d="M5 5v14c0 1.66 3.13 3 7 3s7-1.34 7-3V5"
+          ></path>
+
+          <path
+            d="M5 12c0 1.66 3.13 3 7 3s7-1.34 7-3"
+          ></path>
+
+        </svg>
+
+      </div>
+
+
+      <div>
+
+        
+
+
+        <h1>
+          Dataset Validator
+        </h1>
+
+      </div>
+
+    </div>
+
+
+    <div class="topbar-actions">
+
+      <div
+        id="dataset-path"
+        class="dataset-indicator"
+        hidden
+        aria-live="polite"
+      ></div>
+
+      <div
+        id="health-badge"
+        class="badge badge-neutral"
+      >
+        API: checking
+      </div>
+
+
+      
+
+    </div>
+
+  </header>
+
+  <script>
+    const exitValidationLink = document.getElementById("exit-validation");
+    const dakshaReturnUrl = new URLSearchParams(window.location.search).get("return");
+    const defaultDakshaUrl = new URL(window.location.href);
+    defaultDakshaUrl.port = "8104";
+    defaultDakshaUrl.pathname = "/";
+    defaultDakshaUrl.search = "";
+    defaultDakshaUrl.hash = "";
+    defaultDakshaUrl.searchParams.set("tab", "datasets");
+    exitValidationLink.href = defaultDakshaUrl.href;
+
+    if (dakshaReturnUrl) {
+      try {
+        const destination = new URL(dakshaReturnUrl);
+        if (destination.hostname === window.location.hostname && ["http:", "https:"].includes(destination.protocol)) {
+          destination.searchParams.set("tab", "datasets");
+          destination.hash = "";
+          exitValidationLink.href = destination.href;
+        }
+      } catch {
+        // Keep the local Daksha URL if the provided return address is invalid.
+      }
+    }
+  </script>
+
+
+  <!-- =========================================================
+       WORKFLOW
+
+       User-visible:
+         1. Inspect dataset
+         2. Configure validation
+         3. Run validation
+
+       Hidden legacy:
+         Select dataset
+  ========================================================== -->
+
+  <div class="workflow-shell">
+
+
+    <nav
+      class="step-tabs"
+      aria-label="Validation steps"
+    >
+
+
+      <!-- =====================================================
+           LEGACY STEP
+           Required by existing app.js.
+      ====================================================== -->
+
+      <a
+        class="step-link legacy-dataset-step"
+        href="#dataset-selection"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <span
+          class="step-icon icon-blue"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M4 7.5A2.5 2.5 0 0 1 6.5 5h4L13 7.5h4.5A2.5 2.5 0 0 1 20 10v7.5A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5Z"
+            ></path>
+
+          </svg>
+
+        </span>
+
+
+        <span class="step-copy">
+
+          <strong>
+            Select dataset
+          </strong>
+
+          <small>
+            Internal compatibility step
+          </small>
+
+        </span>
+
+
+        <span class="step-number">
+          1
+        </span>
+
+      </a>
+
+
+      <!-- =====================================================
+           VISIBLE STEP 1
+      ====================================================== -->
+
+      <a
+        class="step-link active"
+        href="#inspection-section"
+      >
+
+        <span
+          class="step-icon icon-teal"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M4 5.5A1.5 1.5 0 0 1 5.5 4h5A1.5 1.5 0 0 1 12 5.5v5a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 10.5Zm8 8A1.5 1.5 0 0 1 13.5 12h5a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5h-5a1.5 1.5 0 0 1-1.5-1.5Z"
+            ></path>
+
+
+            <path
+              d="M14 6h6M17 3v6M7 18h2"
+            ></path>
+
+          </svg>
+
+        </span>
+
+
+        <span class="step-copy">
+
+          <strong>
+            1. Inspect dataset
+          </strong>
+
+          <small>
+            View dataset structure
+          </small>
+
+        </span>
+
+
+        <span class="step-number">
+          1
+        </span>
+
+      </a>
+
+
+      <!-- =====================================================
+           VISIBLE STEP 2
+      ====================================================== -->
+
+      <a
+        class="step-link"
+        href="#config-section"
+      >
+
+        <span
+          class="step-icon icon-purple"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M5 4v16M19 4v16M12 4v16"
+            ></path>
+
+
+            <rect
+              x="3.5"
+              y="7"
+              width="3"
+              height="4"
+              rx="1"
+            ></rect>
+
+
+            <rect
+              x="10.5"
+              y="13"
+              width="3"
+              height="4"
+              rx="1"
+            ></rect>
+
+
+            <rect
+              x="17.5"
+              y="8"
+              width="3"
+              height="4"
+              rx="1"
+            ></rect>
+
+          </svg>
+
+        </span>
+
+
+        <span class="step-copy">
+
+          <strong>
+            2. Configure validation
+          </strong>
+
+          <small>
+            Set thresholds and enable checks
+          </small>
+
+        </span>
+
+
+        <span class="step-number">
+          2
+        </span>
+
+      </a>
+
+
+      <!-- =====================================================
+           VISIBLE STEP 3
+      ====================================================== -->
+
+      <a
+        class="step-link"
+        href="#run-section"
+      >
+
+        <span
+          class="step-icon icon-orange"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <circle
+              cx="12"
+              cy="12"
+              r="8.5"
+            ></circle>
+
+
+            <path
+              d="m10 8.8 5 3.2-5 3.2Z"
+            ></path>
+
+          </svg>
+
+        </span>
+
+
+        <span class="step-copy">
+
+          <strong>
+            3. Run validation
+          </strong>
+
+          <small>
+            Monitor progress and results
+          </small>
+
+        </span>
+
+
+        <span class="step-number">
+          3
+        </span>
+
+      </a>
+
+    </nav>
+
+
+    <!-- =======================================================
+         MAIN APPLICATION
+    ======================================================== -->
+
+    <main class="page-shell">
+
+
+      <div
+        id="delete-status"
+        class="delete-status"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+
+
+      <!-- =====================================================
+           HIDDEN DATASET SECTION
+
+           Existing app.js still needs the original controls.
+      ====================================================== -->
+
+      <section
+        id="dataset-selection"
+        class="card page-card"
+        hidden
+        aria-hidden="true"
+      >
+
+        <form
+          id="inspect-form"
+          class="inspect-form"
+        >
+
+          <label for="dataset-root">
+            Dataset root path
+          </label>
+
+
+          <input
+            id="dataset-root"
+            name="dataset-root"
+            type="text"
+            autocomplete="off"
+            required
+          >
+
+
+          <button
+            id="inspect-button"
+            type="submit"
+          >
+            Inspect dataset
+          </button>
+
+
+          <div
+            id="form-error"
+            class="form-error"
+            role="alert"
+            hidden
+          ></div>
+
+        </form>
+
+      </section>
+
+
+      <!-- =====================================================
+           STEP 1 — INSPECTION
+      ====================================================== -->
+
+      <section
+        id="inspection-section"
+        class="card page-card inspection-card"
+        hidden
+      >
+
+
+        <div class="section-heading">
+
+
+          <div>
+
+            <p class="eyebrow">
+              STEP 1 · DATASET INSPECTION
+            </p>
+
+
+            <h2>
+              Dataset inspection
+            </h2>
+
+
+            <p class="section-subtitle">
+              Review the detected structure before
+              configuring validation checks.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <div
+              id="inspection-load-status"
+              class="inspection-load-status"
+              hidden
+              role="status"
+              aria-live="polite"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="summary-grid"
+          class="summary-grid inspection-summary"
+        ></div>
+
+
+        <div class="inspection-grid">
+
+
+          <div class="info-panel">
+
+            <div class="panel-heading">
+
+              <span
+                class="panel-icon blue"
+              >
+                ▣
+              </span>
+
+
+              <div>
+
+                <h3>
+                  Cameras
+                </h3>
+
+                <small>
+                  Video streams detected
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="camera-list"
+              class="list-card"
+            ></div>
+
+          </div>
+
+
+          <div class="info-panel">
+
+            <div class="panel-heading">
+
+              <span
+                class="panel-icon teal"
+              >
+                ⌘
+              </span>
+
+
+              <div>
+
+                <h3>
+                  Action dimensions
+                </h3>
+
+                <small>
+                  Available action fields
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="action-list"
+              class="list-card"
+            ></div>
+
+          </div>
+
+
+          <div class="info-panel">
+
+            <div class="panel-heading">
+
+              <span
+                class="panel-icon cyan"
+              >
+                ⊞
+              </span>
+
+
+              <div>
+
+                <h3>
+                  State dimensions
+                </h3>
+
+                <small>
+                  Observed state fields
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="state-list"
+              class="list-card"
+            ></div>
+
+          </div>
+
+
+          <div class="info-panel">
+
+            <div class="panel-heading">
+
+              <span
+                class="panel-icon red"
+              >
+                ⚑
+              </span>
+
+
+              <div>
+
+                <h3>
+                  Tasks
+                </h3>
+
+                <small>
+                  Declared task text
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="task-list"
+              class="list-card"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="inspection-footer">
+
+          <div class="footer-note">
+
+            <span class="tiny-check">
+              ✓
+            </span>
+
+            Inspection data is read-only at this stage.
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           STEP 2 — CONFIGURATION
+      ====================================================== -->
+
+      <section
+        id="config-section"
+        class="card page-card config-card"
+        hidden
+      >
+
+
+        <div class="section-heading config-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              STEP 2 · CONFIGURE VALIDATION
+            </p>
+
+
+            <h2>
+              Validation configuration
+            </h2>
+
+
+            <p class="section-subtitle">
+              All validation checks are enabled. Adjust
+              thresholds and dataset-specific parameters.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="configuration-layout">
+
+
+          <!-- Hidden compatibility sidebar -->
+
+          <aside
+            class="config-sidebar"
+            aria-hidden="true"
+          >
+
+            <label
+              class="config-search"
+            >
+
+              <input
+                class="search-input"
+                type="search"
+                placeholder="Search checks..."
+              >
+
+            </label>
+
+
+            <div
+              class="config-filter-pills"
+            >
+
+              <button
+                type="button"
+                class="config-filter-pill active"
+                data-config-filter="all"
+              >
+                All
+              </button>
+
+
+              <button
+                type="button"
+                class="config-filter-pill"
+                data-config-filter="enabled"
+              >
+                Enabled
+              </button>
+
+
+              <button
+                type="button"
+                class="config-filter-pill"
+                data-config-filter="disabled"
+              >
+                Disabled
+              </button>
+
+            </div>
+
+
+            <div
+              id="config-check-list"
+            ></div>
+
+          </aside>
+
+
+          <!-- Configuration editor -->
+
+          <div class="config-editor-area">
+
+            <div class="config-editor-grid">
+
+
+              <div class="config-editor-main">
+
+
+                <div
+                  id="selected-check-header"
+                  class="selected-check-header"
+                >
+
+
+                  <div class="selected-header-top">
+
+
+                    <div
+                      id="selected-check-icon"
+                      class="selected-check-icon"
+                      aria-hidden="true"
+                    >
+                      ✓
+                    </div>
+
+
+                    <div class="selected-check-copy">
+
+                      <h3
+                        id="selected-check-title"
+                        class="selected-check-title"
+                      >
+                        Validation checks
+                      </h3>
+
+
+                      <p
+                        id="selected-check-description"
+                        class="selected-check-description"
+                      >
+                        Configure the validation checks
+                        generated for this dataset.
+                      </p>
+
+                    </div>
+
+
+                    <div
+                      id="selected-enabled-badge"
+                      class="selected-enabled-badge"
+                    >
+                      Configuration
+                    </div>
+
+                  </div>
+
+
+                  <div
+                    id="selected-meta"
+                    class="selected-meta"
+                  >
+
+                    <div
+                      class="selected-meta-item"
+                    >
+
+                      <small>
+                        Phase
+                      </small>
+
+                      <span>
+                        Runtime
+                      </span>
+
+                    </div>
+
+
+                    <div
+                      class="selected-meta-item"
+                    >
+
+                      <small>
+                        Severity
+                      </small>
+
+                      <span>
+                        Warning
+                      </span>
+
+                    </div>
+
+
+                    <div
+                      class="selected-meta-item"
+                    >
+
+                      <small>
+                        Category
+                      </small>
+
+                      <span>
+                        Validation
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- Existing configuration.js output -->
+
+                <div
+                  id="validation-form-host"
+                  class="validation-form-host"
+                ></div>
+
+              </div>
+
+
+              <aside
+                class="config-editor-aside"
+              >
+
+
+                <section
+                  class="config-quick-panel"
+                >
+
+                  <div
+                    class="config-panel-heading"
+                  >
+
+                    <span
+                      class="config-panel-heading-icon"
+                    >
+                      ✓
+                    </span>
+
+                    Quick validation
+
+                  </div>
+
+
+                  <div
+                    id="quick-validation-list"
+                    class="quick-validation-list"
+                  >
+
+                    <div
+                      class="quick-status"
+                      data-quick-status="configuration"
+                    >
+
+                      <div
+                        class="quick-status-icon"
+                      >
+                        ✓
+                      </div>
+
+
+                      <div>
+
+                        <span
+                          class="quick-status-title"
+                        >
+                          Configuration ready
+                        </span>
+
+
+                        <span
+                          class="quick-status-copy"
+                        >
+                          Edit values on the selected check.
+                        </span>
+
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      class="quick-status"
+                      data-quick-status="conflicts"
+                    >
+
+                      <div
+                        class="quick-status-icon"
+                      >
+                        ✓
+                      </div>
+
+
+                      <div>
+
+                        <span
+                          class="quick-status-title"
+                        >
+                          No conflicts detected
+                        </span>
+
+
+                        <span
+                          class="quick-status-copy"
+                        >
+                          Current settings are compatible.
+                        </span>
+
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      class="quick-status"
+                      data-quick-status="run"
+                    >
+
+                      <div
+                        class="quick-status-icon"
+                      >
+                        ✓
+                      </div>
+
+
+                      <div>
+
+                        <span
+                          class="quick-status-title"
+                        >
+                          Ready to run
+                        </span>
+
+
+                        <span
+                          class="quick-status-copy"
+                        >
+                          Changes will be applied.
+                        </span>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </section>
+
+
+                <section
+                  class="config-preview-panel"
+                >
+
+                  <div
+                    class="config-panel-heading"
+                  >
+
+                    <span
+                      class="config-panel-heading-icon"
+                    >
+                      ◉
+                    </span>
+
+                    Preview
+
+                  </div>
+
+
+                  <div class="preview-content">
+
+                    <div
+                      id="config-preview-box"
+                      class="preview-box"
+                    >
+
+                      <div
+                        class="preview-empty"
+                      >
+                        Current configuration values
+                        will appear here.
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </section>
+
+
+              </aside>
+
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           STEP 3 — RUN VALIDATION
+      ====================================================== -->
+
+      <section
+        id="run-section"
+        class="card page-card run-card"
+        hidden
+      >
+
+
+        <!-- =================================================
+             RUN HEADER
+        ================================================== -->
+
+        <div class="run-header">
+
+
+          <div class="run-header-copy">
+
+
+            <div class="run-kicker">
+
+              <span
+                class="run-kicker-dot"
+                aria-hidden="true"
+              ></span>
+
+              STEP 3 · VALIDATION RUN
+
+            </div>
+
+
+            <div class="run-title-row">
+
+
+              <div>
+
+                <h2>
+                  Validation run
+                </h2>
+
+
+                <div class="run-meta-pill" style="display: none;">
+
+                  <span class="run-meta-label">
+                    Run ID
+                  </span>
+
+
+                  <span id="run-id"></span>
+
+                </div>
+
+
+                <!-- =================================================
+                     REVALIDATE
+                ================================================== -->
+
+                <div
+                  class="run-header-actions"
+                >
+
+                  <button
+                    id="run-revalidate-button"
+                    type="button"
+                    class="run-action-button"
+                  >
+                    ↻
+                    Revalidate
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <div
+                id="run-state"
+                class="badge badge-neutral"
+              >
+                waiting
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="run-header-art"
+            aria-hidden="true"
+          >
+
+            <div
+              class="run-art-grid"
+            ></div>
+
+
+            <div
+              class="run-art-orbit run-art-orbit-a"
+            ></div>
+
+
+            <div
+              class="run-art-orbit run-art-orbit-b"
+            ></div>
+
+
+            <div class="run-art-track run-art-track-a">
+              <span class="run-art-dot"></span>
+            </div>
+
+            <div class="run-art-track run-art-track-b">
+              <span class="run-art-dot"></span>
+            </div>
+
+
+            <div
+              class="run-art-core"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RUN CONTROL
+        ================================================== -->
+
+        <div
+          class="run-control-strip"
+        >
+
+
+          <div
+            class="run-control-copy"
+          >
+
+            <span class="run-live-label">
+              Live validation
+            </span>
+
+
+            <strong>
+              Monitor progress and review results
+              as they arrive.
+            </strong>
+
+
+            <small>
+              Episode selection and filtering operate
+              directly on the returned validation results.
+            </small>
+
+          </div>
+
+
+          <div class="run-control-actions">
+
+            <button
+              id="run-start-button"
+              type="button"
+              class="run-action-button primary"
+            >
+
+              <span aria-hidden="true">▶</span>
+
+              Start validation
+
+            </button>
+
+
+            <button
+              id="stop-run-button"
+              type="button"
+              class="danger-button"
+              disabled
+            >
+
+            <span
+              class="button-icon"
+              aria-hidden="true"
+            >
+              ■
+            </span>
+
+            Stop validation
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================== -->
+
+        <div
+          class="run-progress-panel"
+        >
+
+
+          <div
+            class="run-donut-wrap"
+            aria-label="Validation progress"
+          >
+
+            <div
+              id="run-progress-donut"
+              class="run-donut"
+              style="--run-percent: 0%;"
+            >
+
+              <div class="run-donut-hole">
+
+                <span
+                  id="run-progress-percent"
+                >
+                  0%
+                </span>
+
+
+                <small>
+                  Complete
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="run-progress-main"
+          >
+
+
+            <div
+              class="run-progress-topline"
+            >
+
+              <div>
+
+                <div
+                  id="run-progress-label"
+                  class="progress-label"
+                >
+                  Waiting to start...
+                </div>
+
+
+                <div
+                  class="run-progress-caption"
+                >
+                  Validation engine progress
+                </div>
+
+              </div>
+
+
+              <span class="live-chip">
+
+                <span></span>
+
+                Live
+
+              </span>
+
+            </div>
+
+
+            <div
+              class="progress-track"
+            >
+
+              <progress
+                id="run-progress"
+                max="100"
+                value="0"
+              >
+                0%
+              </progress>
+
+            </div>
+
+
+            <div
+              class="run-progress-row"
+            >
+
+              <span
+                id="run-progress-text"
+                class="muted"
+              >
+                No validation running.
+              </span>
+
+
+              <span
+                class="run-progress-hint"
+              >
+                Results refresh automatically
+              </span>
+
+            </div>
+
+
+            <div
+              class="run-context-grid"
+            >
+
+
+              <div
+                class="run-context-item"
+              >
+
+                <span
+                  class="context-icon blue"
+                  aria-hidden="true"
+                >
+                  ◉
+                </span>
+
+
+                <div>
+
+                  <small>
+                    Processing
+                  </small>
+
+                  <strong>
+                    Episodes
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="run-context-item"
+              >
+
+                <span
+                  class="context-icon teal"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+
+
+                <div>
+
+                  <small>
+                    Checks
+                  </small>
+
+                  <strong>
+                    Enabled
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="run-context-item"
+              >
+
+                <span
+                  class="context-icon purple"
+                  aria-hidden="true"
+                >
+                  ▦
+                </span>
+
+
+                <div>
+
+                  <small>
+                    Profile
+                  </small>
+
+                  <strong>
+                    Default
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+
+        <div
+          id="run-summary"
+          class="summary-grid run-summary"
+          aria-label="Validation summary"
+        ></div>
+
+
+        <div
+          class="run-summary-note"
+        >
+
+          <div
+            class="run-note-icon"
+            aria-hidden="true"
+          >
+            i
+          </div>
+
+
+          <div>
+
+            <strong>
+              Episode classification
+            </strong>
+
+
+            <span>
+              Pass is green, Review is yellow,
+              and Reject is red. HARD findings
+              remain visually distinct as risk.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             EPISODE RESULTS HEADER
+        ================================================== -->
+
+        <div
+          class="episode-actions run-results-header"
+        >
+
+
+          <div
+            class="episode-title-group"
+          >
+
+
+            <div
+              class="section-icon list-icon"
+              aria-hidden="true"
+            >
+              ▦
+            </div>
+
+
+            <div>
+
+              <h3>
+                Episode results
+              </h3>
+
+
+              <p class="section-subtitle">
+                Select individual episodes or use the
+                bulk controls below.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="run-results-tools"
+          >
+
+
+            <!-- Search -->
+
+            <label
+              class="run-search"
+              aria-label="Search episode results"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="6.8"
+                ></circle>
+
+
+                <path
+                  d="m16 16 4.5 4.5"
+                ></path>
+
+              </svg>
+
+
+              <input
+                id="run-results-search"
+                type="search"
+                autocomplete="off"
+                placeholder="Search episodes..."
+              >
+
+            </label>
+
+
+            <!-- Status -->
+
+            <label
+              class="run-filter-select"
+              aria-label="Filter episode status"
+            >
+
+              <select
+                id="run-status-filter"
+              >
+
+                <option value="all">
+                  All statuses
+                </option>
+
+
+                <option value="pass">
+                  Pass
+                </option>
+
+
+                <option value="review">
+                  Review
+                </option>
+
+
+                <option value="reject">
+                  Reject
+                </option>
+
+
+                <option value="unknown">
+                  Unknown
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <!-- Select all -->
+
+            <button
+              id="run-select-all-button"
+              type="button"
+              class="run-selection-button"
+            >
+
+              ✓
+
+              Select all
+
+            </button>
+
+
+            <!-- Select all reject -->
+
+            <button
+              id="run-select-reject-button"
+              type="button"
+              class="run-selection-button risk"
+            >
+
+              ×
+
+              Select all reject
+
+            </button>
+
+
+            <button
+              id="run-clear-selection-button"
+              type="button"
+              class="run-selection-button clear-selection"
+            >
+
+              ⌫
+
+              Clear all selection
+
+            </button>
+
+
+            <!-- Existing selected count -->
+
+            <span
+              id="selected-episodes"
+              class="selected-count"
+            >
+              0 selected
+            </span>
+
+
+            <!-- Existing delete -->
+
+            <button
+              id="delete-selected-episodes"
+              type="button"
+              class="danger-button"
+              disabled
+            >
+              Delete selected
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Visible result count -->
+
+        <div
+          class="run-results-filterbar"
+        >
+
+          <span
+            id="run-visible-results"
+            class="run-result-count"
+          >
+            0 results shown
+          </span>
+
+        </div>
+
+
+        <div class="run-results-workspace">
+
+        <!-- =================================================
+             EPISODE GRID
+
+             Existing validation.js writes here.
+        ================================================== -->
+
+        <div
+          id="run-results"
+          class="result-list"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- =================================================
+             SELECTED EPISODE DETAIL
+
+             This stays beside the scrollable episode grid.
+        ================================================== -->
+
+        <section
+          id="episode-detail-panel"
+          class="episode-detail-panel"
+        >
+
+          <div
+            class="episode-detail-top"
+          >
+
+            <div>
+
+              <div
+                class="episode-detail-kicker"
+              >
+                Selected episode
+              </div>
+
+
+              <h4
+                id="episode-detail-title"
+                class="episode-detail-title"
+              >
+                Episode
+              </h4>
+
+            </div>
+
+
+            <span
+              id="episode-detail-status"
+              class="episode-detail-status unknown"
+            >
+              Choose episode
+            </span>
+
+          </div>
+
+
+          <div
+            id="episode-detail-content"
+            class="episode-detail-content"
+          >
+            <div class="episode-detail-empty">Select an episode tile to view its score and findings.</div>
+          </div>
+
+        </section>
+
+        </div>
+
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================================================
+       EXISTING API CONFIG
+       UNCHANGED
+  ========================================================== -->
+
+  <script>
+
+    const params =
+      new URLSearchParams(
+        location.search
+      );
+
+
+    globalThis.VALIDATOR_API_BASE =
+      "http://" +
+      location.hostname +
+      ":" +
+      (
+        params.get("api") ||
+        "8000"
+      );
+
+
+    globalThis.VALIDATOR_DATASET =
+      params.get("dataset") ||
+      "";
+
+  </script>
+
+
+  <!-- =========================================================
+       EXISTING APPLICATION
+       UNCHANGED
+  ========================================================== -->
+
+  <script
+    type="module"
+    src="./js/app.js?v=2"
+  ></script>
+
+
+  <!-- =========================================================
+       AUTO-OPEN INSPECTION
+       
+       Dataset is supplied externally through:
+           ?dataset=...
+       
+       The existing inspect form is submitted so the existing
+       app.js inspect flow remains responsible for API calls.
+  ========================================================== -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        const inspectForm =
+          document.querySelector(
+            "#inspect-form"
+          );
+
+
+        const datasetInput =
+          document.querySelector(
+            "#dataset-root"
+          );
+
+
+        const inspectionTab =
+          document.querySelector(
+            '.step-link[href="#inspection-section"]'
+          );
+
+
+        const inspectionStatus =
+          document.querySelector(
+            "#inspection-load-status"
+          );
+
+
+        const datasetRoot =
+          String(
+            globalThis.VALIDATOR_DATASET ||
+            ""
+          ).trim();
+
+
+        if (datasetInput) {
+
+          datasetInput.value =
+            datasetRoot;
+
+        }
+
+
+        /*
+         * Open the selected dataset on its inspection page.
+         */
+
+        inspectionTab?.click();
+
+
+        /*
+         * Dataset is loaded externally, so automatically
+         * run the existing inspect form.
+         */
+
+        if (
+          datasetRoot &&
+          inspectForm &&
+          !window.__validatorAutoInspectStarted
+        ) {
+
+          window.__validatorAutoInspectStarted =
+            true;
+
+
+          if (inspectionStatus) {
+
+            inspectionStatus.hidden =
+              false;
+
+            inspectionStatus.classList.remove(
+              "success",
+              "error"
+            );
+
+            inspectionStatus.textContent =
+              "Loading dataset inspection...";
+
+          }
+
+
+          window.setTimeout(
+            () => {
+
+              if (
+                typeof inspectForm.requestSubmit ===
+                "function"
+              ) {
+
+                inspectForm.requestSubmit();
+
+              }
+
+            },
+            80
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+  <!-- =========================================================
+       CONFIGURATION UI SYNC
+
+       Keeps the custom summary/preview UI synchronized with
+       the REAL controls generated by configuration.js.
+
+       No API calls.
+  ========================================================== -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+
+        const host =
+          document.querySelector(
+            "#validation-form-host"
+          );
+
+
+        const enabledCount =
+          document.querySelector(
+            "#config-enabled-count"
+          );
+
+
+        const controlCount =
+          document.querySelector(
+            "#config-control-count"
+          );
+
+
+        const previewBox =
+          document.querySelector(
+            "#config-preview-box"
+          );
+
+
+        const quickConfiguration =
+          document.querySelector(
+            '[data-quick-status="configuration"]'
+          );
+
+
+        const quickRun =
+          document.querySelector(
+            '[data-quick-status="run"]'
+          );
+
+
+        function isEnabled(
+          card
+        ) {
+
+          return Boolean(
+            card.dataset.checkId
+          );
+
+        }
+
+
+        function formatValue(
+          value
+        ) {
+
+          if (
+            value === "" ||
+            value == null
+          ) {
+
+            return "—";
+
+          }
+
+
+          const numeric =
+            Number(
+              value
+            );
+
+
+          if (
+            Number.isFinite(
+              numeric
+            )
+          ) {
+
+            return Number(
+              numeric.toFixed(
+                3
+              )
+            ).toString();
+
+          }
+
+
+          return String(
+            value
+          );
+
+        }
+
+
+        function prettify(
+          value
+        ) {
+
+          return String(
+            value
+          )
+            .split(
+              "."
+            )
+            .pop()
+            .replaceAll(
+              "_",
+              " "
+            )
+            .replace(
+              /\b\w/g,
+              (
+                char
+              ) =>
+                char.toUpperCase()
+            );
+
+        }
+
+
+        function updateStats() {
+
+          if (!host) {
+            return;
+          }
+
+
+          const cards =
+            Array.from(
+              host.querySelectorAll(
+                ":scope > .check-card"
+              )
+            );
+
+
+          const enabled =
+            cards.filter(
+              isEnabled
+            ).length;
+
+
+          const controls =
+            host.querySelectorAll(
+              "input[data-config-path]," +
+              "select[data-config-path]"
+            ).length;
+
+
+          if (enabledCount) {
+
+            enabledCount.textContent =
+              `${enabled} enabled`;
+
+          }
+
+
+          if (controlCount) {
+
+            controlCount.textContent =
+              `${controls} editable`;
+
+          }
+
+
+          if (quickConfiguration) {
+
+            quickConfiguration
+              .classList
+              .remove(
+                "warning"
+              );
+
+            const title =
+              quickConfiguration.querySelector(
+                ".quick-status-title"
+              );
+
+            const copy =
+              quickConfiguration.querySelector(
+                ".quick-status-copy"
+              );
+
+            title.textContent =
+              "Configuration ready";
+
+            copy.textContent =
+              "Current validation settings are loaded.";
+
+          }
+
+
+          if (quickRun) {
+
+            const icon =
+              quickRun.querySelector(
+                ".quick-status-icon"
+              );
+
+            const title =
+              quickRun.querySelector(
+                ".quick-status-title"
+              );
+
+            const copy =
+              quickRun.querySelector(
+                ".quick-status-copy"
+              );
+
+
+            icon.textContent =
+              enabled > 0
+                ? "✓"
+                : "!";
+
+
+            quickRun.classList.toggle(
+              "warning",
+              enabled === 0
+            );
+
+
+            title.textContent =
+              enabled > 0
+                ? "Ready to run"
+                : "No checks enabled";
+
+
+            copy.textContent =
+              enabled > 0
+                ? `${enabled} validation checks enabled.`
+                : "Enable at least one validation check.";
+
+          }
+
+        }
+
+
+        function updatePreview() {
+
+          if (
+            !host ||
+            !previewBox
+          ) {
+
+            return;
+
+          }
+
+
+          const controls =
+            Array.from(
+              host.querySelectorAll(
+                "input[data-config-path]," +
+                "select[data-config-path]"
+              )
+            );
+
+
+          if (!controls.length) {
+
+            previewBox.innerHTML = `
+              <div class="preview-empty">
+                No editable configuration
+                values are currently available.
+              </div>
+            `;
+
+            return;
+
+          }
+
+
+          previewBox.innerHTML =
+            controls
+              .slice(
+                0,
+                10
+              )
+              .map(
+                (
+                  control
+                ) => {
+
+                  let value =
+                    control.value;
+
+
+                  if (
+                    control.type ===
+                    "checkbox"
+                  ) {
+
+                    value =
+                      control.checked
+                        ? "Enabled"
+                        : "Disabled";
+
+                  } else if (
+                    control.tagName ===
+                    "SELECT"
+                  ) {
+
+                    const option =
+                      control.options[
+                        control.selectedIndex
+                      ];
+
+
+                    value =
+                      option
+                        ? option.textContent.trim()
+                        : control.value;
+
+                  }
+
+
+                  return `
+
+                    <div
+                      class="preview-row"
+                    >
+
+                      <span
+                        class="preview-label"
+                      >
+                        ${prettify(
+                          control.dataset
+                            .configPath ||
+                          "Value"
+                        )}
+                      </span>
+
+
+                      <span
+                        class="preview-value"
+                      >
+                        ${formatValue(
+                          value
+                        )}
+                      </span>
+
+                    </div>
+
+                  `;
+
+                }
+              )
+              .join(
+                ""
+              );
+
+        }
+
+
+        function enhanceRange(
+          range
+        ) {
+
+          const parent =
+            range.parentElement;
+
+
+          if (!parent) {
+            return;
+          }
+
+
+          let shell =
+            parent.querySelector(
+              ":scope > .config-range-shell"
+            );
+
+
+          if (!shell) {
+
+            shell =
+              document.createElement(
+                "div"
+              );
+
+
+            shell.className =
+              "config-range-shell";
+
+
+            parent.insertBefore(
+              shell,
+              range
+            );
+
+
+            shell.appendChild(
+              range
+            );
+
+          }
+
+
+          let output =
+            shell.querySelector(
+              ".config-range-value"
+            );
+
+
+          if (!output) {
+
+            output =
+              document.createElement(
+                "output"
+              );
+
+
+            output.className =
+              "config-range-value";
+
+
+            shell.appendChild(
+              output
+            );
+
+          }
+
+
+          let scale =
+            shell.querySelector(
+              ".config-range-scale"
+            );
+
+
+          if (!scale) {
+
+            scale =
+              document.createElement(
+                "div"
+              );
+
+
+            scale.className =
+              "config-range-scale";
+
+
+            shell.appendChild(
+              scale
+            );
+
+          }
+
+
+          scale.innerHTML = `
+
+            <span>
+              ${
+                range.min ||
+                "0"
+              }
+            </span>
+
+
+            <span>
+              ${
+                range.max ||
+                "100"
+              }
+            </span>
+
+          `;
+
+
+          const sync =
+            () => {
+
+              output.textContent =
+                formatValue(
+                  range.value
+                );
+
+
+              updateStats();
+              updatePreview();
+
+            };
+
+
+          if (
+            !range.dataset
+              .configUiBound
+          ) {
+
+            range.addEventListener(
+              "input",
+              sync
+            );
+
+
+            range.addEventListener(
+              "change",
+              sync
+            );
+
+
+            range.dataset
+              .configUiBound =
+              "true";
+
+          }
+
+
+          sync();
+
+        }
+
+
+        function bindControls() {
+
+          if (!host) {
+            return;
+          }
+
+
+          const cards =
+            host.querySelectorAll(
+              ":scope > .check-card"
+            );
+
+
+          cards.forEach(
+            (
+              card
+            ) => {
+
+              card.querySelectorAll(
+                "input[type='range']"
+              ).forEach(
+                enhanceRange
+              );
+
+
+              card.querySelectorAll(
+                "input[data-config-path]," +
+                "select[data-config-path]"
+              ).forEach(
+                (
+                  control
+                ) => {
+
+                  if (
+                    control.dataset
+                      .configUiBound
+                  ) {
+
+                    return;
+
+                  }
+
+
+                  const sync =
+                    () => {
+
+                      updateStats();
+                      updatePreview();
+
+                    };
+
+
+                  control.addEventListener(
+                    "input",
+                    sync
+                  );
+
+
+                  control.addEventListener(
+                    "change",
+                    sync
+                  );
+
+
+                  control.dataset
+                    .configUiBound =
+                    "true";
+
+                }
+              );
+
+
+              const enabled =
+                card.querySelector(
+                  ".check-enabled"
+                );
+
+
+              if (
+                enabled &&
+                !enabled.dataset
+                  .configUiBound
+              ) {
+
+                enabled.addEventListener(
+                  "change",
+                  () => {
+
+                    updateStats();
+                    updatePreview();
+
+                  }
+                );
+
+
+                enabled.dataset
+                  .configUiBound =
+                  "true";
+
+              }
+
+            }
+          );
+
+
+          updateStats();
+          updatePreview();
+
+        }
+
+
+        if (host) {
+
+          const observer =
+            new MutationObserver(
+              () => {
+
+                bindControls();
+
+              }
+            );
+
+
+          observer.observe(
+            host,
+            {
+              childList: true,
+              subtree: true
+            }
+          );
+
+
+          window.setTimeout(
+            bindControls,
+            100
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+  <!-- =========================================================
+       RUN VALIDATION UI
+       
+       Includes:
+       - GRID episode rendering
+       - robust status filtering
+       - episode detail panel
+       - Select all
+       - Select all reject
+       - Clear all selection
+       - Start validation / Revalidate
+       - delete → automatic revalidation
+       - donut sync
+
+       Existing API/application logic remains responsible for
+       the actual validation process.
+  ========================================================== -->
+
+  <script type="module">
+
+    import {
+      apiClient
+    } from "./js/api.js?v=2";
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+
+        const results =
+          document.querySelector(
+            "#run-results"
+          );
+
+
+        const search =
+          document.querySelector(
+            "#run-results-search"
+          );
+
+
+        const statusFilter =
+          document.querySelector(
+            "#run-status-filter"
+          );
+
+
+        const selectedCount =
+          document.querySelector(
+            "#selected-episodes"
+          );
+
+
+        const deleteButton =
+          document.querySelector(
+            "#delete-selected-episodes"
+          );
+
+
+        const selectAllButton =
+          document.querySelector(
+            "#run-select-all-button"
+          );
+
+
+        const selectRejectButton =
+          document.querySelector(
+            "#run-select-reject-button"
+          );
+
+
+        const clearSelectionButton =
+          document.querySelector(
+            "#run-clear-selection-button"
+          );
+
+
+        const startButton =
+          document.querySelector(
+            "#run-start-button"
+          );
+
+
+        const revalidateButton =
+          document.querySelector(
+            "#run-revalidate-button"
+          );
+
+
+        const visibleCount =
+          document.querySelector(
+            "#run-visible-results"
+          );
+
+
+        const detailPanel =
+          document.querySelector(
+            "#episode-detail-panel"
+          );
+
+
+        const detailTitle =
+          document.querySelector(
+            "#episode-detail-title"
+          );
+
+
+        const detailStatus =
+          document.querySelector(
+            "#episode-detail-status"
+          );
+
+
+        const detailContent =
+          document.querySelector(
+            "#episode-detail-content"
+          );
+
+
+        const progress =
+          document.querySelector(
+            "#run-progress"
+          );
+
+
+        const donut =
+          document.querySelector(
+            "#run-progress-donut"
+          );
+
+
+        const percentLabel =
+          document.querySelector(
+            "#run-progress-percent"
+          );
+
+
+        const deleteStatus =
+          document.querySelector(
+            "#delete-status"
+          );
+
+
+        let selectedDetailCard =
+          null;
+
+
+        let detailRequestId =
+          0;
+
+
+        let deleteInProgress =
+          false;
+
+
+        /* =====================================================
+           NORMALIZATION
+        ====================================================== */
+
+        function normalize(
+          value
+        ) {
+
+          return String(
+            value ?? ""
+          )
+            .trim()
+            .toLowerCase();
+
+        }
+
+
+        /* =====================================================
+           RESULT CARDS
+        ====================================================== */
+
+        function getCards() {
+
+          return Array.from(
+            results?.querySelectorAll(
+              ".result-item"
+            ) || []
+          );
+
+        }
+
+
+        /* =====================================================
+           STATUS DETECTION
+           
+           Looks at:
+           - data attributes
+           - run-state-* classes
+           - badge
+           - result text
+        ====================================================== */
+
+        function getResultStatus(
+          card
+        ) {
+
+          if (!card) {
+            return "unknown";
+          }
+
+
+          const allowed = [
+            "pass",
+            "review",
+            "reject",
+            "unknown"
+          ];
+
+
+          const direct =
+            normalize(
+              card.dataset.status ||
+              card.dataset.resultStatus ||
+              card.dataset.validationStatus
+            );
+
+
+          if (
+            allowed.includes(
+              direct
+            )
+          ) {
+
+            return direct;
+
+          }
+
+
+          const badges =
+            Array.from(
+              card.querySelectorAll(
+                ".badge"
+              )
+            );
+
+
+          for (
+            const badge
+            of badges
+          ) {
+
+
+            const matchingClass =
+              Array.from(
+                badge.classList
+              )
+                .map(
+                  normalize
+                )
+                .find(
+                  (
+                    item
+                  ) =>
+                    item.startsWith(
+                      "run-state-"
+                    )
+                );
+
+
+            if (
+              matchingClass
+            ) {
+
+              const status =
+                matchingClass.replace(
+                  "run-state-",
+                  ""
+                );
+
+
+              if (
+                allowed.includes(
+                  status
+                )
+              ) {
+
+                return status;
+
+              }
+
+            }
+
+
+            const text =
+              normalize(
+                badge.textContent
+              );
+
+
+            if (
+              text.includes(
+                "reject"
+              )
+            ) {
+              return "reject";
+            }
+
+
+            if (
+              text.includes(
+                "review"
+              )
+            ) {
+              return "review";
+            }
+
+
+            if (
+              text.includes(
+                "pass"
+              ) ||
+              text.includes(
+                "keep"
+              )
+            ) {
+              return "pass";
+            }
+
+          }
+
+
+          const text =
+            normalize(
+              card.textContent
+            );
+
+
+          if (
+            /\breject\b/
+              .test(
+                text
+              )
+          ) {
+
+            return "reject";
+
+          }
+
+
+          if (
+            /\breview\b/
+              .test(
+                text
+              )
+          ) {
+
+            return "review";
+
+          }
+
+
+          if (
+            /\bpass\b/
+              .test(
+                text
+              ) ||
+            /\bkeep\b/
+              .test(
+                text
+              )
+          ) {
+
+            return "pass";
+
+          }
+
+
+          return "unknown";
+
+        }
+
+
+        /* =====================================================
+           RISK DETECTION
+        ====================================================== */
+
+        function isRisk(
+          card
+        ) {
+
+          const status =
+            getResultStatus(
+              card
+            );
+
+
+          if (
+            status === "reject" ||
+            status === "review"
+          ) {
+
+            return true;
+
+          }
+
+
+          const text =
+            normalize(
+              card?.textContent
+            );
+
+
+          return (
+            text.includes(
+              "hard failure"
+            ) ||
+            text.includes(
+              "hard_failure"
+            ) ||
+            text.includes(
+              "hard-failure"
+            ) ||
+            /\bhard\b/
+              .test(
+                text
+              ) ||
+            Array.from(
+              card?.classList ||
+              []
+            )
+              .some(
+                (
+                  className
+                ) =>
+                  normalize(
+                    className
+                  ).includes(
+                    "hard"
+                  )
+              )
+          );
+
+        }
+
+
+        /* =====================================================
+           EPISODE ID
+        ====================================================== */
+
+        function getEpisodeId(
+          card
+        ) {
+
+          const checkbox =
+            card.querySelector(
+              ".episode-checkbox"
+            );
+
+
+          return String(
+            card.dataset.episodeId ||
+            card.dataset.episode ||
+            card.dataset.id ||
+            checkbox?.dataset.episode ||
+            checkbox?.value ||
+            ""
+          ).trim();
+
+        }
+
+
+        /* =====================================================
+           TILE DECORATION
+        ====================================================== */
+
+        function decorateCard(
+          card
+        ) {
+
+          if (!card) {
+            return;
+          }
+
+
+          const status =
+            getResultStatus(
+              card
+            );
+
+
+          const episodeId =
+            getEpisodeId(
+              card
+            );
+
+
+          card.dataset.runStatus =
+            status;
+
+
+          card.classList.remove(
+            "status-pass",
+            "status-review",
+            "status-reject",
+            "status-unknown"
+          );
+
+
+          card.classList.add(
+            `status-${status}`
+          );
+
+
+          card.setAttribute(
+            "role",
+            "button"
+          );
+
+
+          card.setAttribute(
+            "tabindex",
+            "0"
+          );
+
+
+          card.setAttribute(
+            "aria-label",
+            `${episodeId || "Episode"} — ${status}`
+          );
+
+
+          let idNode =
+            card.querySelector(
+              ":scope > .episode-grid-label"
+            );
+
+
+          if (!idNode) {
+
+            idNode =
+              document.createElement(
+                "span"
+              );
+
+
+            idNode.className =
+              "episode-grid-label";
+
+
+            card.prepend(
+              idNode
+            );
+
+          }
+
+
+          if (idNode.textContent !== "Episode") {
+            idNode.textContent = "Episode";
+          }
+
+
+          let numberNode =
+            card.querySelector(
+              ":scope > .episode-grid-id"
+            );
+
+
+          if (!numberNode) {
+
+            numberNode =
+              document.createElement(
+                "span"
+              );
+
+
+            numberNode.className =
+              "episode-grid-id";
+
+
+            idNode.after(
+              numberNode
+            );
+
+          }
+
+
+          const episodeLabel =
+            episodeId ||
+            "Unknown episode";
+
+          if (numberNode.textContent !== episodeLabel) {
+            numberNode.textContent = episodeLabel;
+          }
+
+
+          let statusNode =
+            card.querySelector(
+              ":scope > .episode-grid-status"
+            );
+
+
+          if (!statusNode) {
+
+            statusNode =
+              document.createElement(
+                "span"
+              );
+
+
+            statusNode.className =
+              "episode-grid-status";
+
+
+            numberNode.after(
+              statusNode
+            );
+
+          }
+
+
+          statusNode.className =
+            `episode-grid-status ${status}`;
+
+
+          const statusLabel =
+            status === "pass"
+              ? "Passed"
+              : status === "review"
+                ? "Review"
+                : status === "reject"
+                  ? "Reject"
+                  : "Unknown";
+
+          if (statusNode.textContent !== statusLabel) {
+            statusNode.textContent = statusLabel;
+          }
+
+
+          const checkbox =
+            card.querySelector(
+              ".episode-checkbox"
+            );
+
+
+          if (checkbox && checkbox.value !== episodeId) {
+            checkbox.value = episodeId;
+          }
+
+
+          card.classList.toggle(
+            "is-selected",
+            Boolean(
+              checkbox?.checked
+            )
+          );
+
+        }
+
+
+        /* =====================================================
+           DETAIL PANEL
+        ====================================================== */
+
+        function clearDetail() {
+
+          detailRequestId += 1;
+
+          selectedDetailCard =
+            null;
+
+
+          if (detailPanel) {
+
+            detailPanel.hidden =
+              false;
+
+          }
+
+
+          if (detailTitle) {
+
+            detailTitle.textContent =
+              "Select an episode";
+
+          }
+
+
+          if (detailStatus) {
+
+            detailStatus.className =
+              "episode-detail-status unknown";
+
+            detailStatus.textContent =
+              "Choose episode";
+
+          }
+
+
+          if (detailContent) {
+
+            detailContent.innerHTML =
+              '<div class="episode-detail-empty">Select an episode tile to view its score and findings.</div>';
+
+          }
+
+        }
+
+
+        function showDetail(
+          card
+        ) {
+
+          if (
+            !card ||
+            !detailPanel ||
+            !detailContent
+          ) {
+
+            return;
+
+          }
+
+
+          selectedDetailCard =
+            card;
+
+          const requestId = ++detailRequestId;
+
+
+          const status =
+            getResultStatus(
+              card
+            );
+
+
+          const episodeId =
+            getEpisodeId(
+              card
+            );
+
+
+          if (detailTitle) {
+
+            detailTitle.textContent =
+              episodeId ||
+              "Episode";
+
+          }
+
+
+          if (detailStatus) {
+
+            detailStatus.className =
+              `episode-detail-status ${status}`;
+
+
+            detailStatus.textContent =
+              status === "pass"
+                ? "Passed"
+                : status === "review"
+                  ? "Review"
+                  : status === "reject"
+                    ? "Reject"
+                    : "Unknown";
+
+          }
+
+
+          const clone =
+            card.cloneNode(
+              true
+            );
+
+
+          clone.hidden =
+            false;
+
+
+          clone.removeAttribute(
+            "role"
+          );
+
+
+          clone.removeAttribute(
+            "tabindex"
+          );
+
+
+          clone.classList.add(
+            "episode-detail-result"
+          );
+
+
+          clone
+            .querySelectorAll(
+              ".episode-checkbox"
+            )
+            .forEach(
+              (
+                checkbox
+              ) =>
+                checkbox.remove()
+            );
+
+
+          clone
+            .querySelectorAll(
+              ".episode-grid-label," +
+              ".episode-grid-id," +
+              ".episode-grid-status"
+            )
+            .forEach(
+              (
+                node
+              ) =>
+                node.remove()
+            );
+
+
+          detailContent.innerHTML =
+            "";
+
+
+          detailContent.appendChild(
+            clone
+          );
+
+
+          detailPanel.hidden =
+            false;
+
+            
+
+
+        }
+
+
+        /* =====================================================
+           FILTERING
+        ====================================================== */
+
+        function matchesSearch(
+          card
+        ) {
+
+          const query =
+            normalize(
+              search?.value
+            );
+
+
+          if (!query) {
+            return true;
+          }
+
+
+          const episodeId =
+            normalize(
+              getEpisodeId(
+                card
+              )
+            );
+
+
+          const text =
+            normalize(
+              card.textContent
+            );
+
+
+          return (
+            episodeId.includes(
+              query
+            ) ||
+            text.includes(
+              query
+            )
+          );
+
+        }
+
+
+        function matchesStatus(
+          card
+        ) {
+
+          const wanted =
+            normalize(
+              statusFilter?.value ||
+              "all"
+            );
+
+
+          if (
+            wanted ===
+            "all"
+          ) {
+
+            return true;
+
+          }
+
+
+          return (
+            getResultStatus(
+              card
+            ) ===
+            wanted
+          );
+
+        }
+
+
+        function applyFilters() {
+
+          const cards =
+            getCards();
+
+
+          let visible =
+            0;
+
+
+          cards.forEach(
+            (
+              card
+            ) => {
+
+
+              decorateCard(
+                card
+              );
+
+
+              const show =
+                matchesSearch(
+                  card
+                ) &&
+                matchesStatus(
+                  card
+                );
+
+
+              card.hidden =
+                !show;
+
+
+              if (show) {
+
+                visible += 1;
+
+              }
+
+            }
+          );
+
+
+          if (visibleCount) {
+
+            visibleCount.textContent =
+              `${visible} of ${cards.length} results shown`;
+
+          }
+
+
+          const empty =
+            results?.querySelector(
+              ".run-filter-empty"
+            );
+
+
+          if (
+            cards.length &&
+            visible === 0
+          ) {
+
+            if (!empty) {
+
+              const node =
+                document.createElement(
+                  "div"
+                );
+
+
+              node.className =
+                "run-filter-empty";
+
+
+              node.textContent =
+                "No episode results match the current search or status filter.";
+
+
+              results?.appendChild(
+                node
+              );
+
+            }
+
+          } else {
+
+            empty?.remove();
+
+          }
+
+
+          if (
+            selectedDetailCard &&
+            (
+              selectedDetailCard.hidden ||
+              !results.contains(
+                selectedDetailCard
+              )
+            )
+          ) {
+
+            clearDetail();
+
+          }
+
+        }
+
+
+        /* =====================================================
+           SELECTION
+        ====================================================== */
+
+        function updateSelectionUI() {
+
+          const cards =
+            getCards();
+
+
+          const checked =
+            cards.filter(
+              (
+                card
+              ) =>
+                Boolean(
+                  card.querySelector(
+                    ".episode-checkbox"
+                  )?.checked
+                )
+            );
+
+
+          cards.forEach(
+            (
+              card
+            ) => {
+
+              card.classList.toggle(
+                "is-selected",
+                Boolean(
+                  card.querySelector(
+                    ".episode-checkbox"
+                  )?.checked
+                )
+              );
+
+            }
+          );
+
+
+          if (selectedCount) {
+
+            selectedCount.textContent =
+              `${checked.length} selected`;
+
+          }
+
+
+          if (deleteButton) {
+
+            deleteButton.disabled =
+              checked.length === 0 ||
+              deleteInProgress ||
+              currentRunIsActive();
+
+          }
+
+        }
+
+
+        function setSelected(
+          card,
+          selected
+        ) {
+
+          const checkbox =
+            card.querySelector(
+              ".episode-checkbox"
+            );
+
+
+          if (!checkbox) {
+            return;
+          }
+
+
+          if (
+            checkbox.checked ===
+            selected
+          ) {
+
+            return;
+
+          }
+
+
+          checkbox.checked =
+            selected;
+
+
+          checkbox.dispatchEvent(
+            new Event(
+              "change",
+              {
+                bubbles: true
+              }
+            )
+          );
+
+
+          card.classList.toggle(
+            "is-selected",
+            selected
+          );
+
+        }
+
+
+        function selectAllVisible() {
+
+          getCards()
+            .filter(
+              (
+                card
+              ) =>
+                !card.hidden
+            )
+            .forEach(
+              (
+                card
+              ) =>
+                setSelected(
+                  card,
+                  true
+                )
+            );
+
+
+          updateSelectionUI();
+
+        }
+
+
+        function selectAllRejectVisible() {
+
+          getCards()
+            .filter(
+              (
+                card
+              ) =>
+                !card.hidden &&
+                getResultStatus(
+                  card
+                ) === "reject"
+            )
+            .forEach(
+              (
+                card
+              ) =>
+                setSelected(
+                  card,
+                  true
+                )
+            );
+
+
+          updateSelectionUI();
+
+        }
+
+
+        /* =====================================================
+           GRID CLICK
+        ====================================================== */
+
+        if (results) {
+
+          results.addEventListener(
+            "click",
+            (
+              event
+            ) => {
+
+              const card =
+                event.target.closest(
+                  ".result-item"
+                );
+
+
+              if (!card) {
+                return;
+              }
+
+
+              /*
+               * Clicking directly on the checkbox must not
+               * open/toggle the detail independently.
+               */
+
+              if (
+                event.target.closest(
+                  "input,button,select,a"
+                )
+              ) {
+
+                updateSelectionUI();
+
+                decorateCard(
+                  card
+                );
+
+                return;
+
+              }
+
+
+              showDetail(
+                card
+              );
+
+            }
+          );
+
+
+          results.addEventListener(
+            "keydown",
+            (
+              event
+            ) => {
+
+              if (
+                event.key !==
+                "Enter" &&
+                event.key !==
+                " "
+              ) {
+
+                return;
+
+              }
+
+
+              const card =
+                event.target.closest(
+                  ".result-item"
+                );
+
+
+              if (!card) {
+                return;
+              }
+
+
+              event.preventDefault();
+
+
+              showDetail(
+                card
+              );
+
+            }
+          );
+
+        }
+
+
+        /* =====================================================
+           SELECTION CHANGE
+        ====================================================== */
+
+        if (results) {
+
+          results.addEventListener(
+            "change",
+            (
+              event
+            ) => {
+
+              if (
+                !event.target.matches(
+                  ".episode-checkbox"
+                )
+              ) {
+
+                return;
+
+              }
+
+
+              const card =
+                event.target.closest(
+                  ".result-item"
+                );
+
+
+              if (card) {
+
+                decorateCard(
+                  card
+                );
+
+              }
+
+
+              updateSelectionUI();
+
+            }
+          );
+
+        }
+
+
+        function clearAllSelection() {
+
+          getCards().forEach(
+            (
+              card
+            ) => {
+
+              setSelected(
+                card,
+                false
+              );
+
+            }
+          );
+
+
+          updateSelectionUI();
+
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ====================================================== */
+
+        selectAllButton?.addEventListener(
+          "click",
+          () => {
+
+            selectAllVisible();
+
+          }
+        );
+
+
+        selectRejectButton?.addEventListener(
+          "click",
+          () => {
+
+            selectAllRejectVisible();
+
+          }
+        );
+
+
+        clearSelectionButton?.addEventListener(
+          "click",
+          () => {
+
+            clearAllSelection();
+
+          }
+        );
+
+
+        search?.addEventListener(
+          "input",
+          () => {
+
+            window.setTimeout(
+              applyFilters,
+              0
+            );
+
+          }
+        );
+
+
+        statusFilter?.addEventListener(
+          "change",
+          applyFilters
+        );
+
+
+        /* =====================================================
+           REVALIDATE
+           
+           This uses the existing Start validation action
+           generated by app.js/configuration.js.
+        ====================================================== */
+
+        function findExistingStartButton() {
+
+          return Array.from(
+            document.querySelectorAll(
+              "#config-section #start-validation-button"
+            )
+          ).find(
+            (
+              button
+            ) =>
+              normalize(
+                button.textContent
+              )
+                .includes(
+                  "start validation"
+                )
+          );
+
+        }
+
+
+        function triggerExistingValidation() {
+
+          const startButton =
+            findExistingStartButton();
+
+
+          if (!startButton) {
+
+            if (deleteStatus) {
+
+              deleteStatus.hidden =
+                false;
+
+
+              deleteStatus.textContent =
+                "Validation action is not available.";
+
+            }
+
+
+            return false;
+
+          }
+
+
+          if (
+            startButton.disabled
+          ) {
+
+            if (deleteStatus) {
+
+              deleteStatus.hidden =
+                false;
+
+
+              deleteStatus.textContent =
+                "Validation configuration is not ready.";
+
+            }
+
+
+            return false;
+
+          }
+
+
+          startButton.click();
+
+
+          return true;
+
+        }
+
+
+        startButton?.addEventListener(
+          "click",
+          () => {
+
+            triggerExistingValidation();
+
+          }
+        );
+
+
+        revalidateButton?.addEventListener(
+          "click",
+          () => {
+
+            triggerExistingValidation();
+
+          }
+        );
+
+
+        /* =====================================================
+           SUMMARY SYNC
+
+           Pass is derived from the actual rendered episode grid,
+           and the Review total tile is hidden from the Run page.
+        ====================================================== */
+
+        function findSummaryTile(label) {
+
+          const wanted = normalize(label);
+
+          return Array.from(
+            document.querySelectorAll("#run-summary > *")
+          ).find(
+            (tile) =>
+              normalize(tile.textContent).includes(wanted)
+          ) || null;
+
+        }
+
+
+        function setSummaryTileCount(tile, count) {
+
+          if (!tile) {
+            return;
+          }
+
+          const candidates = Array.from(
+            tile.querySelectorAll(
+              ".summary-value, .metric-value, .stat-value, .summary-number, .metric-number, .value, strong, b"
+            )
+          );
+
+          const valueNode =
+            candidates.find(
+              (node) =>
+                /^\s*\d+(?:\.\d+)?\s*$/.test(
+                  String(node.textContent || "")
+                )
+            ) ||
+            Array.from(tile.querySelectorAll("*")).find(
+              (node) =>
+                /^\s*\d+(?:\.\d+)?\s*$/.test(
+                  String(node.textContent || "")
+                )
+            );
+
+          if (valueNode) {
+            const nextValue = String(count);
+            if (String(valueNode.textContent || "").trim() !== nextValue) {
+              valueNode.textContent = nextValue;
+            }
+            return;
+          }
+
+          const walker = document.createTreeWalker(
+            tile,
+            NodeFilter.SHOW_TEXT
+          );
+
+          while (walker.nextNode()) {
+            const node = walker.currentNode;
+            const value = String(node.nodeValue || "");
+            const match = value.match(/\b\d+\b/);
+
+            if (match) {
+              const nextValue = String(count);
+              if (match[0] !== nextValue) {
+                node.nodeValue =
+                  value.slice(0, match.index) +
+                  nextValue +
+                  value.slice(match.index + match[0].length);
+              }
+              return;
+            }
+          }
+
+        }
+
+
+        function syncRunSummary() {
+
+          const summary = document.querySelector("#run-summary");
+
+          if (!summary) {
+            return;
+          }
+
+          const reviewTile = findSummaryTile("review");
+
+          if (reviewTile) {
+            reviewTile.hidden = true;
+            reviewTile.style.display = "none";
+          }
+
+          const passedCount = getCards().filter(
+            (card) => getResultStatus(card) === "pass"
+          ).length;
+
+          setSummaryTileCount(
+            findSummaryTile("pass"),
+            passedCount
+          );
+
+        }
+
+
+        /* =====================================================
+           RUN STATE
+        ====================================================== */
+
+        function currentRunIsActive() {
+
+          const state =
+            normalize(
+              document.querySelector(
+                "#run-state"
+              )?.textContent
+            );
+
+
+          return [
+            "queued",
+            "starting",
+            "running",
+            "stopping",
+            "processing",
+            "in_progress"
+          ].includes(
+            state
+          );
+
+        }
+
+
+        function syncRunActions() {
+
+          const active =
+            currentRunIsActive() ||
+            startButton?.dataset.runStarting === "true";
+
+
+          if (startButton) {
+            startButton.disabled = active;
+          }
+
+          if (revalidateButton) {
+            revalidateButton.disabled = active;
+          }
+
+          if (selectAllButton) {
+            selectAllButton.disabled =
+              deleteInProgress || active;
+          }
+
+          if (selectRejectButton) {
+            selectRejectButton.disabled =
+              deleteInProgress || active;
+          }
+
+          if (clearSelectionButton) {
+            clearSelectionButton.disabled =
+              deleteInProgress || active;
+          }
+
+        }
+
+
+        /* =====================================================
+           DELETE → REVALIDATE
+           
+           Uses the existing API endpoint:
+               deleteEpisodes(datasetRoot, episodes)
+
+           Then triggers the existing validation start flow
+           while staying in the Run tab.
+        ====================================================== */
+
+        async function deleteSelectedEpisodes() {
+
+          if (
+            deleteInProgress
+          ) {
+
+            return;
+
+          }
+
+
+          const checkboxes =
+            Array.from(
+              results?.querySelectorAll(
+                ".episode-checkbox:checked"
+              ) || []
+            );
+
+
+          const episodes =
+            checkboxes
+              .map(
+                (
+                  checkbox
+                ) =>
+                  checkbox.value
+              )
+              .filter(
+                (
+                  value
+                ) =>
+                  String(
+                    value
+                  ).trim() !== ""
+              );
+
+
+          if (!episodes.length) {
+
+            updateSelectionUI();
+
+            return;
+
+          }
+
+
+          const datasetRoot =
+            document.querySelector(
+              "#dataset-root"
+            )?.value ||
+            globalThis.VALIDATOR_DATASET ||
+            "";
+
+
+          if (!datasetRoot) {
+
+            if (deleteStatus) {
+
+              deleteStatus.hidden =
+                false;
+
+
+              deleteStatus.textContent =
+                "Dataset root is not available.";
+
+            }
+
+
+            return;
+
+          }
+
+
+          deleteInProgress =
+            true;
+
+
+          deleteButton.disabled =
+            true;
+
+
+          selectAllButton.disabled =
+            true;
+
+
+          selectRejectButton.disabled =
+            true;
+
+
+          revalidateButton.disabled =
+            true;
+
+
+          if (deleteStatus) {
+
+            deleteStatus.hidden =
+              false;
+
+
+            deleteStatus.dataset.state = "working";
+            deleteButton.textContent = "Deleting…";
+            deleteStatus.textContent =
+              `Deleting ${episodes.length} selected episode${
+                episodes.length === 1
+                  ? ""
+                  : "s"
+              }...`;
+
+          }
+
+
+          try {
+
+            /*
+             * Existing API method and parameters.
+             */
+
+            const deletionResult = await apiClient.deleteEpisodes(
+              datasetRoot,
+              episodes
+            );
+
+            const deletedCount = Array.isArray(deletionResult?.deleted)
+              ? deletionResult.deleted.length
+              : episodes.length;
+
+
+            /*
+             * Clear local selections.
+             */
+
+            checkboxes.forEach(
+              (
+                checkbox
+              ) => {
+
+                checkbox.checked =
+                  false;
+
+
+                checkbox.dispatchEvent(
+                  new Event(
+                    "change",
+                    {
+                      bubbles: true
+                    }
+                  )
+                );
+
+              }
+            );
+
+
+            updateSelectionUI();
+            deleteButton.textContent = "Delete selected";
+
+
+            if (deleteStatus) {
+
+              deleteStatus.dataset.state = "working";
+              deleteStatus.textContent =
+                `Deleted ${deletedCount} of ${episodes.length} selected episode${
+                  episodes.length === 1
+                    ? ""
+                    : "s"
+                }. Revalidation starting...`;
+
+            }
+
+
+            /*
+             * Existing validation flow:
+             *
+             * resolve configuration
+             * create run
+             * set step 4
+             * poll
+             * summary
+             * results
+             */
+
+            window.setTimeout(
+              () => {
+
+                const started =
+                  triggerExistingValidation();
+
+
+                deleteInProgress =
+                  false;
+
+
+                updateSelectionUI();
+
+
+                syncRunActions();
+
+
+                if (started && deleteStatus) {
+                  deleteStatus.dataset.state = "success";
+                }
+
+
+                if (!started) {
+
+                  if (deleteStatus) {
+                    deleteStatus.textContent =
+                      "Validation could not be started after deletion.";
+                  }
+
+                }
+
+              },
+              120
+            );
+
+
+          } catch (error) {
+
+            console.error(
+              "Episode deletion failed:",
+              error
+            );
+
+
+            if (deleteStatus) {
+
+              deleteStatus.hidden =
+                false;
+
+
+              deleteStatus.dataset.state = "error";
+              deleteButton.textContent = "Delete selected";
+              deleteStatus.textContent =
+                error?.detail ||
+                error?.message ||
+                "Episode deletion failed.";
+
+            }
+
+
+            deleteInProgress =
+              false;
+
+
+            updateSelectionUI();
+
+
+            syncRunActions();
+
+          }
+
+        }
+
+
+        /*
+         * Capture BEFORE app.js target handler so the old
+         * delete → re-inspect behaviour does not run. The same
+         * configured validation start action is used again, so the
+         * user stays on the Run tab after deletion.
+         */
+
+        document.addEventListener(
+          "click",
+          (
+            event
+          ) => {
+
+            const button =
+              event.target.closest(
+                "#delete-selected-episodes"
+              );
+
+
+            if (
+              !button ||
+              deleteInProgress
+            ) {
+
+              return;
+
+            }
+
+
+            event.preventDefault();
+
+
+            event.stopImmediatePropagation();
+
+
+            deleteSelectedEpisodes();
+
+          },
+          true
+        );
+
+
+        /* =====================================================
+           OBSERVE RESULT RENDERING
+        ====================================================== */
+
+        if (results) {
+
+          const observer =
+            new MutationObserver(
+              () => {
+
+                const cards =
+                  getCards();
+
+
+                cards.forEach(
+                  decorateCard
+                );
+
+
+                /*
+                 * If the current detail card was removed
+                 * by a refresh, close the detail panel.
+                 */
+
+                if (
+                  selectedDetailCard &&
+                  !results.contains(
+                    selectedDetailCard
+                  )
+                ) {
+
+                  clearDetail();
+
+                }
+
+
+                applyFilters();
+
+                updateSelectionUI();
+
+                syncRunSummary();
+
+                syncRunActions();
+
+              }
+            );
+
+
+          observer.observe(
+            results,
+            {
+              childList: true,
+              subtree: true
+            }
+          );
+
+        }
+
+
+        const summary =
+          document.querySelector("#run-summary");
+
+
+        if (summary) {
+
+          const summaryObserver =
+            new MutationObserver(
+              () => {
+
+                syncRunSummary();
+
+              }
+            );
+
+
+          summaryObserver.observe(
+            summary,
+            {
+              childList: true,
+              subtree: true,
+              characterData: true
+            }
+          );
+
+        }
+
+
+        window.setTimeout(
+          () => {
+
+            syncRunSummary();
+
+            syncRunActions();
+
+            updateSelectionUI();
+
+          },
+          0
+        );
+
+
+        /* =====================================================
+           DONUT
+        ====================================================== */
+
+        function syncDonut() {
+
+          if (
+            !progress ||
+            !donut
+          ) {
+
+            return;
+
+          }
+
+
+          const value =
+            Math.max(
+              0,
+              Math.min(
+                100,
+                Number(
+                  progress.value
+                ) || 0
+              )
+            );
+
+
+          donut.style.setProperty(
+            "--run-percent",
+            `${value}%`
+          );
+
+
+          if (
+            percentLabel
+          ) {
+
+            percentLabel.textContent =
+              `${Math.round(
+                value
+              )}%`;
+
+          }
+
+        }
+
+
+        window.setInterval(
+          () => {
+
+            syncDonut();
+
+            syncRunActions();
+
+          },
+          300
+        );
+
+
+        /* =====================================================
+           INITIAL
+        ====================================================== */
+
+        syncDonut();
+
+        applyFilters();
+
+        updateSelectionUI();
+
+      }
+
+    );
+
+  </script>
+
+
+</body>
+
+</html>

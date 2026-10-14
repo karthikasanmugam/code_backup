@@ -1,0 +1,12 @@
+{
+  "completed_episodes": 0,
+  "current_camera": null,
+  "current_check": null,
+  "current_episode": null,
+  "event": "run_cancelled",
+  "message": "Validation run cancelled",
+  "phase": null,
+  "run_id": "e5da7eb56bb3458aabbbaaad9a30c0d5",
+  "state": "cancelled",
+  "total_episodes": 0
+}

@@ -1,0 +1,11 @@
+# NOTE: this lists only the extra packages this tool adds on top of the parent
+# LeRobot environment. It is NOT a complete install list. Every model adapter
+# hard-requires `torch` and the installed `lerobot` package (e.g.
+# `from lerobot.policies import ...`), which are provided by the parent
+# lerobot/uv environment and are deliberately not pinned here. Running an
+# evaluation from these packages alone will fail at `import lerobot`.
+numpy
+pandas
+pyarrow
+opencv-python-headless
+flask

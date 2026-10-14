@@ -1,0 +1,1828 @@
+=====================================================================================
+FLAGGED EPISODES VALIDATION AUDIT
+Generated on   : 2026-09-25 06:09:54
+Data Root      : /home/thor/Desktop/Dinesh/pick_place_brown_300_v2
+=====================================================================================
+
+Total Episodes Processed : 236
+Total Flagged Episodes   : 236
+Flagged Episode Numbers  : [0, 1, 2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 49, 50, 51, 53, 54, 55, 56, 57, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 80, 81, 83, 84, 85, 86, 88, 89, 90, 91, 92, 93, 94, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 116, 118, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 134, 135, 136, 137, 138, 139, 140, 141, 143, 144, 146, 147, 150, 151, 154, 157, 158, 159, 160, 161, 168, 169, 170, 171, 173, 175, 177, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 191, 193, 196, 198, 200, 201, 202, 204, 205, 211, 213, 214, 217, 218, 220, 221, 222, 224, 225, 226, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 251, 252, 253, 254, 255, 256, 257, 260, 261, 262, 264, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 283, 284, 285, 287, 288, 289, 290, 291, 292, 294, 295, 296, 297, 298, 299, 301]
+
+-------------------------------------------------------------------------------------
+DETAILED FLAGGED EPISODE LOG
+-------------------------------------------------------------------------------------
+
+[EPISODE 0]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 49 unusually large second-difference action transition(s). | Frames: 91-497
+
+[EPISODE 1]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 38 unusually large second-difference action transition(s). | Frames: 98-447
+
+[EPISODE 2]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 44 unusually large second-difference action transition(s). | Frames: 85-499
+
+[EPISODE 3]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+
+[EPISODE 4]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 62 unusually large second-difference action transition(s). | Frames: 71-497
+
+[EPISODE 5]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 3-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 3-7
+
+[EPISODE 7]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 7-17
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 7-17
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 26-30
+    (7) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 9-17
+    (8) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (9) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 9-13
+    (10) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 13-17
+    (11) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+
+[EPISODE 8]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] video_timestamps: 83 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 2-487
+    (2) [HARD] video_timestamps: 83 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 2-487
+    (3) [HARD] video_timestamps: 83 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 2-487
+    (4) [HARD] video_timestamps: 83 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 2-487
+
+[EPISODE 9]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 48 unusually large second-difference action transition(s). | Frames: 67-408
+
+[EPISODE 11]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 12 frames. | Frames: 0-12
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+
+[EPISODE 12]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 43 unusually large second-difference action transition(s). | Frames: 68-490
+
+[EPISODE 13]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+
+[EPISODE 14]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames. | Frames: 0-9
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 9 frames. | Frames: 0-9
+
+[EPISODE 15]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+
+[EPISODE 16]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+
+[EPISODE 17]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 18]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+
+[EPISODE 19]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 43 unusually large second-difference action transition(s). | Frames: 78-488
+
+[EPISODE 21]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 12 frames. | Frames: 2-14
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 21-26
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 12 frames. | Frames: 2-14
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 21-26
+    (5) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 2-10
+    (6) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 10-14
+    (7) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 21-26
+    (8) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 3-10
+    (9) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 10-14
+    (10) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 21-26
+
+[EPISODE 22]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+
+[EPISODE 23]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 68 unusually large second-difference action transition(s). | Frames: 49-437
+
+[EPISODE 25]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 8-465
+
+[EPISODE 27]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 13-17
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 19-23
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 27-31
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 13-17
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 19-23
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 27-34
+
+[EPISODE 28]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+
+[EPISODE 29]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] video_timestamps: 485 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 3-500
+    (2) [HARD] video_timestamps: 485 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 3-500
+    (3) [HARD] video_timestamps: 485 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 3-500
+    (4) [HARD] video_timestamps: 485 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 3-500
+
+[EPISODE 30]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 43 unusually large second-difference action transition(s). | Frames: 49-434
+
+[EPISODE 31]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 28-33
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 28-33
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 28-33
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 28-33
+
+[EPISODE 32]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 34]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 35]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 64 unusually large second-difference action transition(s). | Frames: 66-499
+
+[EPISODE 36]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 27-33
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 28-32
+    (5) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (6) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 28-32
+    (7) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (8) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 28-32
+
+[EPISODE 37]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 39 unusually large second-difference action transition(s). | Frames: 11-498
+
+[EPISODE 38]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 15-496
+
+[EPISODE 39]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+
+[EPISODE 40]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 13-17
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 13-17
+
+[EPISODE 41]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] video_timestamps: 467 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (2) [HARD] video_timestamps: 467 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (3) [HARD] video_timestamps: 467 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (4) [HARD] video_timestamps: 467 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+
+[EPISODE 42]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 8-12
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 17-28
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 3-8
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 8-12
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 17-28
+    (7) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 12 frames. | Frames: 16-28
+    (8) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 17-28
+
+[EPISODE 43]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 43 unusually large second-difference action transition(s). | Frames: 66-478
+
+[EPISODE 44]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 41 unusually large second-difference action transition(s). | Frames: 92-476
+
+[EPISODE 45]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 20-25
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 20-25
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 20-25
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 20-25
+
+[EPISODE 46]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames. | Frames: 0-9
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames. | Frames: 0-9
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 49]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames. | Frames: 0-9
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 50]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 51]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 53]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 43 unusually large second-difference action transition(s). | Frames: 104-488
+
+[EPISODE 54]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames. | Frames: 0-9
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 55]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 56]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 38 unusually large second-difference action transition(s). | Frames: 58-494
+
+[EPISODE 57]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 44 unusually large second-difference action transition(s). | Frames: 113-488
+
+[EPISODE 59]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+
+[EPISODE 60]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] video_timestamps: 482 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 5-500
+    (2) [HARD] video_timestamps: 482 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 5-500
+    (3) [HARD] video_timestamps: 482 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 5-500
+    (4) [HARD] video_timestamps: 482 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 5-500
+
+[EPISODE 61]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 68-414
+
+[EPISODE 62]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] video_timestamps: 483 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (2) [HARD] video_timestamps: 483 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (3) [HARD] video_timestamps: 483 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (4) [HARD] video_timestamps: 483 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+
+[EPISODE 63]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 58 unusually large second-difference action transition(s). | Frames: 100-484
+
+[EPISODE 64]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 65]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+
+[EPISODE 66]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 4-9
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 4-9
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 4-9
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 4-9
+
+[EPISODE 67]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 65 unusually large second-difference action transition(s). | Frames: 63-471
+
+[EPISODE 68]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 2.06% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 39 unusually large second-difference action transition(s). | Frames: 82-476
+
+[EPISODE 69]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 70]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+
+[EPISODE 71]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 72]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 48 unusually large second-difference action transition(s). | Frames: 73-497
+
+[EPISODE 73]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 74]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 7.96% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 49 unusually large second-difference action transition(s). | Frames: 67-436
+
+[EPISODE 75]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+
+[EPISODE 76]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 60 unusually large second-difference action transition(s). | Frames: 77-459
+
+[EPISODE 77]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 53 unusually large second-difference action transition(s). | Frames: 72-498
+
+[EPISODE 78]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 13 frames. | Frames: 17-30
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 13 frames. | Frames: 17-30
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (4) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 22-30
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (6) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 22-30
+
+[EPISODE 80]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 81]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 83]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 84]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 48 unusually large second-difference action transition(s). | Frames: 57-481
+
+[EPISODE 85]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 44 unusually large second-difference action transition(s). | Frames: 75-456
+
+[EPISODE 86]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 67-481
+
+[EPISODE 88]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 6.25% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 31 unusually large second-difference action transition(s). | Frames: 142-443
+
+[EPISODE 89]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+
+[EPISODE 90]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 22 unusually large second-difference action transition(s). | Frames: 104-500
+    (2) [HARD] action_alignment_offset: Potential action/state off-by-one alignment: best correlation occurs at lag 1 (0.824) versus lag 0 (0.724). State appears behind relative to action.
+
+[EPISODE 91]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 32 unusually large second-difference action transition(s). | Frames: 140-445
+
+[EPISODE 92]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 93]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 59 unusually large second-difference action transition(s). | Frames: 3-490
+
+[EPISODE 94]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 95]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 43 unusually large second-difference action transition(s). | Frames: 115-500
+    (2) [SOFT] leading_trailing_idle: Leading idle period is 2.32s; maximum allowed is 2.00s. | Frames: 0-70
+
+[EPISODE 97]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 54 unusually large second-difference action transition(s). | Frames: 76-457
+
+[EPISODE 98]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+
+[EPISODE 99]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 42 unusually large second-difference action transition(s). | Frames: 94-443
+
+[EPISODE 100]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 9-14
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 24-30
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames. | Frames: 8-17
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 24-30
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+    (9) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 9-13
+    (10) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 14-22
+    (11) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 25-30
+    (12) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+    (13) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 9-13
+    (14) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (15) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 25-30
+    (16) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+
+[EPISODE 101]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames. | Frames: 3-12
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 19-23
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 6-12
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 19-23
+
+[EPISODE 102]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 17-24
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 25-32
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 17-24
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 25-32
+    (7) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+    (8) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 17-24
+    (9) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 25-32
+    (10) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 9-16
+    (11) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 17-24
+    (12) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 25-32
+
+[EPISODE 103]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 9-13
+
+[EPISODE 104]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 5.65% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 67 unusually large second-difference action transition(s). | Frames: 33-497
+
+[EPISODE 105]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.01% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 58 unusually large second-difference action transition(s). | Frames: 38-487
+
+[EPISODE 106]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 46-455
+
+[EPISODE 107]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 25-33
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 25-33
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 25-33
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 25-33
+
+[EPISODE 108]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 56 unusually large second-difference action transition(s). | Frames: 45-498
+
+[EPISODE 109]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 14 frames. | Frames: 3-17
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 22-33
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 12 frames. | Frames: 5-17
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 13 frames. | Frames: 21-34
+    (5) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 12 frames. | Frames: 5-17
+    (6) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 22-33
+    (7) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 12 frames. | Frames: 5-17
+    (8) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 22-33
+
+[EPISODE 110]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 55 unusually large second-difference action transition(s). | Frames: 46-439
+
+[EPISODE 111]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 49 unusually large second-difference action transition(s). | Frames: 43-462
+
+[EPISODE 112]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 3-8
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 16-20
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 24-29
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 29-33
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 3-8
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 24-28
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 29-34
+    (8) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 4-8
+    (9) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 16-20
+    (10) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 29-34
+    (11) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (12) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 113]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 45 unusually large second-difference action transition(s). | Frames: 64-459
+
+[EPISODE 114]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.16% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 45 unusually large second-difference action transition(s). | Frames: 55-477
+
+[EPISODE 116]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.64% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 38 unusually large second-difference action transition(s). | Frames: 28-462
+
+[EPISODE 118]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 26-30
+
+[EPISODE 120]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 121]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 1-7
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 1-8
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 12-16
+    (4) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 1-7
+    (5) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 1-7
+
+[EPISODE 122]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 59 unusually large second-difference action transition(s). | Frames: 32-403
+
+[EPISODE 123]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 6-17
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 17-25
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 6-17
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 17-25
+    (5) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 6-17
+    (6) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 17-25
+    (7) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames. | Frames: 7-17
+    (8) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 17-25
+
+[EPISODE 124]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 44 unusually large second-difference action transition(s). | Frames: 37-441
+
+[EPISODE 125]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 71 unusually large second-difference action transition(s). | Frames: 38-437
+
+[EPISODE 126]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 30 unusually large second-difference action transition(s). | Frames: 65-471
+
+[EPISODE 127]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 27 unusually large second-difference action transition(s). | Frames: 39-496
+
+[EPISODE 128]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.30% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 67 unusually large second-difference action transition(s). | Frames: 57-478
+
+[EPISODE 129]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 55 unusually large second-difference action transition(s). | Frames: 40-488
+
+[EPISODE 130]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 49 unusually large second-difference action transition(s). | Frames: 39-457
+
+[EPISODE 131]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] video_timestamps: 381 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (2) [HARD] video_timestamps: 381 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (3) [HARD] video_timestamps: 381 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+    (4) [HARD] video_timestamps: 381 video timestamps differ from parquet timestamps by more than 0.016667s. | Frames: 4-500
+
+[EPISODE 132]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 35 unusually large second-difference action transition(s). | Frames: 23-377
+
+[EPISODE 134]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 35 unusually large second-difference action transition(s). | Frames: 36-406
+
+[EPISODE 135]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 136]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 47 unusually large second-difference action transition(s). | Frames: 37-390
+
+[EPISODE 137]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.44% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 40 unusually large second-difference action transition(s). | Frames: 33-500
+
+[EPISODE 138]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 48 unusually large second-difference action transition(s). | Frames: 45-438
+
+[EPISODE 139]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 64 unusually large second-difference action transition(s). | Frames: 45-393
+
+[EPISODE 140]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 54 unusually large second-difference action transition(s). | Frames: 40-456
+
+[EPISODE 141]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 49 unusually large second-difference action transition(s). | Frames: 38-434
+
+[EPISODE 143]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 55 unusually large second-difference action transition(s). | Frames: 6-487
+
+[EPISODE 144]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 48 unusually large second-difference action transition(s). | Frames: 44-410
+
+[EPISODE 146]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 46 unusually large second-difference action transition(s). | Frames: 102-500
+
+[EPISODE 147]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 54 unusually large second-difference action transition(s). | Frames: 25-437
+
+[EPISODE 150]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 68 unusually large second-difference action transition(s). | Frames: 33-448
+
+[EPISODE 151]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 59 unusually large second-difference action transition(s). | Frames: 23-393
+
+[EPISODE 154]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 40 unusually large second-difference action transition(s). | Frames: 51-433
+
+[EPISODE 157]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 56 unusually large second-difference action transition(s). | Frames: 44-432
+
+[EPISODE 158]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 46 unusually large second-difference action transition(s). | Frames: 42-359
+
+[EPISODE 159]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 51 unusually large second-difference action transition(s). | Frames: 46-426
+
+[EPISODE 160]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 36 unusually large second-difference action transition(s). | Frames: 47-370
+
+[EPISODE 161]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 38 unusually large second-difference action transition(s). | Frames: 45-425
+
+[EPISODE 168]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 46 unusually large second-difference action transition(s). | Frames: 22-428
+
+[EPISODE 169]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 13 frames. | Frames: 4-17
+
+[EPISODE 170]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 37 unusually large second-difference action transition(s). | Frames: 129-387
+
+[EPISODE 171]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 43 unusually large second-difference action transition(s). | Frames: 27-453
+
+[EPISODE 173]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 15 unusually large second-difference action transition(s). | Frames: 107-454
+
+[EPISODE 175]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 46 unusually large second-difference action transition(s). | Frames: 76-419
+
+[EPISODE 177]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 54 unusually large second-difference action transition(s). | Frames: 29-411
+
+[EPISODE 179]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 60 unusually large second-difference action transition(s). | Frames: 64-430
+
+[EPISODE 180]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.00% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 53 unusually large second-difference action transition(s). | Frames: 48-476
+
+[EPISODE 181]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 41 unusually large second-difference action transition(s). | Frames: 73-316
+
+[EPISODE 182]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 51 unusually large second-difference action transition(s). | Frames: 63-390
+
+[EPISODE 183]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 75 unusually large second-difference action transition(s). | Frames: 62-491
+
+[EPISODE 184]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 58 unusually large second-difference action transition(s). | Frames: 54-461
+
+[EPISODE 185]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 30 unusually large second-difference action transition(s). | Frames: 63-442
+
+[EPISODE 186]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 59 unusually large second-difference action transition(s). | Frames: 68-467
+
+[EPISODE 187]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 56 unusually large second-difference action transition(s). | Frames: 50-494
+
+[EPISODE 188]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 74 unusually large second-difference action transition(s). | Frames: 22-417
+
+[EPISODE 189]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.62% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 55 unusually large second-difference action transition(s). | Frames: 33-409
+
+[EPISODE 191]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 51 unusually large second-difference action transition(s). | Frames: 51-500
+
+[EPISODE 193]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 52 unusually large second-difference action transition(s). | Frames: 57-447
+
+[EPISODE 196]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 13 frames. | Frames: 1-14
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 26-30
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 13 frames. | Frames: 1-14
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (6) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+    (7) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 5-13
+    (8) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 15-22
+    (9) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+    (10) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 5-13
+    (11) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+
+[EPISODE 198]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 81-495
+
+[EPISODE 200]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 69 unusually large second-difference action transition(s). | Frames: 49-423
+
+[EPISODE 201]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 42 unusually large second-difference action transition(s). | Frames: 55-364
+
+[EPISODE 202]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 51 unusually large second-difference action transition(s). | Frames: 172-458
+
+[EPISODE 204]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 205]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 211]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 41 unusually large second-difference action transition(s). | Frames: 57-449
+
+[EPISODE 213]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 68 unusually large second-difference action transition(s). | Frames: 37-444
+
+[EPISODE 214]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 37 unusually large second-difference action transition(s). | Frames: 29-445
+
+[EPISODE 217]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 35 unusually large second-difference action transition(s). | Frames: 34-337
+
+[EPISODE 218]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 36 unusually large second-difference action transition(s). | Frames: 45-352
+
+[EPISODE 220]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 36 unusually large second-difference action transition(s). | Frames: 71-416
+
+[EPISODE 221]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 19 unusually large second-difference action transition(s). | Frames: 131-418
+
+[EPISODE 222]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 25 unusually large second-difference action transition(s). | Frames: 52-292
+
+[EPISODE 224]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 27-500
+
+[EPISODE 225]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 226]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 37 unusually large second-difference action transition(s). | Frames: 26-482
+
+[EPISODE 231]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 55 unusually large second-difference action transition(s). | Frames: 93-482
+
+[EPISODE 232]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 76 unusually large second-difference action transition(s). | Frames: 41-387
+
+[EPISODE 233]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 41 unusually large second-difference action transition(s). | Frames: 41-457
+
+[EPISODE 234]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 2.56% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 68 unusually large second-difference action transition(s). | Frames: 41-408
+
+[EPISODE 235]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+    (3) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 236]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 37 unusually large second-difference action transition(s). | Frames: 56-459
+
+[EPISODE 237]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 30 unusually large second-difference action transition(s). | Frames: 67-446
+
+[EPISODE 238]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 29 unusually large second-difference action transition(s). | Frames: 54-482
+
+[EPISODE 239]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 5-9
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 21-25
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 5-10
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+
+[EPISODE 240]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 22-28
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 22-27
+
+[EPISODE 241]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 8-13
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 8-12
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 30-34
+
+[EPISODE 242]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 1-6
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 6-11
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 11-15
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 18-24
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 6-11
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 11-15
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 18-23
+
+[EPISODE 243]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 3-7
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 7-11
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 2-7
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 18-22
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 22-26
+
+[EPISODE 244]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 29-33
+
+[EPISODE 245]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 48 unusually large second-difference action transition(s). | Frames: 41-484
+
+[EPISODE 246]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 39 unusually large second-difference action transition(s). | Frames: 47-493
+
+[EPISODE 247]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 44 unusually large second-difference action transition(s). | Frames: 53-486
+
+[EPISODE 248]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 41 unusually large second-difference action transition(s). | Frames: 47-494
+
+[EPISODE 249]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 2.38% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 40 unusually large second-difference action transition(s). | Frames: 75-499
+
+[EPISODE 251]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 26-30
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 26-30
+
+[EPISODE 252]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 3-7
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 10-14
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 18-23
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 23-29
+    (5) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 29-33
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 3-10
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 10-14
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 18-23
+    (9) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 23-27
+    (10) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 29-33
+
+[EPISODE 253]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 1-6
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 10-14
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 20-26
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 27-32
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 1-6
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 10-14
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 20-26
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 27-32
+
+[EPISODE 254]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 1-7
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 10-15
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 20-26
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 29-34
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 0-7
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 10-15
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 20-25
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 25-29
+    (9) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 29-34
+
+[EPISODE 255]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 4-10
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 10-15
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 21-27
+    (5) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 27-33
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 4-9
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 9-15
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (9) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 21-27
+    (10) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 27-33
+
+[EPISODE 256]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 1-8
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 8-14
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 21-28
+    (5) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 28-33
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 1-7
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 7-14
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (9) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 21-28
+    (10) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 28-33
+
+[EPISODE 257]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 4-10
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 10-17
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 18-25
+    (5) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames. | Frames: 25-32
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 0-4
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 4-10
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 10-17
+    (9) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames. | Frames: 18-25
+    (10) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 25-31
+
+[EPISODE 260]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames. | Frames: 6-15
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames. | Frames: 17-26
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 26-31
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 0-6
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames. | Frames: 6-15
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 17-25
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 25-31
+
+[EPISODE 261]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames. | Frames: 11-17
+    (3) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (4) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 12 frames. | Frames: 22-34
+    (5) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames. | Frames: 0-11
+    (6) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames. | Frames: 11-17
+    (7) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (8) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 12 frames. | Frames: 22-34
+
+[EPISODE 262]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 4-12
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 4-8
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 8-12
+
+[EPISODE 264]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 47 unusually large second-difference action transition(s). | Frames: 45-454
+
+[EPISODE 266]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 267]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 268]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 40 unusually large second-difference action transition(s). | Frames: 45-498
+
+[EPISODE 269]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 10 frames. | Frames: 0-10
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames. | Frames: 0-9
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 0-8
+
+[EPISODE 270]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 271]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 52 unusually large second-difference action transition(s). | Frames: 42-453
+
+[EPISODE 272]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 44 unusually large second-difference action transition(s). | Frames: 92-494
+
+[EPISODE 273]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 55 unusually large second-difference action transition(s). | Frames: 10-398
+
+[EPISODE 274]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 275]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 55 unusually large second-difference action transition(s). | Frames: 43-486
+
+[EPISODE 276]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 16 frames. | Frames: 1-17
+    (2) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 17-22
+    (3) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+    (5) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames. | Frames: 1-9
+    (6) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 12 frames. | Frames: 9-21
+    (7) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 1-9
+    (8) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames. | Frames: 9-17
+    (9) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 17-21
+
+[EPISODE 277]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 63 unusually large second-difference action transition(s). | Frames: 49-453
+
+[EPISODE 278]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 279]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 5.89% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 53 unusually large second-difference action transition(s). | Frames: 79-495
+
+[EPISODE 280]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 33 unusually large second-difference action transition(s). | Frames: 117-415
+
+[EPISODE 281]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 27 unusually large second-difference action transition(s). | Frames: 34-345
+
+[EPISODE 283]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 2.33% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 60 unusually large second-difference action transition(s). | Frames: 42-423
+
+[EPISODE 284]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (2) [HARD] frozen_video: [observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames. | Frames: 0-5
+    (3) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames. | Frames: 1-5
+
+[EPISODE 285]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 38 unusually large second-difference action transition(s). | Frames: 85-405
+
+[EPISODE 287]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+    (3) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 288]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 4.71% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 58 unusually large second-difference action transition(s). | Frames: 29-458
+
+[EPISODE 289]
+  Classification : REJECT
+  Score          : 1.0000
+  Reasons:
+    (1) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (2) [HARD] frozen_video: [observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+    (3) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 0-17
+    (4) [HARD] frozen_video: [observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames. | Frames: 17-34
+
+[EPISODE 290]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 59 unusually large second-difference action transition(s). | Frames: 29-416
+
+[EPISODE 291]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 44 unusually large second-difference action transition(s). | Frames: 39-434
+
+[EPISODE 292]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 27 unusually large second-difference action transition(s). | Frames: 47-480
+
+[EPISODE 294]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 3.80% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 64 unusually large second-difference action transition(s). | Frames: 2-498
+
+[EPISODE 295]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 54 unusually large second-difference action transition(s). | Frames: 47-444
+
+[EPISODE 296]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 64 unusually large second-difference action transition(s). | Frames: 66-480
+
+[EPISODE 297]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 50 unusually large second-difference action transition(s). | Frames: 26-416
+
+[EPISODE 298]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 59 unusually large second-difference action transition(s). | Frames: 46-470
+
+[EPISODE 299]
+  Classification : REJECT
+  Score          : 0.9000
+  Reasons:
+    (1) [HARD] action_range: 2.86% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.
+    (2) [SOFT] action_smoothness: Detected 58 unusually large second-difference action transition(s). | Frames: 52-497
+
+[EPISODE 301]
+  Classification : KEEP
+  Score          : 0.9000
+  Reasons:
+    (1) [SOFT] action_smoothness: Detected 48 unusually large second-difference action transition(s). | Frames: 67-472
+
+=====================================================================================
+END OF FLAGGED REPORT
+=====================================================================================

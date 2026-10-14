@@ -1,0 +1,5940 @@
+{
+  "dataset_results": [],
+  "episodes": [
+    {
+      "classification": "KEEP",
+      "episode_index": 0,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 1,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 2,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 3,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            11
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            11
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            11
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 4,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 5,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            7
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 6,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            7,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            17
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            13
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 7,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 8,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 9,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            12
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            11
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            11
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            11
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 10,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 11,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            10
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            10
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 12,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            10
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 13,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            10
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            10
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 14,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            10
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 15,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 16,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 17,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 18,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            2,
+            13
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            26
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            2,
+            13
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            26
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            10
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            14
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            26
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            10
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            14
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            26
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 19,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            26
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 20,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 21,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 22,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            19,
+            23
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            34
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 23,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 24,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            23,
+            30
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            9
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            17
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            23,
+            29
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            12,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            23,
+            29
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            9
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            12,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            23,
+            29
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 25,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 26,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            33
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            33
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            33
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 27,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 28,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 29,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 30,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            27,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            32
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            10
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            32
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            10
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            32
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 31,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 32,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 33,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 34,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 35,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            30
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            30
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 36,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            8,
+            12
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            8,
+            12
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            28
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            28
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 37,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 38,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 39,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            25
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            25
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            25
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            25
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 40,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 41,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            8,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 42,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            8
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 43,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 44,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 45,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 46,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            8
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 47,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 48,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 49,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 50,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 51,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 52,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            24
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            19,
+            24
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 53,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 54,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 55,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 56,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            9
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            9
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            9
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 57,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 58,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "2.06% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 59,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 60,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 61,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 62,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 63,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 64,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "7.96% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 65,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            14
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            14
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            16
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            16
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 66,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 67,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 68,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            27
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            30
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            30
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            30
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 69,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 70,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            13
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            30
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 71,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 72,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 73,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 74,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 75,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "6.25% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 76,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 77,
+      "results": [
+        {
+          "check": "action_alignment_offset",
+          "frame_range": null,
+          "message": "Potential action/state off-by-one alignment: best correlation occurs at lag 1 (0.824) versus lag 0 (0.724). State appears behind relative to action.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 78,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 79,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 80,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 81,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 82,
+      "results": [
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            70
+          ],
+          "message": "Leading idle period is 2.33s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 83,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 84,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 85,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 86,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            14
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            24,
+            30
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            8,
+            17
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            24,
+            30
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            14,
+            22
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            30
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            13
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            30
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 87,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            12
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            19,
+            23
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            6,
+            12
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            19,
+            23
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 88,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            15
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            24
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            32
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            16
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            24
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            32
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            16
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            24
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            32
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            16
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            24
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            32
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 89,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            13
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 90,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "5.65% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 91,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.01% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 92,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 93,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            32
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            32
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            31
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            33
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 94,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 95,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 14 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            17
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 12 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            34
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 12 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            33
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 12 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            33
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 96,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 97,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 98,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            16,
+            20
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            24,
+            29
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            24,
+            28
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            34
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 99,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 100,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.16% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 101,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.64% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 102,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 103,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 104,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            12,
+            16
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            7
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            7
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 105,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 106,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            6,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            6,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            17
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            7,
+            16
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            7,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 107,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 108,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 109,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 110,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 111,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.30% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 112,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 113,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 114,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 115,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 116,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 117,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            16
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 16 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            32
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 15 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 118,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 119,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.44% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 120,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 121,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 122,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 123,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 124,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 125,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 126,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 127,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 128,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 129,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 130,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 131,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 132,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 133,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 134,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 135,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 136,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 137,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 138,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 139,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 140,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 141,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 142,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 143,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 144,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.00% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 145,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 146,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 147,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 148,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 149,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 150,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 151,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 152,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 153,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.62% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 154,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 155,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 156,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            14
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            30
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            14
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            13
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            15,
+            22
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            13
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 157,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 158,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 159,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 160,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 161,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 162,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 163,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 164,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 165,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 166,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 167,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 168,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 169,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 170,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 171,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 172,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 173,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 174,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 175,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 176,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 177,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "2.56% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 178,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 12 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 179,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 180,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 181,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 182,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            25
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            5,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 183,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            28
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            27
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 184,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            8,
+            12
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 185,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            6
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            6,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            15
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            18,
+            24
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            6,
+            11
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            15
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            18,
+            23
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 186,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            7,
+            11
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            2,
+            7
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            18,
+            22
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            26
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 187,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 188,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 189,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 190,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 191,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 192,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "2.38% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 193,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            30
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            30
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 194,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            14
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            18,
+            23
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            23,
+            29
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            3,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            14
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            18,
+            23
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            23,
+            27
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            33
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 195,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            2,
+            6
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            14
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            26
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            27,
+            32
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            6
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            14
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            26
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            27,
+            32
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 196,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            15
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            26
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            29,
+            34
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            15
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            20,
+            25
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            29
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 197,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            15
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            26
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            27,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            9
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            15
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            27
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            27,
+            32
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 198,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            8
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            14
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            26
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            33
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            7
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            7,
+            14
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            28
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            28,
+            32
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 199,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            18,
+            25
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            32
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            10
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            10,
+            15
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            18,
+            25
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            31
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 200,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            15
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            26
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            31
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            6
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            6,
+            15
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            25
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            25,
+            31
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 201,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 6 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            26
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            26,
+            34
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            11
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            11,
+            15
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            22,
+            32
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 10 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 202,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            9
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            8
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            8,
+            12
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 203,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 204,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 205,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 206,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 207,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            7
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            9
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 9 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            8
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 208,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 209,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 210,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 211,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 212,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 213,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 214,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            6
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            6,
+            17
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 11 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            22
+          ],
+          "message": "[observation.images.zed_right] Video appears frozen while actions are active for approximately 5 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            15
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 15 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            8
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 7 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            21
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 12 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            9
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            9,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 8 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 215,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 216,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            4,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            21
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            21,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 217,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "5.89% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 218,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 219,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 220,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "2.33% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 221,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            4
+          ],
+          "message": "[observation.images.zed_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            1,
+            5
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 222,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 223,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            13
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            30
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 224,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "4.71% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 225,
+      "results": [
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            13
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            13,
+            17
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            30
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 13 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            30,
+            34
+          ],
+          "message": "[observation.images.wrist_right] Video appears frozen while actions are active for approximately 4 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            0,
+            17
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        },
+        {
+          "check": "frozen_video",
+          "frame_range": [
+            17,
+            34
+          ],
+          "message": "[observation.images.wrist_left] Video appears frozen while actions are active for approximately 17 frames.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 226,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 227,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 228,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 229,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "3.80% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 230,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 231,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 232,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 233,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "REJECT",
+      "episode_index": 234,
+      "results": [
+        {
+          "check": "action_range",
+          "frame_range": null,
+          "message": "2.86% of action values are outside the configured percentile bounds; allowed maximum is 2.00%.",
+          "severity": "HARD"
+        }
+      ],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 235,
+      "results": [],
+      "score": 1.0
+    }
+  ],
+  "total_episodes": 236
+}

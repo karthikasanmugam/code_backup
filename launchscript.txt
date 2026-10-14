@@ -1,0 +1,12 @@
+mkdir -p ~/ros2_ws/src
+ln -s /home/s1/.ihub/vla/lerobot_2 ~/ros2_ws/src/daksha_vla_ui
+
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+
+colcon build --packages-select daksha_vla_ui
+source install/setup.bash
+
+
+
+ros2 launch daksha_vla_ui app.launch.py 

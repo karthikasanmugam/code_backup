@@ -1,0 +1,13 @@
+#to run terminal based validation
+
+cd /home/thor/Desktop/Dinesh/lerobot_upgrade/examples/daksha/ui/data_validation/backend_v3
+PYTHONPATH=src python -m lerobot_validator --data-root /home/thor/Desktop/Dinesh/Dataset/pick_box_1     --config configs/default.yml     --output-dir outputs/real_dataset
+
+
+
+
+#to run the ui with background,
+
+cd ~/Desktop/Dinesh/lerobot_upgrade/examples/daksha/ui/data_validation
+chmod +x run.sh
+./run.sh

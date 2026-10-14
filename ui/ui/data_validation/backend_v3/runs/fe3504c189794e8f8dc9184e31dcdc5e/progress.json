@@ -1,0 +1,12 @@
+{
+  "completed_episodes": 218,
+  "current_camera": null,
+  "current_check": null,
+  "current_episode": null,
+  "event": "dataset_finished",
+  "message": "Validation run completed",
+  "phase": null,
+  "run_id": "fe3504c189794e8f8dc9184e31dcdc5e",
+  "state": "completed",
+  "total_episodes": 218
+}

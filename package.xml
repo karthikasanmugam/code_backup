@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>daksha_vla_ui</name>
+  <version>0.1.0</version>
+  <description>ROS 2 launch integration for the Daksha VLA training and inference UI.</description>
+  <maintainer email="vla-maintainers@example.com">Daksha VLA UI maintainers</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>python3-flask</exec_depend>
+  <exec_depend>python3-flask-cors</exec_depend>
+  <exec_depend>python3-psutil</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-pandas</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

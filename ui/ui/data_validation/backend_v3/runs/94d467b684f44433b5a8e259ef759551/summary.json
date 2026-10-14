@@ -1,0 +1,12 @@
+{
+  "hard_failures": 0,
+  "pass_count": 0,
+  "per_check": {
+    "action_smoothness": 114,
+    "leading_trailing_idle": 16
+  },
+  "reject_count": 0,
+  "review_count": 115,
+  "soft_warnings": 130,
+  "total_episodes": 115
+}

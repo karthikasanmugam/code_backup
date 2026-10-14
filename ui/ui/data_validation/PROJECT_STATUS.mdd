@@ -1,0 +1,736 @@
+
+Project Status — Modular Dataset Validator
+Purpose
+
+This project is a modular dataset validator for a custom robotics dataset shaped similarly to LeRobot v2, but not assumed to be stock LeRobot v2.
+
+The validator must remain dataset-path driven and metadata-driven. Dataset paths vary between runs, so no dataset root, camera count, action dimension, state dimension, FPS, or camera names should be hard-coded when those values can be discovered from the dataset.
+
+The long-term goal is to expose the existing validator as a reusable analysis engine behind a UI workflow where users can choose a dataset, inspect detected metadata, control validation thresholds/tolerances, run validation, monitor progress, inspect episode evidence, and export results.
+
+Current project structure
+backend/
+├── pyproject.toml
+├── configs/
+│   └── default.yml
+├── src/
+│   └── lerobot_validator/
+│       ├── __init__.py
+│       ├── models.py
+│       ├── config.py
+│       ├── dataset.py
+│       ├── structural.py
+│       ├── video.py
+│       ├── actions.py
+│       ├── episode.py
+│       ├── dataset_quality.py
+│       ├── validator.py
+│       ├── scoring.py
+│       ├── reporting.py
+│       ├── cli.py
+│       └── __main__.py
+└── tests/
+    ├── test_models.py
+    ├── test_config.py
+    ├── test_dataset.py
+    ├── test_structural.py
+    ├── test_video.py
+    ├── test_actions.py
+    ├── test_episode.py
+    ├── test_dataset_quality.py
+    ├── test_validator.py
+    ├── test_scoring.py
+    ├── test_reporting.py
+    ├── test_end_to_end.py
+    ├── test_cli.py
+    └── conftest.py
+
+A UI/application layer is planned, but has not yet been implemented.
+
+Core result contract
+
+Every validation check returns a list of CheckResult values:
+
+CheckResult = {
+    "check": str,
+    "severity": "HARD" | "SOFT",
+    "message": str,
+    "frame_range": (start, end) | None,
+}
+
+Interpretation:
+
+Empty result list = check passed.
+HARD = blocking/critical failure.
+SOFT = warning/non-blocking quality issue.
+
+The orchestration rule is that an early HARD failure should short-circuit expensive later phases, especially video decoding.
+
+CheckResult.passed was intentionally removed; both HARD and SOFT results represent failures/warnings, while an empty result means pass.
+
+Validation phases
+Phase 0 — Dataset setup
+
+Planned/current responsibilities:
+
+load_dataset_info(data_root) — read dataset metadata, especially FPS, feature shapes, state/action dimensions, camera keys.
+resolve_episode_paths(data_root, ep_idx, camera_keys) — dynamically resolve parquet and per-camera video paths while tolerating v2/v3-like custom layouts.
+compute_dataset_stats(...) — compute action percentile statistics and episode duration/length/path statistics used by later checks.
+Phase 1 — Structural
+
+Current design:
+
+Metadata length check — HARD.
+Frame index continuity — HARD.
+Required columns — HARD.
+State/action dimension consistency — HARD.
+NaN/Inf — HARD.
+Episode length — HARD.
+Phase 2 — Video / Vision
+
+Current design:
+
+Video existence — HARD.
+Video decodability — HARD.
+Video frame count — HARD.
+Resolution consistency — HARD.
+Video timestamps — HARD.
+Image quality — SOFT.
+Frozen video — HARD.
+Multiview synchronization — HARD.
+Camera coverage — optional SOFT.
+Phase 3 — Actions / Tokens
+
+Current design:
+
+Action range — HARD.
+Action smoothness — SOFT.
+Gripper transitions — SOFT.
+State/action lag — SOFT.
+Action alignment — HARD.
+Token budget — HARD when configured.
+Tokenizer roundtrip — SOFT.
+Phase 4 — Episode quality
+
+Current design:
+
+Idle ratio — SOFT.
+Boundary idle — SOFT.
+Duration outlier — SOFT.
+Path efficiency — SOFT.
+Task instruction presence/basic validity — HARD.
+Instruction/video match — SOFT when an external VLM is supplied.
+Proprioceptive synchronization — HARD.
+
+Success-flag validation is removed. The real dataset does not provide a success flag, so no success check should be reintroduced.
+
+Phase 5 — Dataset quality
+
+Planned/current optional checks:
+
+Duplicate episodes.
+Task balance.
+Diversity.
+
+Some of this layer is still intentionally incomplete until the required inputs/embedding pipeline are connected.
+
+Phase 6 — Orchestration / reporting
+
+The validator orchestrates Phases 1–4 for an episode, scores/classifies results, and can run dataset-level checks when enabled.
+
+Real dataset currently being adapted
+
+Current real dataset root used during development:
+
+/home/thor/Desktop/Dinesh/pick_place_brown_300_v2
+
+This path is development/test data only and must never be hard-coded into the validator.
+
+Observed dataset layout:
+
+pick_place_brown_300_v2/
+├── data/
+│   └── chunk-000/
+├── meta/
+│   ├── episodes/
+│   │   └── chunk-000/
+│   │       └── episodes.parquet
+│   ├── episodes.jsonl
+│   ├── info.json
+│   ├── modality.json
+│   ├── relative_stats.json
+│   ├── stats.json
+│   ├── tasks.jsonl
+│   └── tasks.parquet
+├── ros2_topics.json
+└── videos/
+    ├── observation.images.wrist_left/
+    │   └── chunk-000/
+    ├── observation.images.wrist_right/
+    │   └── chunk-000/
+    ├── observation.images.zed_left/
+    │   └── chunk-000/
+    └── observation.images.zed_right/
+        └── chunk-000/
+
+Important info.json facts already observed:
+
+codebase_version: custom_v3_local
+repo_id: local/pick_place_brown
+robot_type: leader_follower_6dof_4camera
+fps: 30
+total_episodes: 236
+total_frames: 118000
+total_tasks: 1
+use_videos: true
+state shape: [16]
+action shape: [16]
+leader state shape: [16]
+
+The four cameras currently declared by info.json are:
+
+observation.images.zed_right
+observation.images.zed_left
+observation.images.wrist_right
+observation.images.wrist_left
+
+Current camera feature shape is represented as:
+
+[240, 320, 3]
+
+with names indicating [height, width, channels], so the expected resolution is:
+
+240 × 320
+Critical dynamic-camera rule
+
+The dataset may contain 3 cameras, 4 cameras, or another count in future datasets.
+
+Never hard-code the camera count to four.
+
+Always use:
+
+info.json["camera_keys"]
+
+as the declared expected camera list.
+
+Extra undeclared video files are not automatically expected.
+
+Missing video files for cameras declared in camera_keys must be reported as HARD.
+
+Action/state names observed
+
+The current real dataset has 16 dimensions:
+
+0  left_joint_1
+1  left_joint_2
+2  left_joint_3
+3  left_joint_4
+4  left_joint_5
+5  left_joint_6
+6  left_joint_7
+7  left_gripper_left_joint
+8  right_joint_1
+9  right_joint_2
+10 right_joint_3
+11 right_joint_4
+12 right_joint_5
+13 right_joint_6
+14 right_joint_7
+15 right_gripper_right_joint
+
+Gripper handling should use the actual feature names / metadata, not hard-coded dimension numbers wherever practical.
+
+Completed fixes / important history
+1. Camera resolution parser bug fixed
+
+An early full-dataset run incorrectly reported:
+
+Video resolution is 240x320; expected 320x3.
+
+The problem was in metadata shape interpretation, not the real videos.
+
+[240, 320, 3] must be interpreted using the feature names when available, resulting in height 240, width 320, channels 3.
+
+dataset.py was corrected with _infer_camera_hw(feature) and explicit handling of feature names.
+
+2. dataset.py adapted for custom v3-like layouts
+
+The dataset module was updated to:
+
+Prefer the dataset's declared data_path and video_path templates.
+Support episode chunking via chunks_size.
+Use info.json["camera_keys"] dynamically.
+Infer camera resolution correctly.
+Resolve parquet/video files with dataset-specific paths first and generic fallbacks second.
+Preserve existing dataset/stats/extraction functionality.
+
+Do not replace this architecture with a hard-coded layout for the current dataset.
+
+3. episode.py success check removed
+
+check_success_flag() was removed.
+
+run_episode_quality_checks() temporarily keeps success-related arguments only for compatibility with existing callers, but ignores them.
+
+Future cleanup should remove remaining success-only API/config fields once all callers are updated.
+
+4. validator.py adapted for real metadata/task files
+
+The validator was extended to automatically load:
+
+Episode metadata from meta/episodes/chunk-*/*.parquet, with meta/episodes.jsonl fallback.
+Task metadata from meta/tasks.parquet, with meta/tasks.jsonl fallback.
+Task information from episode frame data as a fallback.
+
+Helpers added/maintained include:
+
+_read_jsonl
+_record_episode_index
+_normalise_metadata_records
+load_episode_metadata
+_task_index_from_record
+_instruction_from_task_record
+_normalise_task_records
+load_task_map
+_derive_task_map_from_dataframe
+_missing_camera_results
+5. Structural metadata map bug fixed
+
+Structural validation needs the full episode-indexed metadata map, not a single episode metadata dictionary.
+
+The per-episode metadata object is used separately for Phase 4.
+
+6. Missing declared camera detection added
+
+resolve_episode_paths() intentionally omits unresolved cameras from EpisodePaths.videos.
+
+validator.py now explicitly compares resolved videos against dataset_info.camera_keys and generates HARD missing-camera results, so missing declared cameras are not silently ignored.
+
+Do not change EpisodePaths.videos to None values.
+
+7. Video timestamp / proprio sync wired into validator
+
+The validator now uses actual extracted reference-camera video timestamps when available and uses configured/default tolerance based on FPS instead of passing None blindly.
+
+8. Dataset task-count wiring corrected
+
+The validator should use actual dataset statistics (stats.task_counts) for dataset-level task balance rather than leaving an empty placeholder.
+
+Current test status
+
+The most recent reported run was:
+
+200 passed, 3 failed
+
+The three failures were isolated validator-test issues:
+
+_derive_task_map_from_dataframe() returned both integer and string task keys instead of integer keys only.
+test_missing_camera_results_are_dynamic failed because Path was not imported in the test.
+test_missing_camera_results_empty_when_all_present failed because Path was not imported in the test.
+
+Corrected replacements were prepared as:
+
+/mnt/data/validator.py
+/mnt/data/test_validator.py
+
+The next required test is:
+
+cd ~/Desktop/Dinesh/data_validation/backend
+PYTHONPATH=src pytest tests/test_validator.py -v
+
+Then run the broader relevant suite before real-data validation.
+
+Immediate next technical validation step
+
+Before running all 236 real episodes:
+
+Ensure validator unit tests are fully green.
+Run an explicit dataset metadata/path smoke test for episode 0.
+Run the actual validator on episode 0 only.
+Inspect all results and fix genuine integration mismatches.
+Only then run the full 236-episode dataset.
+
+Never jump directly to a full expensive video validation run after changing engine code.
+
+Planned UI transformation
+
+The validator is now intended to become:
+
+Existing validation engine
+        ↓
+Application/service layer
+        ↓
+API layer
+        ↓
+UI frontend
+
+The UI must not duplicate validation logic.
+
+The UI is responsible for:
+
+Dataset selection.
+Dataset inspection.
+Configuration controls.
+Configuration review.
+Run start/stop.
+Progress display.
+Results display.
+Episode investigation.
+Evidence visualization.
+Report/export actions.
+
+The existing src/lerobot_validator checks remain the actual analysis engine.
+
+Planned UI workflow
+1. Select Dataset
+       ↓
+2. Inspect Dataset
+       ↓
+3. Configure Validation
+       ↓
+4. Review Configuration
+       ↓
+5. Start Validation
+       ↓
+6. Live Progress
+       ↓
+7. Dataset Results
+       ↓
+8. Episode Explorer
+       ↓
+9. Issue Investigation
+       ↓
+10. Export Report
+Planned UI controls
+
+The UI should expose controls for, at minimum:
+
+Structural
+Enable/disable each structural check.
+Minimum episode frames.
+Maximum episode frames.
+Required columns where appropriate.
+Video
+Enable/disable video checks.
+Frame-count tolerance in frames.
+Timestamp tolerance in seconds or frames.
+Auto/manual expected resolution.
+Blur threshold.
+Dark threshold.
+Bright threshold.
+Maximum bad-frame ratio.
+Frozen-video frame-difference epsilon.
+Frozen-video action-difference epsilon.
+Minimum frozen duration.
+Multiview sync tolerance in frames.
+Camera enable/disable selection based on detected camera_keys.
+Reference-camera selection (Auto or a declared camera).
+Optional camera-coverage check.
+Actions
+Enable/disable range check.
+Smoothness threshold.
+Excluded dimensions selected by feature name.
+Gripper dimension selected from discovered names.
+Gripper open/close threshold.
+Gripper maximum toggles.
+Gripper minimum hold frames.
+State/action maximum lag.
+State/action minimum correlation.
+Alignment settings.
+Token-budget settings.
+Episode quality
+Idle velocity epsilon.
+Maximum idle ratio.
+Maximum boundary idle seconds.
+Duration MAD threshold.
+Path-efficiency threshold.
+Proprioceptive sync tolerance.
+Dataset quality
+Duplicate detection settings.
+Task-balance minimum per task.
+Diversity settings.
+
+Only controls supported by the current engine should be exposed as active controls.
+
+Important UI design principle: metadata-driven controls
+
+The UI should not contain fixed assumptions such as:
+
+4 cameras
+16 action dimensions
+FPS = 30
+resolution = 240x320
+
+Instead, the UI should first load dataset metadata and generate controls dynamically.
+
+For example:
+
+Detected cameras: 3
+
+should produce exactly three camera rows.
+
+Similarly, action controls should display the actual feature names discovered from the dataset.
+
+Planned control registry
+
+Recommended next engine-facing module:
+
+src/lerobot_validator/control_registry.py
+
+Purpose:
+
+Define each check's UI-facing metadata without moving the actual check logic into the UI.
+
+Conceptual entry:
+
+CheckDefinition(
+    id="video.frame_count",
+    name="Video frame count",
+    phase="video",
+    severity="HARD",
+    controls=[
+        Control(
+            id="tolerance_frames",
+            type="integer",
+            default=1,
+            min=0,
+            max=10,
+            unit="frames",
+        )
+    ],
+)
+
+The registry should describe:
+
+Stable check ID.
+Display name.
+Phase.
+Severity.
+Enabled-by-default state.
+Description/help text.
+User-editable controls.
+Control type.
+Units.
+Valid range.
+Whether the value is auto-detected or user-controlled.
+
+The registry is a UI contract, not a replacement for the validator implementation.
+
+Planned application/service layer
+
+Add:
+
+src/lerobot_validator/application/
+├── service.py
+├── runs.py
+├── events.py
+└── schemas.py
+
+Responsibilities:
+
+Accept dataset roots dynamically.
+Inspect datasets.
+Build/validate resolved configurations.
+Start validation runs.
+Track run state.
+Emit progress/check events.
+Return structured results.
+Support stop/cancel.
+Persist run metadata.
+Planned API layer
+
+Add:
+
+src/lerobot_validator/api/
+├── app.py
+├── datasets.py
+├── configs.py
+├── validation.py
+└── results.py
+
+Planned conceptual endpoints:
+
+GET  /api/datasets/inspect
+GET  /api/datasets/schema
+
+GET  /api/checks
+GET  /api/config/default
+POST /api/config/validate
+
+POST /api/runs
+GET  /api/runs/{run_id}
+POST /api/runs/{run_id}/stop
+
+GET  /api/runs/{run_id}/results
+GET  /api/runs/{run_id}/episodes
+GET  /api/runs/{run_id}/episodes/{episode_id}
+GET  /api/runs/{run_id}/episodes/{episode_id}/evidence
+
+Planned live progress channel:
+
+/ws/runs/{run_id}
+
+WebSocket/SSE implementation choice is still open; do not assume one until frontend/backend framework is selected.
+
+Planned run persistence
+
+Each validation run should preserve the exact dataset reference, resolved configuration, validator version/context, progress metadata, and results.
+
+Conceptual structure:
+
+runs/
+└── <run-id>/
+    ├── config.json
+    ├── dataset.json
+    ├── progress.json
+    ├── results.json
+    ├── summary.json
+    └── report.html
+
+A run must store the fully resolved configuration, not just a profile name, so validation can be reproduced later.
+
+Planned UI result views
+Dataset dashboard
+
+Show:
+
+Total episodes.
+Pass/review/reject counts.
+HARD failure count.
+SOFT warning count.
+Per-check summary.
+Episode explorer
+
+Columns:
+
+Episode | Score | Status | HARD | SOFT
+
+Filters should include:
+
+Status.
+Phase.
+Camera.
+HARD-only.
+Issue/check type.
+Episode detail
+
+Show:
+
+Score/status.
+Frame count.
+Duration.
+Task/instruction.
+All HARD and SOFT results.
+Frame ranges.
+Per-camera evidence.
+Video inspector
+
+Planned features:
+
+Video playback.
+Timeline markers.
+Frozen intervals.
+Timestamp mismatch evidence.
+Camera selection.
+Frame navigation.
+Action/state inspector
+
+Planned features:
+
+Dimension selection by feature name.
+Action/state curves.
+Lag visualization.
+Threshold visualization.
+Frame-range navigation.
+Configuration profiles
+
+The UI should support profiles such as:
+
+Default
+Strict
+Video-focused
+Action-focused
+Fast structural-only
+Custom
+
+Profiles are presets only. The actual run stores the complete resolved configuration.
+
+Potential config locations:
+
+configs/
+├── default.yml
+├── strict.yml
+├── video_focused.yml
+└── custom/
+
+The currently existing configs/default.yml is the source for existing defaults and should be cleaned later to remove the obsolete success section.
+
+Non-negotiable design constraints
+Preserve the existing validator engine architecture.
+Do not duplicate check logic in the UI.
+Dataset path must always be supplied dynamically at runtime.
+Use info.json as the source for FPS, camera keys, feature shapes, and dimensions where available.
+Camera count must never be hard-coded.
+Extra undeclared camera files are not automatically expected.
+Missing declared camera files are HARD.
+Do not use None video paths in EpisodePaths.videos.
+Success-flag validation is removed because the real dataset has no success flag.
+Keep HARD/SOFT semantics exactly as defined above.
+Preserve phase short-circuit behavior for expensive operations.
+Save the fully resolved configuration for every UI-run validation.
+Add tests alongside every new source module.
+Use dummy assets in tests before relying on real dataset runs.
+Do not rewrite unrelated modules merely to fit the UI.
+Treat actual source files and tests as the implementation source of truth; conversation summaries are a navigation aid.
+Immediate next implementation step
+
+Do not start by building frontend screens directly.
+
+First implement the UI-facing engine contract:
+
+1. control_registry.py
+2. application/schemas.py
+3. application/service.py
+4. corresponding tests
+
+The immediate goal is to make the existing validator discoverable and configurable by a UI without changing the underlying check algorithms.
+
+Then add the API layer, then the frontend.
+
+Working rule for future development
+
+Proceed module-by-module.
+
+For each new source module:
+
+src module
+     ↓
+matching test module
+     ↓
+unit tests
+     ↓
+integration test where applicable
+
+Keep the current implementation intact unless a concrete failure or UI contract requires a targeted change.
+
+Current status summary
+Dataset parsing                    COMPLETE / adapted
+Structural validation              IMPLEMENTED
+Video validation                   IMPLEMENTED
+Action validation                  IMPLEMENTED
+Episode quality validation         IMPLEMENTED
+Success flag check                 REMOVED
+Dataset quality                    PARTIAL / optional
+Scoring                            IMPLEMENTED
+Reporting                          IMPLEMENTED
+CLI                                IMPLEMENTED
+Real dataset adaptation            IN PROGRESS
+Episode-0 real validation          NEXT
+UI architecture                    PLANNED
+Control registry                   NEXT AFTER REAL-DATA SMOKE TEST
+Application service                PLANNED
+API                                PLANNED
+Frontend                            PLANNED
+Live progress                       PLANNED
+Evidence viewer                     PLANNED
+Run persistence                     PLANNED

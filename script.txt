@@ -1,0 +1,5 @@
+# bind all interfaces — reachable via localhost AND 192.168.200.16 (this is the default)
+ros2 launch daksha_vla_ui app.launch.py port:=8104
+
+# or bind this machine's real IP explicitly
+ros2 launch daksha_vla_ui app.launch.py host:=192.168.200.16 port:=8104

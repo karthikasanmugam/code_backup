@@ -1,0 +1,382 @@
+# ============================================================
+# LeRobot Dataset Validator - Default Configuration
+# ============================================================
+
+# ------------------------------------------------------------
+# Dataset
+# ------------------------------------------------------------
+dataset:
+  # Default dataset format target. The loader also accepts legacy layouts.
+  format: lerobot_v3
+
+  # Usually inferred from info.json.
+  # Set to null to always use info.json.
+  fps_override: null
+
+  # Episode indices to validate.
+  # null = validate all discovered episodes.
+  episode_indices: null
+
+
+# ------------------------------------------------------------
+# Execution
+# ------------------------------------------------------------
+execution:
+  # Stop validating an episode after a HARD failure.
+  short_circuit_on_hard: true
+
+  # Run expensive video/pixel checks only after structural checks pass.
+  skip_expensive_after_hard: true
+
+  # Number of episodes checked concurrently. Lower this if CPU/memory is limited.
+  workers: 4
+
+  # Print individual check results to stdout.
+  verbose: true
+
+
+# ------------------------------------------------------------
+# Phase 0 - Dataset setup
+# ------------------------------------------------------------
+setup:
+  # Action percentile statistics used by action-range checks.
+  action_percentiles:
+    low: 1.0
+    high: 99.0
+
+  # Number of episodes sampled when calculating expensive
+  # dataset-level statistics. null = use all episodes.
+  stats_episode_limit: null
+
+  # Maximum number of frames used for optional statistics
+  # sampling. null = no limit.
+  stats_frame_limit: null
+
+
+# ------------------------------------------------------------
+# Phase 1 - Structural integrity
+# ------------------------------------------------------------
+structural:
+  required_columns:
+    - frame_index
+    - timestamp
+    - observation.state
+    - action
+    - task_index
+
+  # Expected minimum episode length.
+  min_episode_length: 20
+
+  # Expected maximum episode length.
+  max_episode_length: 1000
+
+  # frame_index must be exactly:
+  # 0, 1, 2, ..., n-1
+  require_contiguous_frame_index: true
+
+  # Do not permit NaN / Inf in state or action arrays.
+  reject_nan_inf: true
+
+  # State/action dimensions must match info.json.
+  enforce_dimensions: true
+
+  # Episode row count must match metadata length.
+  enforce_metadata_length: true
+
+
+# ------------------------------------------------------------
+# Phase 2 - Video / Vision
+# ------------------------------------------------------------
+video:
+  enabled: true
+
+  # Validate every camera declared by info.json.
+  require_all_cameras: true
+
+  # Empty / zero-byte video files are HARD failures.
+  require_nonzero_files: true
+
+  # Decode checks.
+  decoding:
+    enabled: true
+    check_first_frame: true
+    check_last_frame: true
+
+  # Video frame count must equal the number of parquet rows.
+  frame_count:
+    enabled: true
+    tolerance_frames: 0
+
+  # Video resolution must match info.json.
+  resolution:
+    enabled: true
+
+  # Compare video presentation timestamps to parquet timestamps.
+  timestamps:
+    enabled: true
+    tolerance_seconds: null
+    # null = 0.5 / dataset_fps
+
+  # Pixel-level quality checks should use sampled frames.
+  image_quality:
+    enabled: true
+
+    sample_every: 15
+
+    # Variance of Laplacian below this is considered blurry.
+    blur_threshold: 50.0
+
+    # Mean/brightness measure below this is considered too dark.
+    dark_threshold: 10.0
+
+    # Mean/brightness measure above this is considered overexposed.
+    bright_threshold: 245.0
+
+    # Episode becomes SOFT-flagged when bad-frame fraction exceeds this.
+    max_bad_ratio: 0.05
+
+  # Detect visually frozen video while actions indicate movement.
+  frozen_video:
+    enabled: true
+
+    # Near-zero frame difference threshold.
+    diff_epsilon: 0.001
+
+    # Minimum action magnitude considered non-zero.
+    action_epsilon: 0.03
+
+    # Continuous frozen interval required to flag.
+    min_run_seconds: 2.0
+
+  # Cross-camera synchronization.
+  multiview_sync:
+    enabled: true
+    tolerance_frames: 1
+
+  # Optional detector/VLM based camera coverage validation.
+  camera_coverage:
+    enabled: false
+    sample_every: 15
+
+    # External detector/VLM integration can override this later.
+    detector: null
+
+
+# ------------------------------------------------------------
+# Phase 3 - Actions / Tokens
+# ------------------------------------------------------------
+actions:
+  enabled: true
+
+  # Action distribution bounds come from dataset statistics.
+  range:
+    enabled: true
+    low_percentile: 1.0
+    high_percentile: 99.0
+
+    # HARD failure if more than this fraction of values
+    # lies outside percentile bounds.
+    max_clip_ratio: 0.02
+
+  # Action smoothness.
+  smoothness:
+    enabled: true
+
+    # Z-score threshold for second-difference/jerk outliers.
+    jerk_z_threshold: 6.0
+
+    # Dimensions excluded from smoothness analysis.
+    # Example: gripper dimension.
+    exclude_dimensions: []
+
+  # Gripper behavior.
+  gripper:
+    enabled: true
+
+    # Dataset-specific threshold should be set once the
+    # action representation is known.
+    open_close_threshold: null
+
+    max_toggles: 6
+    min_hold_frames: 5
+
+  # State/action temporal relationship.
+  state_lag:
+    enabled: true
+
+    max_lag_frames: 5
+    min_correlation: 0.5
+
+  # Detect possible off-by-one action/state shifts.
+  alignment:
+    enabled: true
+
+    # Compare correlation at -1, 0, +1.
+    lag_window: 1
+
+  # Token-budget validation.
+  token_budget:
+    enabled: true
+
+    # These should normally come from the model/tokenizer config.
+    chunk_length: null
+    tokens_per_dimension: null
+    max_tokens: null
+
+  # Continuous-action models may not have a tokenizer.
+  tokenizer_roundtrip:
+    enabled: false
+
+    max_reconstruction_error: 0.01
+
+
+# ------------------------------------------------------------
+# Phase 4 - Episode-level quality
+# ------------------------------------------------------------
+episode:
+  enabled: true
+
+  idle:
+    enabled: true
+    velocity_epsilon: 0.001
+
+  boundary_idle:
+    enabled: true
+    velocity_epsilon: 0.001
+
+    # Flag when leading/trailing idle exceeds this duration.
+    max_idle_seconds: 2.0
+
+  duration:
+    enabled: true
+
+    # Median/MAD based outlier threshold.
+    mad_z_threshold: 3.5
+
+  path_efficiency:
+    enabled: true
+    ratio_threshold: 2.0
+
+  task_instruction:
+    enabled: true
+
+  # Optional VLM/manual semantic verification.
+  instruction_match:
+    enabled: false
+
+  success:
+    enabled: true
+
+    # Require explicit success=true or explicit failure label.
+    require_success: true
+
+  proprio_sync:
+    enabled: true
+
+    # null = derived from dataset FPS.
+    tolerance_seconds: null
+
+
+# ------------------------------------------------------------
+# Phase 5 - Dataset-level quality
+# ------------------------------------------------------------
+dataset_quality:
+  enabled: true
+
+  duplicates:
+    enabled: false
+
+    similarity_threshold: 0.98
+
+    # Embedding strategy:
+    # first_frame + downsampled_action_trace
+    embedding_method: frame_action
+
+  task_balance:
+    enabled: false
+
+    min_episodes_per_task: 1
+
+  diversity:
+    enabled: false
+
+    min_novelty: 0.05
+
+
+# ------------------------------------------------------------
+# Phase 6 - Scoring / classification
+# ------------------------------------------------------------
+scoring:
+  enabled: true
+
+  # SOFT failures reduce quality score.
+  # HARD failures are handled separately by classification.
+  weights:
+    image_quality: 1.0
+    frozen_video: 1.0
+    action_smoothness: 1.0
+    gripper_transitions: 1.0
+    action_state_lag: 1.0
+    idle_ratio: 1.0
+    boundary_idle: 1.0
+    duration_outlier: 1.0
+    path_efficiency: 1.0
+    instruction_match: 1.0
+
+  classification:
+    # Any HARD failure => REJECT.
+    reject_on_hard: true
+
+    # Below this score => REVIEW.
+    review_min_score: 0.70
+
+
+# ------------------------------------------------------------
+# Reporting
+# ------------------------------------------------------------
+reporting:
+  output_dir: outputs
+
+  # Existing report format.
+  flagged_log: flagged_episodes.log
+
+  # One episode number per line.
+  flagged_ids: flagged_episodes_ids.txt
+
+  # Episodes classified KEEP.
+  kept_ids: kept_episodes_ids.txt
+
+  # Per-episode score/classification/details.
+  scores_csv: episode_scores.csv
+
+  # Machine-readable complete results.
+  results_json: validation_results.json
+
+  # Include successful checks in JSON.
+  include_passed_checks: false
+
+  # Include frame ranges for localized failures.
+  include_frame_ranges: true
+
+
+# ------------------------------------------------------------
+# Logging
+# ------------------------------------------------------------
+logging:
+  level: INFO
+
+  # Preserve the existing timestamped audit header.
+  include_timestamp: true
+
+  # Preserve dataset root in audit output.
+  include_data_root: true
+
+
+
+actions:
+  gripper:
+    enabled: true
+    dimension: null
+    open_close_threshold: null
+    max_toggles: 6
+    min_hold_frames: 5

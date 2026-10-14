@@ -1,0 +1,1996 @@
+{
+  "dataset_results": [],
+  "episodes": [
+    {
+      "classification": "KEEP",
+      "episode_index": 0,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            209,
+            235
+          ],
+          "message": "Detected 9 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 1,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            75,
+            221
+          ],
+          "message": "Detected 20 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            70
+          ],
+          "message": "Leading idle period is 2.33s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 2,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            76,
+            190
+          ],
+          "message": "Detected 11 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 3,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            134,
+            200
+          ],
+          "message": "Detected 5 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 4,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            54,
+            167
+          ],
+          "message": "Detected 9 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 5,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            118,
+            120
+          ],
+          "message": "Detected 2 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 6,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            80,
+            243
+          ],
+          "message": "Detected 18 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 7,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            118,
+            232
+          ],
+          "message": "Detected 21 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            63
+          ],
+          "message": "Leading idle period is 2.10s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 8,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            71,
+            236
+          ],
+          "message": "Detected 26 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 9,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            67,
+            198
+          ],
+          "message": "Detected 21 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 10,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            181,
+            183
+          ],
+          "message": "Detected 2 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 11,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            61,
+            193
+          ],
+          "message": "Detected 6 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 12,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            68,
+            245
+          ],
+          "message": "Detected 19 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            65
+          ],
+          "message": "Leading idle period is 2.17s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 13,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            125,
+            234
+          ],
+          "message": "Detected 5 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 14,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            82,
+            238
+          ],
+          "message": "Detected 17 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 15,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            70,
+            222
+          ],
+          "message": "Detected 26 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 16,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            111,
+            214
+          ],
+          "message": "Detected 6 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 17,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            47,
+            243
+          ],
+          "message": "Detected 43 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 18,
+      "results": [],
+      "score": 1.0
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 19,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            81,
+            242
+          ],
+          "message": "Detected 22 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 20,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            211,
+            225
+          ],
+          "message": "Detected 4 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 21,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            69,
+            248
+          ],
+          "message": "Detected 12 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 22,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            78,
+            223
+          ],
+          "message": "Detected 27 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            64
+          ],
+          "message": "Leading idle period is 2.13s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 23,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            57,
+            246
+          ],
+          "message": "Detected 23 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 24,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            60,
+            212
+          ],
+          "message": "Detected 14 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 25,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            2,
+            250
+          ],
+          "message": "Detected 28 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 26,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            62,
+            207
+          ],
+          "message": "Detected 13 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 27,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            83,
+            179
+          ],
+          "message": "Detected 27 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 28,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            68,
+            177
+          ],
+          "message": "Detected 34 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 29,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            75,
+            208
+          ],
+          "message": "Detected 21 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 30,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            56,
+            223
+          ],
+          "message": "Detected 10 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 31,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            71,
+            247
+          ],
+          "message": "Detected 21 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 32,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            57,
+            235
+          ],
+          "message": "Detected 20 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 33,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            69,
+            218
+          ],
+          "message": "Detected 9 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 34,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            56,
+            227
+          ],
+          "message": "Detected 8 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 35,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            72,
+            239
+          ],
+          "message": "Detected 11 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 36,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            82,
+            242
+          ],
+          "message": "Detected 32 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 37,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            83,
+            247
+          ],
+          "message": "Detected 11 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 38,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            59,
+            250
+          ],
+          "message": "Detected 13 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 39,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            105,
+            249
+          ],
+          "message": "Detected 22 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            70
+          ],
+          "message": "Leading idle period is 2.33s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 40,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            66,
+            250
+          ],
+          "message": "Detected 15 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 41,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            69,
+            216
+          ],
+          "message": "Detected 42 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 42,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            50,
+            206
+          ],
+          "message": "Detected 28 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 43,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            138,
+            248
+          ],
+          "message": "Detected 24 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 44,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            64,
+            237
+          ],
+          "message": "Detected 19 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 45,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            68,
+            233
+          ],
+          "message": "Detected 31 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            63
+          ],
+          "message": "Leading idle period is 2.10s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 46,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            71,
+            246
+          ],
+          "message": "Detected 37 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 47,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            63,
+            216
+          ],
+          "message": "Detected 20 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 48,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            89,
+            247
+          ],
+          "message": "Detected 34 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            75
+          ],
+          "message": "Leading idle period is 2.50s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 49,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            67,
+            250
+          ],
+          "message": "Detected 32 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 50,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            58,
+            246
+          ],
+          "message": "Detected 42 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 51,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            52,
+            250
+          ],
+          "message": "Detected 25 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 52,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            129,
+            242
+          ],
+          "message": "Detected 31 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            71
+          ],
+          "message": "Leading idle period is 2.37s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 53,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            69,
+            224
+          ],
+          "message": "Detected 29 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 54,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            86,
+            246
+          ],
+          "message": "Detected 30 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            71
+          ],
+          "message": "Leading idle period is 2.37s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 55,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            81,
+            247
+          ],
+          "message": "Detected 37 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            80
+          ],
+          "message": "Leading idle period is 2.67s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 56,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            11,
+            248
+          ],
+          "message": "Detected 30 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 57,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            64,
+            250
+          ],
+          "message": "Detected 37 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 58,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            64,
+            230
+          ],
+          "message": "Detected 27 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 59,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            71,
+            249
+          ],
+          "message": "Detected 17 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 60,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            78,
+            235
+          ],
+          "message": "Detected 30 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 61,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            77,
+            246
+          ],
+          "message": "Detected 27 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 62,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            25,
+            128
+          ],
+          "message": "Detected 26 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 63,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            66,
+            248
+          ],
+          "message": "Detected 25 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 64,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            65,
+            208
+          ],
+          "message": "Detected 35 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            61
+          ],
+          "message": "Leading idle period is 2.03s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 65,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            42,
+            249
+          ],
+          "message": "Detected 33 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 66,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            78,
+            249
+          ],
+          "message": "Detected 34 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            71
+          ],
+          "message": "Leading idle period is 2.37s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 67,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            5,
+            219
+          ],
+          "message": "Detected 28 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 68,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            78,
+            219
+          ],
+          "message": "Detected 10 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 69,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            70,
+            250
+          ],
+          "message": "Detected 42 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            72
+          ],
+          "message": "Leading idle period is 2.40s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 70,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            90,
+            249
+          ],
+          "message": "Detected 26 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            70
+          ],
+          "message": "Leading idle period is 2.33s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 71,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            56,
+            220
+          ],
+          "message": "Detected 7 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 72,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            65,
+            250
+          ],
+          "message": "Detected 13 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 73,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            65,
+            168
+          ],
+          "message": "Detected 26 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            63
+          ],
+          "message": "Leading idle period is 2.10s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 74,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            4,
+            250
+          ],
+          "message": "Detected 45 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 75,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            198,
+            219
+          ],
+          "message": "Detected 7 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 76,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            45,
+            227
+          ],
+          "message": "Detected 32 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 77,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            217,
+            236
+          ],
+          "message": "Detected 5 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 78,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            65,
+            230
+          ],
+          "message": "Detected 14 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 79,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            55,
+            105
+          ],
+          "message": "Detected 10 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 80,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            66,
+            249
+          ],
+          "message": "Detected 37 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 81,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            83,
+            247
+          ],
+          "message": "Detected 19 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 82,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            61,
+            248
+          ],
+          "message": "Detected 45 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 83,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            72,
+            114
+          ],
+          "message": "Detected 19 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 84,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            50,
+            248
+          ],
+          "message": "Detected 23 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 85,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            61,
+            192
+          ],
+          "message": "Detected 22 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 86,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            69,
+            241
+          ],
+          "message": "Detected 12 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 87,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            51,
+            242
+          ],
+          "message": "Detected 38 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 88,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            52,
+            250
+          ],
+          "message": "Detected 27 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 89,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            61,
+            190
+          ],
+          "message": "Detected 28 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 90,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            43,
+            248
+          ],
+          "message": "Detected 34 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 91,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            70,
+            247
+          ],
+          "message": "Detected 28 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 92,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            73,
+            113
+          ],
+          "message": "Detected 3 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 93,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            69,
+            240
+          ],
+          "message": "Detected 19 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 94,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            56,
+            162
+          ],
+          "message": "Detected 30 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 95,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            64,
+            242
+          ],
+          "message": "Detected 24 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 96,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            66,
+            216
+          ],
+          "message": "Detected 5 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 97,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            43,
+            213
+          ],
+          "message": "Detected 4 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 98,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            89,
+            250
+          ],
+          "message": "Detected 24 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 99,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            97,
+            235
+          ],
+          "message": "Detected 5 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 100,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            51,
+            228
+          ],
+          "message": "Detected 6 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 101,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            86,
+            237
+          ],
+          "message": "Detected 39 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "leading_trailing_idle",
+          "frame_range": [
+            0,
+            72
+          ],
+          "message": "Leading idle period is 2.40s; maximum allowed is 2.00s.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 102,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            233,
+            250
+          ],
+          "message": "Detected 2 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 103,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            60,
+            241
+          ],
+          "message": "Detected 23 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 104,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            50,
+            247
+          ],
+          "message": "Detected 34 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 105,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            41,
+            215
+          ],
+          "message": "Detected 28 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 106,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            185,
+            220
+          ],
+          "message": "Detected 15 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 107,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            49,
+            249
+          ],
+          "message": "Detected 25 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 108,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            45,
+            250
+          ],
+          "message": "Detected 48 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 109,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            71,
+            209
+          ],
+          "message": "Detected 6 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 110,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            18,
+            231
+          ],
+          "message": "Detected 39 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 111,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            50,
+            245
+          ],
+          "message": "Detected 16 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 112,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            84,
+            218
+          ],
+          "message": "Detected 31 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 113,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            52,
+            246
+          ],
+          "message": "Detected 11 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 114,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            36,
+            218
+          ],
+          "message": "Detected 32 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 115,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            50,
+            250
+          ],
+          "message": "Detected 46 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    }
+  ],
+  "total_episodes": 116
+}

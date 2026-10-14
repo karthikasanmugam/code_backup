@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a2442">
+  <title>Daksha VLA · Robotics Control Center</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}?v=20261003-3">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#training" aria-label="Daksha home">
+        <img class="brand-mark" src="{{ url_for('static', filename='assets/ihub-robotics-logo.png') }}" alt="iHub Robotics">
+      </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-link active" type="button" data-tab="training"><span class="nav-icon">◈</span><span>Training</span></button>
+        <button class="nav-link" type="button" data-tab="inference"><span class="nav-icon">◎</span><span>Inference</span></button>
+        <button class="nav-link" type="button" data-tab="datasets"><span class="nav-icon">▤</span><span>Datasets</span></button>
+        <button class="nav-link" type="button" data-tab="checkpoints"><span class="nav-icon">◇</span><span>Checkpoints</span></button>
+        <button class="nav-link" type="button" data-tab="evaluation"><span class="nav-icon">◫</span><span>Evaluation</span></button>
+      </nav>
+      <section class="side-robot" aria-label="Daksha intelligence">
+        <img class="side-robot-image" src="{{ url_for('static', filename='assets/daksha_r.png') }}" alt="" aria-hidden="true">
+        <div class="side-robot-copy">
+          <strong>Daksha Intelligence</strong>
+          <p>From perception to action — building smarter robots.</p>
+        </div>
+      </section>
+      
+      <div class="sidebar-foot"> MADE IN INDIA </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="title-block">
+          <img class="topbar-mark" src="{{ url_for('static', filename='assets/ihub-robotics-logo.png') }}" alt="">
+          <div><h1>Daksha VLA Control Center</h1><p>Empowering robots with vision, language and action.</p><span class="sr-only" id="page-title">Training workspace</span></div>
+          <span class="vla-chip">VLA ENGINE</span>
+        </div>
+        <section class="system-strip" aria-label="System resources">
+          <div class="resource-card"><span class="resource-icon">CPU</span><span class="resource-copy"><small>Processor</small><strong id="cpu-value">—</strong></span><span class="resource-meter"><i id="cpu-meter"></i></span></div>
+          <div class="resource-card"><span class="resource-icon memory">MEM</span><span class="resource-copy"><small>Memory</small><strong id="memory-value">—</strong></span><span class="resource-meter"><i id="memory-meter"></i></span></div>
+          <div class="resource-card"><span class="resource-icon storage">DSK</span><span class="resource-copy"><small>Disk</small><strong id="disk-value">—</strong></span><span class="resource-meter"><i id="disk-meter"></i></span></div>
+          <div class="resource-card"><span class="resource-icon gpu">GPU</span><span class="resource-copy"><small>Accelerator</small><strong id="gpu-value">—</strong></span><span class="resource-meter"><i id="gpu-meter"></i></span></div>
+          <div class="resource-card"><span class="resource-icon vram">VRAM</span><span class="resource-copy"><small>Video memory</small><strong id="vram-value">—</strong></span><span class="resource-meter"><i id="vram-meter"></i></span></div>
+        </section>
+        <div class="topbar-right">
+          <div class="header-status"><span class="status-dot" id="header-status-dot"></span><span class="sr-only" id="header-status">Connecting to backend</span></div>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.7 8.7 0 1 0 20.2 15.4Z"/></svg></button>
+        </div>
+      </header>
+
+      <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+      <div class="dataset-loading" id="dataset-loading" role="dialog" aria-modal="true" aria-labelledby="dataset-loading-title" hidden>
+        <div class="dataset-loading-card">
+          <span class="loading-spinner" aria-hidden="true"></span>
+          <span class="eyebrow">DATASET SETUP</span>
+          <h2 id="dataset-loading-title">Preparing dataset</h2>
+          <p id="dataset-loading-message">Initial dataset loading will take time. Please keep this page open.</p>
+          <div class="progress-track" role="progressbar" aria-label="Dataset loading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="dataset-loading-fill"></span></div>
+          <div class="dataset-loading-status"><span id="dataset-loading-stage">Starting dataset checks…</span><strong id="dataset-loading-percent">0%</strong></div>
+          <button class="button secondary" id="dataset-loading-close" type="button" hidden>Close</button>
+        </div>
+      </div>
+
+      <div class="page-content">
+        <section class="page-view active" id="training" data-page="training" aria-label="Training">
+          <section class="hero-banner">
+            <div class="hero-robot"><img class="hero-product" src="{{ url_for('static', filename='assets/daksha_banner_3.png') }}" alt="Daksha robots in a showroom"></div>
+          </section>
+          <div class="content-grid training-grid">
+            <article class="panel span-6">
+              <div class="panel-heading"><div><span class="step-mark" aria-hidden="true">◈</span><h3>Select model</h3></div><span class="panel-kicker">POLICY ARCHITECTURE</span></div>
+              <div class="model-grid" id="model-selector" role="radiogroup" aria-label="Training policy"></div>
+              <div class="button-row model-reset-actions"><button class="button secondary compact" id="reset-training-btn" type="button"><span aria-hidden="true">↺</span> Reset environment</button></div>
+            </article>
+
+            <article class="panel span-6">
+              <div class="panel-heading"><div><span class="step-mark" aria-hidden="true">▤</span><h3>Select dataset</h3></div><span class="panel-kicker">TRAINING DATA</span></div>
+              <div class="field-row dataset-pick-row">
+                <div class="field grow"><label for="train-dataset">Training dataset</label><select id="train-dataset"><option value="">Loading datasets…</option></select></div>
+                <button class="button secondary compact" id="refresh-datasets-training" type="button">Refresh</button>
+              </div>
+              <div class="dataset-summary" id="train-dataset-info" aria-live="polite">Choose a dataset from the backend catalog.</div>
+            </article>
+
+            <article class="panel span-6">
+              <div class="panel-heading"><div><span class="step-mark" aria-hidden="true">⚙</span><h3>Training configuration</h3></div><span class="panel-kicker">CONFIGURATION</span></div>
+              <div class="hyperparameter-grid" id="hyperparameters"><p class="muted">Select a policy to load its configuration.</p></div>
+              <div class="field"><label for="job-name">Run name</label><input id="job-name" type="text" placeholder="Optional · generated by backend"></div>
+            </article>
+
+            <article class="panel span-6 sample-panel">
+              <div class="panel-heading"><div><span class="step-mark" aria-hidden="true">▣</span><h3>Training sample</h3></div><span class="panel-kicker" id="sample-state">Select a dataset</span></div>
+              <div class="sample-controls"><label class="sr-only" for="sample-episode">Episode</label><select id="sample-episode" aria-label="Sample episode" disabled><option value="">No episode</option></select><label class="sr-only" for="sample-camera">Camera</label><select id="sample-camera" aria-label="Sample camera" disabled><option value="">No camera</option></select></div>
+              <div class="sample-actions"><button class="button secondary compact" id="sample-play" type="button" disabled>▶ Play</button><button class="button secondary compact" id="sample-pause" type="button" disabled>Ⅱ Pause</button><button class="button secondary compact" id="sample-stop" type="button" disabled>■ Stop</button></div>
+              <div class="sample-video-frame"><video id="training-sample-video" playsinline preload="metadata" aria-label="Selected dataset episode sample"></video><div class="video-empty" id="sample-empty">Video preview will appear for a dataset with recorded camera media.</div></div>
+            </article>
+
+            <article class="panel span-6">
+              <div class="panel-heading"><div><span class="step-mark" aria-hidden="true">↗</span><h3>Training progress</h3></div><span class="metric-inline" id="train-step">—</span></div>
+              <div class="progress-label"><span id="train-stage">Waiting for a run</span><strong id="train-progress">—</strong></div>
+              <div class="progress-track" role="progressbar" aria-label="Training progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
+              <div class="button-row training-controls"><button class="button primary" id="train-start-btn" type="button" disabled>Start training <span aria-hidden="true">↗</span></button><button class="button danger" id="train-stop-btn" type="button" disabled>Stop</button><button class="button secondary" id="train-resume-btn" type="button" disabled>Resume latest</button></div>
+            </article>
+
+            <article class="panel span-6">
+              <div class="panel-heading"><div><span class="step-mark" aria-hidden="true">∿</span><h3>Training loss</h3></div><span class="small-state" id="loss-state">Waiting for loss metrics</span></div>
+              <div class="loss-chart" id="loss-chart" aria-label="Training loss chart"><p class="empty-inline">Loss values appear when the training log reports them.</p></div>
+            </article>
+
+            <article class="panel span-12">
+              <div class="panel-heading"><div><span class="step-mark" aria-hidden="true">≡</span><h3>Training logs</h3></div><span class="stream-indicator" id="training-stream-state">Disconnected</span></div>
+              <pre class="log-view" id="training-logs" aria-live="polite"><span class="log-placeholder">Logs will appear when the backend emits training output.</span></pre>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-view" id="inference" data-page="inference" aria-labelledby="inference-heading" hidden>
+          <div class="section-intro"><div><span class="eyebrow">DEPLOYMENT</span><h2 id="inference-heading">Inference &amp; robot bridge</h2><p>Load an exact saved checkpoint, review its safety limits, and manage runtime processes.</p></div><button class="button secondary compact" id="reset-inference-btn" type="button"><span aria-hidden="true">↺</span> Reset environment</button></div>
+          <div class="content-grid inference-layout">
+            <article class="panel span-6 inference-server-panel">
+              <div class="panel-heading"><div><span class="step-mark">01</span><div><h3>Policy runtime</h3></div></div><span class="live-chip" id="server-state-chip"><i></i><span>Offline</span></span></div>
+              <div class="field"><label for="inf-policy-filter">Policy filter</label><select id="inf-policy-filter"><option value="">All policies</option><option value="act">ACT</option><option value="diffusion">Diffusion</option><option value="smolvla">SmolVLA</option></select></div>
+              <div class="field"><label for="inf-checkpoint">Saved checkpoint step</label><select id="inf-checkpoint"><option value="">Select a checkpoint</option></select></div>
+              <div class="field-grid inference-settings-grid"><div class="field"><label for="server-port">Policy server port</label><input id="server-port" type="number" min="1024" max="65535" value="5555"></div><div class="field"><label for="bridge-device">Runtime device</label><select id="bridge-device"><option value="cuda">CUDA</option><option value="cpu">CPU</option></select></div><div class="field"><label for="inf-action-horizon">Action horizon</label><input id="inf-action-horizon" type="number" min="1" step="1" placeholder="From checkpoint"></div><div class="field"><label for="inf-control-hz">Control Hz</label><input id="inf-control-hz" type="number" min="1" step="1" placeholder="From checkpoint"></div></div>
+              <p class="inference-runtime-hint">The selected device is used by the policy runtime and the ROS 2 bridge.</p>
+              <div class="detected-meta" id="inf-detected">Choose a checkpoint to inspect its runtime settings.</div>
+              <div class="button-row"><button class="button primary" id="server-start-btn" type="button" disabled>Start policy server</button><button class="button danger" id="server-stop-btn" type="button" disabled>Stop server</button><button class="button secondary compact" id="refresh-checkpoints-inference" type="button">Refresh</button></div>
+              <div class="subheading log-title"><h4>Policy server logs</h4><span class="stream-indicator" id="server-stream-state">Disconnected</span></div><pre class="log-view short" id="server-logs" aria-live="polite"></pre>
+            </article>
+
+            <article class="panel span-6 inference-bridge-panel">
+              <div class="panel-heading"><div><span class="step-mark">02</span><h3>Robot bridge</h3></div><span class="live-chip" id="bridge-state-chip"><i></i><span>Offline</span></span></div>
+              <div class="bridge-summary" id="bridge-checkpoint-info">Select a checkpoint and load its metadata first.</div>
+              <p class="info-note">The bridge connects to the configured robot through ROS 2. The dashboard has no live camera feed.</p>
+              <div class="button-row"><button class="button primary" id="bridge-start-btn" type="button" disabled>Start robot bridge</button><button class="button danger" id="bridge-stop-btn" type="button" disabled>Stop bridge</button></div>
+              <div class="subheading log-title"><h4>Bridge logs</h4><span class="stream-indicator" id="bridge-stream-state">Disconnected</span></div><pre class="log-view short" id="bridge-logs" aria-live="polite"></pre>
+            </article>
+
+            <article class="panel span-12 inference-safety-panel">
+              <div class="panel-heading"><div><span class="step-mark">03</span><h3>Checkpoint safety limits</h3></div><span class="panel-kicker">READ-ONLY METADATA</span></div>
+              <div class="table-scroll"><table class="data-table"><thead><tr><th>Index</th><th>Action channel</th><th>Minimum</th><th>Maximum</th><th>Max step Δ</th></tr></thead><tbody id="inf-limits-body"><tr><td colspan="5" class="muted">Select a checkpoint to calculate its limits.</td></tr></tbody></table></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-view" id="datasets" data-page="datasets" aria-labelledby="datasets-heading" hidden>
+          <div class="section-intro"><div><span class="eyebrow">DATA MANAGEMENT</span><h2 id="datasets-heading">Datasets</h2><p>Browse the configured dataset catalog, inspect episodes, and manage local datasets.</p></div><button class="button secondary" id="refresh-datasets" type="button">Refresh catalog</button></div>
+          <div class="dataset-overview" id="dataset-overview">
+            <div class="content-grid">
+              <article class="panel span-12"><div class="panel-heading"><div><span class="step-mark">01</span><h3>Available datasets</h3></div><span class="panel-kicker" id="dataset-count">Loading catalog</span></div><div class="dataset-list" id="datasets-list"><p class="muted">Loading the configured dataset catalog…</p></div></article>
+            </div>
+          </div>
+
+          <div class="dataset-viewer" id="dataset-viewer" hidden>
+            <div class="viewer-topline"><button class="button secondary" id="back-to-datasets" type="button">← Back to datasets</button><div><span class="eyebrow">EPISODE INSPECTOR</span><h2 id="viewer-title">Dataset viewer</h2><p id="viewer-subtitle" class="muted"></p></div></div>
+            <div class="viewer-meta-grid" id="viewer-meta"></div>
+            <article class="panel viewer-filter-panel"><div class="panel-heading"><div><span class="step-mark">01</span><h3>Filter demonstrations</h3></div><span class="panel-kicker" id="viewer-episode-count"></span></div><div class="field-grid two-col"><div class="field"><label for="viewer-task">Task prompt</label><select id="viewer-task"><option value="">All tasks</option></select></div><div class="field"><label for="viewer-episode">Episode</label><select id="viewer-episode" disabled><option value="">Choose a task first</option></select></div></div><button class="button text-button" id="viewer-load-more" type="button" hidden>Load more episodes</button><div class="prompt-box"><span>RECORDED TASK</span><p id="viewer-prompt">Select an episode to view its task.</p></div></article>
+            <article class="panel"><div class="panel-heading"><div><span class="step-mark">02</span><h3>Synchronized camera views</h3></div><span class="panel-kicker" id="viewer-media-state">Waiting for episode</span></div><div class="button-row media-controls"><button class="button primary" id="viewer-play" type="button" disabled>▶ Play episode</button><button class="button secondary" id="viewer-pause" type="button" disabled>Ⅱ Pause</button><button class="button secondary" id="viewer-stop" type="button" disabled>■ Stop</button><label class="loop-toggle"><input id="viewer-loop" type="checkbox"><span>Loop episode</span></label><span class="media-clock" id="viewer-clock">00:00 / 00:00</span></div><div class="seek-row"><label class="sr-only" for="viewer-seek">Seek selected episode</label><input id="viewer-seek" type="range" min="0" max="0" value="0" step="0.01" disabled><span id="viewer-seek-time">00:00</span></div><div class="viewer-video-grid" id="viewer-video-grid"><div class="empty-state">Choose a dataset episode to load its available camera recordings.</div></div></article>
+            <article class="panel"><div class="panel-heading"><div><span class="step-mark">03</span><h3>Action timelines</h3><p>Timestamped action samples from the selected episode.</p></div><span class="panel-kicker" id="action-dimension-label">No action data loaded</span></div><div class="chart-toolbar"><div><strong id="action-chart-title">Action channels</strong><span id="action-chart-range"></span></div><div class="button-row"><button class="button secondary compact" id="action-page-prev" type="button" disabled>← Previous</button><span id="action-page-label">—</span><button class="button secondary compact" id="action-page-next" type="button" disabled>Next →</button></div></div><div class="action-chart-grid" id="action-chart-grid"><div class="empty-state">Action charts load when an episode is selected.</div></div><div class="action-current" id="action-current">Frame — <span>·</span> Time —</div></article>
+          </div>
+        </section>
+
+        <section class="page-view" id="checkpoints" data-page="checkpoints" aria-labelledby="checkpoints-heading" hidden>
+          <div class="section-intro"><div><span class="eyebrow">SAVED RUNS</span><h2 id="checkpoints-heading">Checkpoints</h2><p>Choose an exact saved step for inference or resume a run from its latest complete checkpoint.</p></div><button class="button secondary" id="refresh-checkpoints" type="button">Refresh checkpoints</button></div>
+          <article class="panel"><div class="panel-heading"><div><span class="step-mark">01</span><h3>Training runs</h3></div><span class="panel-kicker" id="checkpoint-count">Loading</span></div><div class="checkpoint-list" id="checkpoints-list"><p class="muted">Loading checkpoints…</p></div></article>
+        </section>
+
+        <section class="page-view" id="evaluation" data-page="evaluation" aria-labelledby="evaluation-heading" hidden>
+          <div class="section-intro"><div><span class="eyebrow">MODEL VALIDATION</span><h2 id="evaluation-heading">Evaluate a checkpoint</h2><p>Compare a trained policy against held-out dataset episodes.</p></div><button class="button secondary" id="refresh-evaluation-options" type="button">Refresh datasets &amp; checkpoints</button></div>
+          <article class="panel"><div class="panel-heading"><div><span class="step-mark">01</span><h3>Evaluation setup</h3></div><span class="panel-kicker">HELD-OUT DATA ONLY</span></div>
+            <div class="field-grid three-col"><div class="field"><label for="mv-dataset">Dataset</label><select id="mv-dataset"><option value="">Select dataset</option></select></div><div class="field"><label for="mv-model-type">Policy</label><select id="mv-model-type"><option value="act">ACT</option><option value="diffusion">Diffusion</option><option value="smolvla">SmolVLA</option></select></div><div class="field"><label for="mv-checkpoint">Checkpoint</label><select id="mv-checkpoint"><option value="">Select checkpoint</option></select></div><div class="field"><label for="mv-scope">Scope</label><select id="mv-scope"><option value="dataset">Entire held-out split</option><option value="episode">One held-out episode</option></select></div><div class="field"><label for="mv-episode">Test episode</label><select id="mv-episode" disabled><option value="">Load dataset first</option></select><small id="mv-episode-note" class="field-hint"></small></div><div class="field"><label for="mv-device">Device</label><select id="mv-device"><option value="cuda">CUDA</option><option value="cpu">CPU</option></select></div><div class="field"><label for="mv-stride">Frame stride</label><input id="mv-stride" type="number" min="1" step="1" value="1"></div><div class="field"><label for="mv-max-frames">Max frames / episode</label><input id="mv-max-frames" type="number" min="1" placeholder="Full episode"></div><div class="field"><label for="mv-seed">Sampling seed</label><input id="mv-seed" type="number" min="0" max="4294967295" value="0"></div></div>
+            <div class="button-row"><button class="button secondary" id="mv-load-btn" type="button">Load held-out episodes</button><button class="button primary" id="mv-eval-btn" type="button" disabled>Run evaluation</button><button class="button danger" id="mv-stop-btn" type="button" disabled>Stop evaluation</button><button class="button text-button" id="mv-reset-btn" type="button">Reset</button></div>
+            <p class="evaluation-note" id="mv-dataset-meta" aria-live="polite"></p><p class="form-message" id="mv-error" role="alert" hidden></p><div class="evaluation-progress"><div class="progress-label"><span id="mv-progress-text">No evaluation running</span><strong id="mv-progress-percent">—</strong></div><div class="progress-track"><span id="mv-progress-fill"></span></div></div>
+          </article>
+          <article class="panel" id="mv-result-panel"><div class="panel-heading"><div><span class="step-mark">02</span><h3>Evaluation result</h3></div><span class="panel-kicker" id="mv-result-state">No completed result</span></div><div class="evaluation-metrics" id="mv-summary"><div class="metric-tile"><small>Episode</small><strong id="mv-m-episode">—</strong></div><div class="metric-tile"><small>Episodes</small><strong id="mv-m-episodes">—</strong></div><div class="metric-tile"><small>Frames</small><strong id="mv-m-frames">—</strong></div><div class="metric-tile"><small>Mean joint MAE</small><strong id="mv-m-mae">—</strong></div><div class="metric-tile"><small>Mean joint RMSE</small><strong id="mv-m-rmse">—</strong></div><div class="metric-tile"><small>Worst joint RMSE</small><strong id="mv-m-max-rmse">—</strong></div><div class="metric-tile"><small>p50 latency</small><strong id="mv-m-p50">—</strong></div><div class="metric-tile"><small>Actions / sec</small><strong id="mv-m-aps">—</strong></div></div><div class="result-details" id="mv-result-details" hidden><div class="chart-series-controls" id="mv-chart-series-controls" role="group" aria-label="Toggle chart series"><button class="series-toggle is-active" type="button" data-chart-series="0" aria-pressed="true"><i class="series-swatch recorded" aria-hidden="true"></i>Recorded action</button><button class="series-toggle is-active" type="button" data-chart-series="1" aria-pressed="true"><i class="series-swatch predicted" aria-hidden="true"></i>Predicted action</button><button class="series-toggle is-active" type="button" data-chart-series="2" aria-pressed="true"><i class="series-swatch observed" aria-hidden="true"></i>Observed state</button></div><div class="comparison-chart" id="mv-chart"></div><div class="joint-error-chart" id="mv-joint-chart"></div><p class="result-caption" id="mv-chart-note"></p></div></article>
+        </section>
+      </div>
+      <footer class="page-footer"><span>DAKSHA CONTROL CENTER</span><span id="footer-backend-state">Waiting for backend</span></footer>
+    </main>
+  </div>
+</body>
+</html>

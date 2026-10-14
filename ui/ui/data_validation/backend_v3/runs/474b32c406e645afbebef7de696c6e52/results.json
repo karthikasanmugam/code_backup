@@ -1,0 +1,60 @@
+{
+  "dataset_results": [],
+  "episodes": [
+    {
+      "classification": "KEEP",
+      "episode_index": 0,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            67,
+            591
+          ],
+          "message": "Detected 92 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 1,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            17,
+            583
+          ],
+          "message": "Detected 65 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        },
+        {
+          "check": "action_state_lag",
+          "frame_range": null,
+          "message": "No sufficiently strong positive-lag action/state correlation found. Best lag=0, correlation=0.479; required correlation >= 0.500.",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.8
+    },
+    {
+      "classification": "KEEP",
+      "episode_index": 2,
+      "results": [
+        {
+          "check": "action_smoothness",
+          "frame_range": [
+            16,
+            541
+          ],
+          "message": "Detected 73 unusually large second-difference action transition(s).",
+          "severity": "SOFT"
+        }
+      ],
+      "score": 0.9
+    }
+  ],
+  "total_episodes": 3
+}
